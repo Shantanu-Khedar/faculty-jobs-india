@@ -4,15 +4,28 @@
 1. Reads sources.json and scans each official page (and, when "follow" is
    true, up to 5 recruitment/career/notice pages linked from it on the same
    site). Links whose words look like a faculty-recruitment notice are kept.
-2. Opens each not-yet-analysed notice (PDF or web page), reads its text
-   (pdftotext; OCR with tesseract for scanned PDFs) and tags it with the
-   posts, subjects, type of appointment and last date it mentions.
-3. Writes everything to notices.json, which the website reads.
+2. Opens each not-yet-analysed notice (PDF, or the PDF linked from a notice
+   page), reads its text (pdftotext / pypdfium2 / pdfminer; OCR with
+   tesseract for scanned PDFs when available) and tags it with the posts,
+   subjects, type of appointment and last date it mentions.
+3. Writes the result to a JSON file that the website reads.
 
-Runs on GitHub Actions every morning (.github/workflows/update.yml).
-Needs: python package `requests`; programs `pdftotext`, `pdftoppm`,
-`tesseract` (poppler-utils, tesseract-ocr) for reading PDFs.
+Two groups of sources:
+  --group main   sources GitHub's servers can reach  -> notices.json
+                 (runs on GitHub Actions, .github/workflows/update.yml)
+  --group india  sources marked "runOn": "india" (they refuse connections
+                 from abroad) plus any main source that failed in the last
+                 GitHub run -> india.json
+                 (runs on a computer in India, .github/workflows/india.yml)
+  --push         upload the result file through the GitHub API instead of
+                 relying on git (used on the computer in India).
+
+Needs: python package `requests`; for PDFs one of the program `pdftotext`
+(poppler-utils) or the packages `pypdfium2` / `pdfminer.six`; optional
+`pdftoppm` + `tesseract` for scanned PDFs; optional `truststore`.
 """
+import argparse
+import base64
 import concurrent.futures as cf
 import datetime as dt
 import hashlib
@@ -23,10 +36,16 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import urllib.parse
 from html.parser import HTMLParser
 
+try:  # use the computer's own certificate store when available (helps behind campus proxies)
+    import truststore
+    truststore.inject_into_ssl()
+except Exception:  # noqa: BLE001
+    pass
 import requests
 import urllib3
 
@@ -34,17 +53,18 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCES_FILE = os.path.join(HERE, "sources.json")
-NOTICES_FILE = os.path.join(HERE, "notices.json")
+GROUP_FILES = {"main": "notices.json", "india": "india.json", "all": "notices.json"}
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 TIMEOUT = 25
 MAX_FOLLOW = 5
 WORKERS = 16
+READ_WORKERS = int(os.environ.get("READ_WORKERS", "24"))
 KEEP_DAYS = 150            # forget notices not seen for this many days
-ANALYSIS_VERSION = 3       # bump to re-read every notice after changing the tagging rules
-ANALYSE_PER_RUN = int(os.environ.get("ANALYSE_PER_RUN", "400"))
-OCR_PER_RUN = int(os.environ.get("OCR_PER_RUN", "30"))
+ANALYSIS_VERSION = 4       # bump to re-read every notice after changing the tagging rules
+ANALYSE_PER_RUN = int(os.environ.get("ANALYSE_PER_RUN", "6000"))   # the time budget usually stops it first
+OCR_PER_RUN = int(os.environ.get("OCR_PER_RUN", "150"))
 MAX_DOC_BYTES = 15 * 1024 * 1024
 TIME_BUDGET = int(os.environ.get("TIME_BUDGET_SECONDS", str(35 * 60)))
 START = time.time()
@@ -64,15 +84,56 @@ EXCLUDE = re.compile(
     r"career\s+advancement|\bcas\b|joining|attendance|time\s*table|exam(ination)?\s+(date|schedule|centre|center)|"
     r"emeritus|professor\s+of\s+practice\s+lecture|award|felicitat|obituar|condolence|seminar|webinar|conference|"
     r"workshop|lecture\s+series|memorial\s+lecture|admission|ph\.?\s*d\.?\s+(entrance|admission)|tender|quotation|"
-    r"non[\s-]*teaching|project\s+(technical|assistant|associate|fellow|staff|scientist|consultant)|"
+    r"non[\s\-–—]*teaching|project\s+(technical|assistant|associate|fellow|staff|scientist|consultant)|"
     r"research\s+(assistant|associate|fellow)|\bjrf\b|\bsrf\b|grievance|select(ed|ion)\s+(list|candidates)|"
     r"final\s+select|list\s+of\s+(selected|candidates|applicants)|application\s+status|selection\s+criteria|"
     r"counsel+ing|knowledge\s+test|additional\s+(duty|charge)|in-?charge|assigning|"
     r"regarding\s+(the\s+)?(appointment|assignment|nomination)\s+of\s+(prof|dr|shri|smt)|appoint(ed|ment\s+of)?\s+prof\.?\s+[a-z]|"
     r"nominat|superannuat|retire|relieving|extension\s+of\s+(service|tenure)|re-?employment|"
     r"provisional\s+answer|objection|hall\s+ticket|call\s+letter|provisional\s+list|wait\s*-?\s*list|"
-    r"eligibility\s+list|eligibility_list|regarding\s+(the\s+)?applicants|written\s+test|non[\s-]*faculty|"
-    r"screening\s+report|merit\s+(list|panel)|interview\s+result|joining\s+report|vacancy\s+status|feedback|requisition",
+    r"eligibility\s+list|eligibility_list|regarding\s+(the\s+)?applicants|written\s+test|non[\s\-–—]*faculty|"
+    r"screening\s+report|merit\s+(list|panel)|interview\s+result|joining\s+report|vacancy\s+status|feedback|requisition|"
+    # not about hiring teachers at all
+    r"post-?\s*doc|sponsere?d\s+project|sponsored\s+project|project\s+(code|no\b|number|funded|under|position)|staff\s+nurse|"
+    r"non[\s\-–—]*academic|lecture\s+by|internal\s+(faculty|candidates)|serving\s+(regular\s+)?faculty|moving\s+from\s+pay|"
+    r"pay\s+fixation|arrears?|pension|(maternity|medical|study|earned|child\s+care)\s+leave|leave\s+(sanction|order)|office\s+order|"
+    r"minutes\s+of|meeting\s+of|agenda|inaugurat|congratulat|honou?r(ed|ing)\b|visit\s+of|tour\s+programme|orientation|"
+    r"refresher|training\s+programme|internship|scholarship|bursar|endowment|e-?content|\bnoc\b|no\s+objection|invigilat|"
+    r"evaluation|designation\s+change|nomenclature|ordinance|work\s*-?\s*load|\bro+ster\b|"
+    r"circular\s+(regarding|reg\.?|on|about|for\s+serving)|field\s+investigator|verification\s+of\s+api|"
+    r"appointment\s+of\s+(dr|prof|shri|smt|mr|ms)\b|\bas\s+(the\s+)?(chairperson|head|dean|director|co-?ordinator|registrar|"
+    r"controller|proctor|warden|convener|nodal|member|principal)\b|^\W*(prof|dr|shri|smt)\.\s*[a-z]|"
+    r"read\s+more|press\s+release|discover|fossil|patent|achievement|alumni|felicitation|"
+    r"student\s+(club|welfare|council)|students\s+by|distribution\s+of|\bnirf\b|ranking",
+    re.I)
+# Residency posts at medical colleges are not faculty posts unless the notice also names faculty posts.
+RESIDENT = re.compile(r"senior\s+residents?|junior\s+residents?|senior\s+demonstrators?|tutors?\b", re.I)
+FACULTY_WORD = re.compile(r"faculty|professor|lecturer", re.I)
+
+# Notices that are not openings but updates for people who already applied
+# (interview calls, postponements, lists, scores). The site hides them unless asked.
+CHANGE = re.compile(r"postpon|re-?\s*schedul|cancel|discontinu|withdraw", re.I)
+UPDATE_STRONG = re.compile(
+    r"(?<!of\s)rank\s+lists?|deficien|api\s+scores?|research\s+scores?|"
+    r"candidates?\s+(who|to\s+be\s+called|called|shortlisted|provisionally)|called\s+for|applicants?\s+who|applicants?\s+applied|"
+    r"lists?\s+of\s+(the\s+)?(eligible\s+|remaining\s+|provisionally\s+\w+\s+)?(candidates|applicants)|status\s+of\s+applications?|"
+    r"eligibility\s+status|marks\s+obtained|score\s*card|recommendation|date\s*sheet|edit\s+option|refund|interview\s+(letter|marks)|"
+    r"schedule\s+(for|of)\s+(the\s+)?(written|interview|presentation)|presentation\s+and\s+interview|assessment\s+and\s+interview|"
+    r"in\s+response\s+to\s+(the\s+)?(advt|advertisement)|programme\s+schedule|selection\s+committee",
+    re.I)
+WALKIN = re.compile(r"walk[\s-]*in", re.I)
+UPDATE_SOFT = re.compile(
+    r"interview|presentation|\bpanel\b|regarding\s+(the\s+)?(applications?|applicants?|candidates)|instructions?\b|"
+    r"representation|\bfee\b|important\s+(letter|information|notice)\s+(to|for)",
+    re.I)
+OPENING = re.compile(
+    r"advertisement|advt|\badv\b|applications?\s+(are\s+)?(hereby\s+)?invited|invit|recruitment|engagement|vacanc|rolling|"
+    r"employment\s+notice|apply|requirement|application\s+form|proforma",
+    re.I)
+TEXT_OPENING = re.compile(
+    r"walk[\s-]*in|applications?\s+(are\s+)?(hereby\s+)?invited|interested\s+(and\s+eligible\s+)?candidates|"
+    r"eligible\s+candidates\s+(may|can|are\s+requested)|may\s+(appear|attend)\s+(for|in)\s+(the\s+)?(walk|interview)|"
+    r"last\s+date\s+(of|for)\s+(receipt|submission)",
     re.I)
 FOLLOW = re.compile(r"recruit|career|\bjobs?\b|vacanc|employment|advertisement|notices?\b|teaching\s+posts|"
                     r"faculty\s+(position|recruit)|opportunit", re.I)
@@ -112,9 +173,12 @@ SUBJECTS = [
     ("Geology / Earth Science", r"geology|earth\s+science|geophysics|applied\s+geology", False),
     ("Geography", r"geography", False),
     ("Forensic Science", r"forensic\s+science", False),
-    ("Home Science", r"home\s+science|food\s+(and|&)\s+nutrition", False),
+    ("Home Science", r"home\s+science|food\s+(and|&)\s+nutrition|human\s+development|family\s+(studies|resource)", False),
     ("Food Technology", r"food\s+(technology|science)", False),
     ("Electronics", r"electronics(?!\s+and\s+communication)|electronic\s+science", False),
+    ("Instrumentation", r"instrumentation", False),
+    ("Energy / Nanotechnology", r"energy\s+(studies|science|engineering)|renewable\s+energy|nano-?\s*(science|technology)", False),
+    ("Geoinformatics / Remote Sensing", r"geo-?\s*informatics|remote\s+sensing", False),
     # engineering / computing
     ("Computer Science / IT", r"computer\s+science|\bcse\b|computer\s+applications?|information\s+technology|\bmca\b|\bbca\b|data\s+science|artificial\s+intelligence|machine\s+learning", False),
     ("Electronics & Communication Engg", r"electronics\s+(and|&)\s+communication|\bece\b", False),
@@ -125,6 +189,8 @@ SUBJECTS = [
     ("Aerospace Engineering", r"aerospace|aeronautical", False),
     ("Metallurgy & Materials", r"metallurg|materials\s+science", False),
     ("Biomedical Engineering", r"biomedical\s+engineering", False),
+    ("Mining Engineering", r"mining\s+engineering|mining\s+(and|&)\s+machinery", False),
+    ("Textile / Fashion Technology", r"textile|fashion\s+(technology|design)", False),
     ("Architecture & Planning", r"architecture|planning", True),
     ("Pharmacy", r"pharmac(y|eutics|eutical|ology|ognosy)", False),
     # humanities & social sciences
@@ -154,6 +220,8 @@ SUBJECTS = [
     ("Philosophy", r"philosophy", False),
     ("Social Work", r"social\s+work", False),
     ("Anthropology", r"anthropology", False),
+    ("Population Studies / Demography", r"demography|population\s+studies", False),
+    ("Defence & Strategic Studies", r"defen[cs]e\s+(and|&)\s+strategic|strategic\s+studies|security\s+studies", False),
     ("Library Science", r"library\s+(and|&)\s+information\s+science|library\s+science", False),
     ("Journalism & Mass Comm.", r"journalism|mass\s+communication|media\s+studies", False),
     ("Music", r"\bmusic\b|vocal|instrumental|tabla", True),
@@ -161,7 +229,7 @@ SUBJECTS = [
     ("Performing Arts / Dance / Theatre", r"performing\s+arts|\bdance\b|theatre|dramatics", True),
     ("Physical Education", r"physical\s+education|sports\s+science", False),
     ("Education (B.Ed./M.Ed.)", r"education|b\.?\s*ed\b|m\.?\s*ed\b|teacher\s+education", True),
-    ("Law", r"\blaws?\b|legal\s+studies", True),
+    ("Law", r"\blaws?\b|legal\s+studies|intellectual\s+property|\bipr\b", True),
     ("Commerce", r"commerce", True),
     ("Management / MBA", r"management|business\s+administration|\bmba\b", True),
     ("Tourism & Hotel Mgmt", r"tourism|hotel\s+management|hospitality", False),
@@ -203,13 +271,19 @@ MONTHS = {m: i + 1 for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"])}
 DATE_RX = re.compile(
     r"(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[./-]\s*(\d{4}|\d{2})\b|"
-    r"(\d{1,2})(?:st|nd|rd|th)?\s*(?:of\s+)?(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?,?\s*(\d{4})|"
+    r"(\d{1,2})(?:st|nd|rd|th)?[\s\-.,/]*(?:day\s+of\s+|of\s+)?(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?[\s\-.,/']*(\d{4})|"
     r"(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s*(\d{4})",
     re.I)
-LASTDATE_KEY = re.compile(
-    r"last\s+date|closing\s+date|on\s+or\s+before|latest\s+by|not\s+later\s+than|up\s*to|upto|till|"
-    r"due\s+date|deadline|submission\s+of\s+(online\s+)?application|walk[\s-]*in|interview\s+(will\s+be\s+held|on)",
+# Phrases followed by the last date to apply (or the walk-in / interview date).
+LASTDATE_STRONG = re.compile(
+    r"last\s+date|closing\s+date|on\s+or\s+before|latest\s+by|not\s+later\s+than|due\s+date|deadline|"
+    r"submission\s+of\s+(the\s+)?(duly\s+filled\s+|online\s+|hard\s+copy\s+of\s+(the\s+)?)?(application|form)|"
+    r"receipt\s+of\s+(the\s+)?(online\s+|filled[\s-]*in\s+|completed\s+|duly\s+filled\s+)?applications?|"
+    r"apply\s+(online\s+)?(by|before)|walk[\s-]*in|date\s+of\s+(the\s+)?(walk|interview)|"
+    r"interview\s+(will\s+be\s+(held|conducted)|is\s+scheduled|scheduled|shall\s+be\s+held)(\s+on)?|interview\s+on|"
+    r"reporting\s+(time|date)|portal\s+(will\s+be\s+)?clos",
     re.I)
+LASTDATE_WEAK = re.compile(r"\bup\s*to\b|\bupto\b|\btill\b|\bbefore\b|\bby\b", re.I)
 
 
 # ---------------------------------------------------------------- fetching
@@ -298,12 +372,44 @@ SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": UA, "Accept-Language": "en-IN,en;q=0.9"})
 
 
+class LegacySSLAdapter(requests.adapters.HTTPAdapter):
+    """For old government servers: allows legacy TLS renegotiation and weak keys, no certificate check."""
+
+    def init_poolmanager(self, *args, **kwargs):
+        import ssl
+        ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
+        ctx.options |= getattr(ssl, "OP_LEGACY_SERVER_CONNECT", 0x4)
+        try:
+            ctx.set_ciphers("DEFAULT:@SECLEVEL=0")
+        except ssl.SSLError:
+            pass
+        try:
+            import warnings
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", DeprecationWarning)
+                ctx.minimum_version = ssl.TLSVersion.TLSv1
+        except (ValueError, AttributeError):
+            pass
+        kwargs["ssl_context"] = ctx
+        return super().init_poolmanager(*args, **kwargs)
+
+
+LEGACY = requests.Session()
+LEGACY.headers.update(SESSION.headers)
+LEGACY.mount("https://", LegacySSLAdapter())
+
+
 def get(url, stream=False):
     try:
         r = SESSION.get(url, timeout=TIMEOUT, stream=stream)
     except requests.exceptions.SSLError:
-        # Several government sites have broken certificate chains.
-        r = SESSION.get(url, timeout=TIMEOUT, stream=stream, verify=False)
+        # Many government sites have broken certificate chains or very old TLS settings.
+        try:
+            r = SESSION.get(url, timeout=TIMEOUT, stream=stream, verify=False)
+        except requests.exceptions.SSLError:
+            r = LEGACY.get(url, timeout=TIMEOUT, stream=stream, verify=False)
     r.raise_for_status()
     return r
 
@@ -371,7 +477,23 @@ def year_hint(*texts):
 
 def is_notice(label):
     norm = re.sub(r"[_+]+", " ", label)
-    return bool(INCLUDE.search(norm)) and not EXCLUDE.search(norm)
+    if not INCLUDE.search(norm) or EXCLUDE.search(norm):
+        return False
+    if RESIDENT.search(norm) and not FACULTY_WORD.search(norm):
+        return False
+    return True
+
+
+def stage_of(title, text=""):
+    """'opening' for a notice one can still apply to, 'update' for news meant for those who already applied."""
+    t = re.sub(r"[_+]+", " ", title)
+    if CHANGE.search(t) or UPDATE_STRONG.search(t):
+        return "update"
+    if WALKIN.search(t):
+        return "opening"
+    if UPDATE_SOFT.search(t) and not OPENING.search(t):
+        return "opening" if text and TEXT_OPENING.search(" ".join(text[:6000].split())) else "update"
+    return "opening"
 
 
 def site_key(u):
@@ -428,12 +550,47 @@ def run(cmd, timeout=120):
     return subprocess.run(cmd, capture_output=True, timeout=timeout, check=False)
 
 
-def pdf_text(path, allow_ocr):
-    text, used_ocr = "", False
+PDFIUM_LOCK = threading.Lock()   # pdfium is not thread-safe
+
+
+def pdf_text_plain(path):
+    """Text of the first 8 pages, with whichever PDF reader is available."""
     if shutil.which("pdftotext"):
         p = run(["pdftotext", "-layout", "-l", "8", path, "-"])
-        text = p.stdout.decode("utf-8", "ignore")
-    if len(re.sub(r"\s+", "", text)) < 200 and allow_ocr and shutil.which("pdftoppm") and shutil.which("tesseract"):
+        return p.stdout.decode("utf-8", "ignore")
+    try:
+        import pypdfium2 as pdfium
+        parts = []
+        with PDFIUM_LOCK:
+            pdf = pdfium.PdfDocument(path)
+            try:
+                for i in range(min(len(pdf), 8)):
+                    page = pdf[i]
+                    tp = page.get_textpage()
+                    parts.append(tp.get_text_range())
+                    tp.close()
+                    page.close()
+            finally:
+                pdf.close()
+        return "\n".join(parts)
+    except ImportError:
+        pass
+    except Exception:  # noqa: BLE001
+        return ""
+    try:
+        from pdfminer.high_level import extract_text
+        return extract_text(path, maxpages=8)
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def can_ocr():
+    return bool(shutil.which("pdftoppm") and shutil.which("tesseract"))
+
+
+def pdf_text(path, allow_ocr):
+    text, used_ocr = pdf_text_plain(path), False
+    if len(re.sub(r"\s+", "", text)) < 200 and allow_ocr and can_ocr():
         with tempfile.TemporaryDirectory() as td:
             run(["pdftoppm", "-r", "150", "-f", "1", "-l", "3", "-png", path, os.path.join(td, "p")], timeout=180)
             parts = []
@@ -445,30 +602,76 @@ def pdf_text(path, allow_ocr):
     return text, used_ocr
 
 
-def read_notice(url, allow_ocr):
-    """Return (text, kind, used_ocr) for a notice link."""
+def download(url):
     r = get(url, stream=True)
-    ctype = (r.headers.get("content-type") or "").lower()
     data = b""
     for chunk in r.iter_content(65536):
         data += chunk
         if len(data) > MAX_DOC_BYTES:
             raise ValueError("document too large")
-    is_pdf = "pdf" in ctype or data[:5] == b"%PDF-" or url.lower().split("?")[0].endswith(".pdf")
-    if is_pdf:
-        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as fh:
-            fh.write(data)
-            path = fh.name
-        try:
-            text, ocr = pdf_text(path, allow_ocr)
-        finally:
-            os.unlink(path)
-        return text, "pdf", ocr
+    return r, data
+
+
+def is_pdf_data(r, data, url):
+    ctype = (r.headers.get("content-type") or "").lower()
+    return "pdf" in ctype or data[:5] == b"%PDF-" or url.lower().split("?")[0].endswith(".pdf")
+
+
+def read_pdf_bytes(data, allow_ocr):
+    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as fh:
+        fh.write(data)
+        path = fh.name
+    try:
+        return pdf_text(path, allow_ocr)
+    finally:
+        os.unlink(path)
+
+
+ADVT_WORD = re.compile(r"advt|advertisement|notification|notice|detail|recruit|vacanc|faculty|professor|lecturer", re.I)
+
+
+def notice_pdf_on_page(page_url, html):
+    """The advertisement PDF on a notice's own web page, if the page is a single notice (few PDFs on it)."""
+    pdfs = []
+    for text, u, _ctx in links_on(page_url, html):
+        low = u.lower().split("?")[0]
+        if low.endswith(".pdf") and u not in [p[1] for p in pdfs]:
+            pdfs.append((text, u))
+    if not pdfs or len(pdfs) > 6:
+        return None
+    for text, u in pdfs:
+        label = f"{text} {urllib.parse.unquote(u.rsplit('/', 1)[-1])}"
+        if ADVT_WORD.search(label) and not EXCLUDE.search(label):
+            return u
+    return pdfs[0][1] if len(pdfs) == 1 else None
+
+
+def read_notice(url, allow_ocr):
+    """Return (text, kind, used_ocr, pdf_url) for a notice link.
+
+    kind is "pdf" (the link is the PDF), "html+pdf" (a notice page whose
+    advertisement PDF was read), "html" (a web page; only its title is trusted)
+    or the file type."""
+    r, data = download(url)
+    ctype = (r.headers.get("content-type") or "").lower()
+    if is_pdf_data(r, data, url):
+        text, ocr = read_pdf_bytes(data, allow_ocr)
+        return text, "pdf", ocr, url
     if "html" in ctype or data[:200].lower().find(b"<html") >= 0 or b"<a" in data[:4000].lower():
+        html = data.decode(r.encoding or "utf-8", "ignore")
+        pdf_url = notice_pdf_on_page(r.url, html)
+        if pdf_url:
+            try:
+                r2, data2 = download(pdf_url)
+                if is_pdf_data(r2, data2, pdf_url):
+                    text, ocr = read_pdf_bytes(data2, allow_ocr)
+                    return text, "html+pdf", ocr, pdf_url
+            except Exception:  # noqa: BLE001
+                pass
         tp = TextParser()
-        tp.feed(data.decode(r.encoding or "utf-8", "ignore"))
-        return " ".join(" ".join(tp.parts).split()), "html", False
-    return "", ctype.split(";")[0] or "other", False
+        tp.feed(html)
+        return " ".join(" ".join(tp.parts).split()), "html", False, ""
+    return "", ctype.split(";")[0] or "other", False, ""
 
 
 def parse_date(m):
@@ -486,19 +689,24 @@ def parse_date(m):
 
 
 def find_last_date(text, seen_on):
-    """Best guess at the last date to apply: a date shortly after a 'last date' phrase."""
-    lo, hi = seen_on - dt.timedelta(days=45), seen_on + dt.timedelta(days=150)
+    """Best guess at the last date to apply: the latest date shortly after a 'last date'-type phrase.
+
+    Old dates are kept on purpose: they let the site mark old notices as closed."""
+    lo, hi = dt.date(2010, 1, 1), seen_on + dt.timedelta(days=400)
     text = " ".join(text.split())          # PDF layouts put long runs of spaces between words
-    best = None
-    for k in LASTDATE_KEY.finditer(text):
-        window = text[k.end(): k.end() + 160]
-        for m in DATE_RX.finditer(window):
-            d = parse_date(m)
-            if d and lo <= d <= hi:
-                if best is None or d > best:
-                    best = d
-                break
-    return best.isoformat() if best else ""
+    for key in (LASTDATE_STRONG, LASTDATE_WEAK):
+        best = None
+        for k in key.finditer(text):
+            window = text[k.end(): k.end() + 160]
+            for m in DATE_RX.finditer(window):
+                d = parse_date(m)
+                if d and lo <= d <= hi:
+                    if best is None or d > best:
+                        best = d
+                    break
+        if best:
+            return best.isoformat()
+    return ""
 
 
 def tag(text, title):
@@ -515,20 +723,22 @@ def tag(text, title):
 
 
 def analyse(item, allow_ocr, today):
+    item.pop("readError", None)
     try:
-        text, kind, ocr = read_notice(item["url"], allow_ocr)
+        text, kind, ocr, pdf_url = read_notice(item["url"], allow_ocr)
     except Exception as e:  # noqa: BLE001
-        text, kind, ocr = "", "unreadable", False
+        text, kind, ocr, pdf_url = "", "unreadable", False, ""
         item["readError"] = f"{type(e).__name__}: {str(e)[:100]}"
     seen_on = dt.date.fromisoformat(item.get("firstSeen") or today)
     title = item["title"]
-    if kind == "pdf":
-        # A PDF is the notice itself: read posts, subjects and dates from its text.
+    is_pdf = kind in ("pdf", "html+pdf")
+    if is_pdf:
+        # The PDF is the notice itself: read posts, subjects and dates from its text.
         posts, basis, subjects = tag(text, title)
         if len(subjects) > 30:
             # Lists nearly every subject: a general notice or a prospectus. Trust the title only.
             subjects = tag("", title)[2]
-        last = find_last_date(text, seen_on) or find_last_date(title, seen_on)
+        last = max(find_last_date(text, seen_on), find_last_date(title, seen_on))
     else:
         # A web page carries menus and other notices too, so only its link text is trusted.
         posts, basis, subjects = tag("", title)
@@ -537,23 +747,72 @@ def analyse(item, allow_ocr, today):
         "analysed": True,
         "analysisVersion": ANALYSIS_VERSION,
         "docKind": kind,
+        "docUrl": pdf_url if kind == "html+pdf" else "",
         "ocr": ocr,
-        "textRead": kind == "pdf" and len(text.strip()) > 150,
+        "textRead": is_pdf and len(text.strip()) > 150,
         "posts": posts,
         "basis": basis,
         "subjects": subjects,
         "lastDate": last,
-        "excerpt": " ".join(text.split())[:320] if kind == "pdf" else "",
-        "yearHint": year_hint(title, urllib.parse.unquote(item["url"]), text[:3000] if kind == "pdf" else "") or item.get("yearHint"),
+        "stage": stage_of(title, text if is_pdf else ""),
+        "excerpt": " ".join(text.split())[:320] if is_pdf else "",
+        "yearHint": year_hint(title, urllib.parse.unquote(item["url"]), text[:3000] if is_pdf else "") or item.get("yearHint"),
     })
     return item
 
 
+def push_file(path, repo_path, message):
+    """Upload a file to the repository's main branch through the GitHub API (no git needed)."""
+    token, repo = os.environ.get("GITHUB_TOKEN"), os.environ.get("GITHUB_REPOSITORY")
+    if not token or not repo:
+        print("--push needs GITHUB_TOKEN and GITHUB_REPOSITORY; not uploading")
+        return False
+    api = f"https://api.github.com/repos/{repo}/contents/{repo_path}"
+    headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
+               "X-GitHub-Api-Version": "2022-11-28"}
+    content = base64.b64encode(open(path, "rb").read()).decode()
+    for attempt in range(5):
+        r = requests.get(api, headers=headers, params={"ref": "main"}, timeout=60)
+        body = {"message": message, "content": content, "branch": "main"}
+        if r.status_code == 200:
+            body["sha"] = r.json().get("sha")
+        r = requests.put(api, headers=headers, json=body, timeout=180)
+        if r.status_code in (200, 201):
+            print(f"Uploaded {repo_path} ({len(content) * 3 // 4 // 1024} KB)")
+            return True
+        print(f"Upload attempt {attempt + 1} failed: {r.status_code} {r.text[:200]}")
+        time.sleep(5 + 5 * attempt)
+    return False
+
+
 # ---------------------------------------------------------------- main
 def main():
-    sources = json.load(open(SOURCES_FILE, encoding="utf-8"))["sources"]
+    ap = argparse.ArgumentParser(description="Daily faculty-notice checker")
+    ap.add_argument("--group", choices=["main", "india", "all"], default="all",
+                    help="main: sources reachable from GitHub; india: sources that need a computer in India")
+    ap.add_argument("--push", action="store_true", help="upload the result through the GitHub API")
+    args = ap.parse_args()
+    out_name = GROUP_FILES[args.group]
+    out_path = os.path.join(HERE, out_name)
+
+    all_sources = json.load(open(SOURCES_FILE, encoding="utf-8"))["sources"]
+    if args.group == "main":
+        sources = [s for s in all_sources if s.get("runOn") != "india"]
+    elif args.group == "india":
+        # The India-only sources, plus any GitHub source that failed in GitHub's last run.
+        failed_main = set()
+        try:
+            main_health = json.load(open(os.path.join(HERE, "notices.json"), encoding="utf-8")).get("health", [])
+            failed_main = {h["name"] for h in main_health if not h.get("ok")}
+        except Exception:  # noqa: BLE001
+            pass
+        sources = [s for s in all_sources if s.get("runOn") == "india" or s["name"] in failed_main]
+    else:
+        sources = all_sources
+    group_names = {s["name"] for s in sources}
+
     try:
-        old = json.load(open(NOTICES_FILE, encoding="utf-8"))
+        old = json.load(open(out_path, encoding="utf-8"))
     except Exception:  # noqa: BLE001
         old = {"items": [], "health": []}
     ist = dt.timezone(dt.timedelta(hours=5, minutes=30))
@@ -564,7 +823,7 @@ def main():
 
     with cf.ThreadPoolExecutor(max_workers=WORKERS) as ex:
         results = list(ex.map(scan_source, sources))
-    print(f"Scanned {len(results)} sources in {time.time() - START:.0f}s")
+    print(f"[{args.group}] Scanned {len(results)} sources in {time.time() - START:.0f}s")
 
     new_count = 0
     for res in results:
@@ -583,45 +842,66 @@ def main():
                 if not first_time:
                     new_count += 1
 
+    # Until a notice is read, judge it by its title.
+    for it in items.values():
+        if it.get("analysisVersion") != ANALYSIS_VERSION:
+            seen_on = dt.date.fromisoformat(it.get("firstSeen") or today)
+            it["stage"] = stage_of(it.get("title", ""))
+            it["titleLastDate"] = find_last_date(it.get("title", ""), seen_on)
+
     # Read notices that haven't been read yet: new ones first, then the rest.
     todo = [it for it in items.values()
-            if it.get("lastSeen") == today and (not it.get("analysed") or it.get("analysisVersion") != ANALYSIS_VERSION)]
+            if it.get("source") in group_names and it.get("lastSeen") == today
+            and (not it.get("analysed") or it.get("analysisVersion") != ANALYSIS_VERSION)]
     todo.sort(key=lambda it: it.get("firstSeen", ""), reverse=True)   # newest first
     todo.sort(key=lambda it: it.get("baseline", False))                # then new before baseline
     todo = todo[:ANALYSE_PER_RUN]
-    ocr_left = OCR_PER_RUN
-    analysed = 0
 
-    def work(it, allow_ocr):
-        return analyse(it, allow_ocr, today)
+    def work(it):
+        if time.time() - START > TIME_BUDGET:
+            return False
+        analyse(it, False, today)
+        return True
 
-    # First pass without OCR (fast, in parallel); then OCR for scanned PDFs, a few per run.
-    with cf.ThreadPoolExecutor(max_workers=8) as ex:
-        futs = {ex.submit(work, it, False): it for it in todo}
-        for fut in cf.as_completed(futs):
-            analysed += 1
+    # First pass without OCR (fast, in parallel); then OCR for scanned PDFs.
+    with cf.ThreadPoolExecutor(max_workers=READ_WORKERS) as ex:
+        analysed = sum(1 for done in ex.map(work, todo) if done)
+    print(f"Read {analysed} notices by {time.time() - START:.0f}s")
+    if can_ocr():
+        scanned = [it for it in todo if it.get("analysisVersion") == ANALYSIS_VERSION
+                   and it.get("docKind") in ("pdf", "html+pdf") and not it.get("textRead")][:OCR_PER_RUN]
+
+        def ocr_work(it):
             if time.time() - START > TIME_BUDGET:
-                break
-    for it in todo:
-        if time.time() - START > TIME_BUDGET or ocr_left <= 0:
-            break
-        if it.get("analysed") and it.get("docKind") == "pdf" and not it.get("textRead"):
-            ocr_left -= 1
+                return False
             analyse(it, True, today)
+            return True
+        with cf.ThreadPoolExecutor(max_workers=4) as ex:
+            n_ocr = sum(1 for done in ex.map(ocr_work, scanned) if done)
+        print(f"OCR on {n_ocr} scanned PDFs by {time.time() - START:.0f}s")
 
     cutoff = (now.date() - dt.timedelta(days=KEEP_DAYS)).isoformat()
     kept = [it for it in items.values()
-            if it.get("lastSeen", today) >= cutoff and (it.get("verifiedRule") or is_notice(it.get("title", "")))]
+            if it.get("source") in group_names and it.get("lastSeen", today) >= cutoff
+            and (it.get("verifiedRule") or is_notice(it.get("title", "")))]
     kept.sort(key=lambda it: (it.get("firstSeen", ""), it.get("source", "")), reverse=True)
 
-    health = [{k: r[k] for k in ("name", "state", "type", "url", "ok", "error", "pagesChecked", "matches")}
+    via = "india" if args.group == "india" else "github"
+    health = [{**{k: r[k] for k in ("name", "state", "type", "url", "ok", "error", "pagesChecked", "matches")}, "via": via}
               for r in results]
+    if args.group == "main":
+        # List the India-only sources too, so the site's table shows every source.
+        health += [{"name": s["name"], "state": s["state"], "type": s.get("type", ""), "url": s["url"], "ok": False,
+                    "error": "Waiting for the check from India (this site blocks servers outside India).",
+                    "pagesChecked": 0, "matches": 0, "via": "india", "pending": True}
+                   for s in all_sources if s.get("runOn") == "india"]
     ever = sorted(checked_before | {r["name"] for r in results if r["ok"]})
     out = {
+        "group": args.group,
         "checkedAt": now.strftime("%Y-%m-%dT%H:%M:%S+05:30"),
         "checkedDate": today,
         "sourcesOk": sum(1 for r in results if r["ok"]),
-        "sourcesTotal": len(results),
+        "sourcesTotal": len(health),
         "newToday": new_count,
         "analysedToday": analysed,
         "waitingToBeRead": sum(1 for it in kept if it.get("lastSeen") == today and
@@ -632,14 +912,16 @@ def main():
         "items": kept,
         "health": health,
     }
-    with open(NOTICES_FILE, "w", encoding="utf-8") as fh:
+    with open(out_path, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, separators=(",", ":"))
-    print(f"Read {out['sourcesOk']}/{out['sourcesTotal']} sources; {new_count} new notices; "
-          f"{analysed} notices analysed; {out['waitingToBeRead']} waiting; {len(kept)} tracked; "
-          f"{time.time() - START:.0f}s")
+    print(f"[{args.group}] {out['sourcesOk']}/{out['sourcesTotal']} sources OK; {new_count} new notices; "
+          f"{analysed} read; {out['waitingToBeRead']} waiting; {len(kept)} tracked; {time.time() - START:.0f}s")
     for r in results:
         if not r["ok"]:
             print(f"  [ERR] {r['name']}: {r['error']}")
+    if args.push:
+        if not push_file(out_path, out_name, f"{args.group} check {today}"):
+            return 1
     return 0
 
 

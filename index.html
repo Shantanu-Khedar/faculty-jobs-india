@@ -91,7 +91,7 @@
   <div class="kpis">
     <div class="kpi"><p class="label">New notices, last 7 days</p><p class="value" id="k-new">–</p><p class="note">Across all of India</p></div>
     <div class="kpi"><p class="label">Closing within 7 days</p><p class="value" id="k-soon">–</p><p class="note">Where a last date was found</p></div>
-    <div class="kpi"><p class="label">Official pages read today</p><p class="value" id="k-src">–</p><p class="note">Universities, institutes, PSCs</p></div>
+    <div class="kpi"><p class="label">Official pages read</p><p class="value" id="k-src">–</p><p class="note">Latest checks from GitHub and India</p></div>
     <div class="kpi"><p class="label">Marked “Applied” by you</p><p class="value" id="k-applied">–</p><p class="note">Saved in this browser</p></div>
   </div>
 
@@ -129,6 +129,7 @@
       </label>
     </div>
     <div class="row2">
+      <label><input type="checkbox" id="f-updates"> Also show updates for applicants (interview calls, postponements, lists)</label>
       <label><input type="checkbox" id="f-unread"> With a subject filter, also show notices whose subjects couldn’t be read</label>
       <button class="ghost" id="f-reset" type="button">Clear filters</button>
     </div>
@@ -144,14 +145,15 @@
 
   <details class="foot" id="health-box">
     <summary>Which official pages are checked, and whether each check worked</summary>
-    <p>The daily check reads these pages. An error usually means the site was down or blocked the check that day, or that its address changed. Fix or add pages in <code>sources.json</code>.</p>
-    <div class="scroll"><table class="health"><thead><tr><th>Institution</th><th>State</th><th>Type</th><th>Status</th><th>Notices</th></tr></thead><tbody id="health"></tbody></table></div>
+    <p>The daily check reads these pages. Most are read from GitHub’s servers; sites that refuse connections from abroad (most state commissions and some universities) are read from a computer in India. An error usually means the site was down that day or that its address changed. Fix or add pages in <code>sources.json</code>.</p>
+    <div class="scroll"><table class="health"><thead><tr><th>Institution</th><th>State</th><th>Type</th><th>Checked from</th><th>Status</th><th>Notices</th></tr></thead><tbody id="health"></tbody></table></div>
   </details>
 
   <details class="foot">
     <summary>How this works, and its limits</summary>
     <ul>
-      <li>Every morning a GitHub Action reads the official recruitment pages of central universities, IITs, NITs, IISERs, AIIMS, state universities and every state’s Public Service Commission or college service commission, and lists links that look like faculty recruitment notices.</li>
+      <li>Every morning a GitHub Action reads the official recruitment pages of central universities, IITs, NITs, IISERs, AIIMS, state universities and every state’s Public Service Commission or college service commission, and lists links that look like faculty recruitment notices. Sites that block servers outside India are read by a second check that runs on a computer in India whenever it is switched on.</li>
+      <li>Notices for people who already applied — interview calls, postponements, rank lists, scores — are hidden unless you tick “Also show updates for applicants”.</li>
       <li>Each new notice is opened and read (scanned PDFs are read with OCR) to find its subjects, posts, type of appointment and last date. This is automatic and can miss or mis-read things: <b>always open the official notice before applying</b>.</li>
       <li>Government colleges in most states recruit through their state commission, so they appear under that commission. Private and aided colleges are not covered.</li>
       <li>Cards marked “Verified details” were checked by hand on 20 Nov 2026 (Haryana and Punjab).</li>
@@ -159,7 +161,7 @@
       <li>“My status” marks are saved only in this browser on this device.</li>
     </ul>
   </details>
-  <footer>Data: <a href="notices.json">notices.json</a> · <a href="openings.json">openings.json</a> · <a href="watch.json">watch.json</a> · <a href="sources.json">sources.json</a></footer>
+  <footer>Data: <a href="notices.json">notices.json</a> · <a href="india.json">india.json</a> · <a href="openings.json">openings.json</a> · <a href="watch.json">watch.json</a> · <a href="sources.json">sources.json</a></footer>
 </div>
 
 <script>
@@ -185,15 +187,49 @@
   let all = [], notices = null, watch = [], shown = PAGE, today = todayIST();
 
   const getJSON = (f) => fetch(f + '?v=' + Date.now(), {cache: 'no-store'}).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
-  Promise.allSettled([getJSON('notices.json'), getJSON('openings.json'), getJSON('watch.json')]).then(([n, o, w]) => {
-    notices = n.status === 'fulfilled' ? n.value : null;
+  // notices.json comes from the check on GitHub; india.json from the check on a computer in India.
+  function combine(main, india) {
+    if (!main && !india) return null;
+    const base = main || india;
+    const byId = new Map();
+    [[main, 'github'], [india, 'india']].forEach(([d, via]) => {
+      if (!d || !Array.isArray(d.items)) return;
+      d.items.forEach((it) => {
+        const x = {...it, _checked: d.checkedDate, _via: via};
+        const prev = byId.get(it.id);
+        if (!prev || (x.lastSeen || '') > (prev.lastSeen || '') ||
+            ((x.lastSeen || '') === (prev.lastSeen || '') && (x.analysisVersion || 0) > (prev.analysisVersion || 0))) byId.set(it.id, x);
+      });
+    });
+    const hByName = new Map();
+    (main && main.health || []).forEach((h) => hByName.set(h.name, {...h, via: h.via || 'github'}));
+    (india && india.health || []).forEach((h) => {
+      const prev = hByName.get(h.name);
+      if (!prev || h.ok || !prev.ok) hByName.set(h.name, {...h, via: 'india'});
+    });
+    const health = [...hByName.values()];
+    const subjectNames = [...new Set([...(main && main.subjectNames || []), ...(india && india.subjectNames || [])])];
+    return {
+      checkedAt: base.checkedAt, checkedDate: base.checkedDate,
+      mainCheckedDate: main ? main.checkedDate : null, indiaCheckedDate: india ? india.checkedDate : null,
+      sourcesOk: health.filter((h) => h.ok).length, sourcesTotal: health.length,
+      waitingToBeRead: (main && main.waitingToBeRead || 0) + (india && india.waitingToBeRead || 0),
+      subjectNames, postNames: (main || india).postNames, items: [...byId.values()], health,
+    };
+  }
+  Promise.allSettled([getJSON('notices.json'), getJSON('openings.json'), getJSON('watch.json'), getJSON('india.json')]).then(([n, o, w, ind]) => {
+    const india = ind.status === 'fulfilled' && ind.value && ind.value.checkedAt ? ind.value : null;
+    notices = combine(n.status === 'fulfilled' ? n.value : null, india);
     const verified = (o.status === 'fulfilled' ? o.value.rows : []).map((r) => ({
       id: 'v-' + r.id, verified: true, title: r.post, subjText: r.subjects, source: r.institution,
       state: r.state, type: KIND_TO_TYPE[r.kind] || r.kind, url: r.notice || r.apply || r.source, apply: r.apply, notice: r.notice, sourceLink: r.source,
       posts: r.postTags || [], subjects: r.subjectTags || [], basis: r.basis ? [r.basis] : [], lastDate: r.deadline, firstSeen: '2026-11-20',
       lastSeen: null, analysed: true, textRead: true, row: r,
     }));
-    const items = (notices && Array.isArray(notices.items) ? notices.items : []).map((it) => (!it.analysisVersion || (it.subjects || []).length > 30) ? {...it, analysed: false, subjects: [], posts: it.analysisVersion ? it.posts : [], lastDate: it.analysisVersion ? it.lastDate : ''} : it);
+    const items = (notices && Array.isArray(notices.items) ? notices.items : []).map((it) => {
+      const x = {...it, lastDate: it.lastDate || it.titleLastDate || ''};
+      return (!it.analysisVersion || (it.subjects || []).length > 30) ? {...x, analysed: false, subjects: [], posts: it.analysisVersion ? it.posts : []} : x;
+    });
     all = verified.concat(items);
     watch = w.status === 'fulfilled' ? (w.value.rows || []) : [];
     buildFilters();
@@ -203,7 +239,7 @@
     renderHealth();
   });
 
-  function isListedNow(it) { return it.verified || !notices || !notices.checkedDate || it.lastSeen === notices.checkedDate; }
+  function isListedNow(it) { return it.verified || !notices || !it._checked || it.lastSeen === it._checked; }
   function daysLeft(it) { return it.lastDate ? Math.round(dayNum(it.lastDate) - dayNum(today)) : null; }
   function isOld(it) { const y = it.yearHint; const cy = Number(today.slice(0, 4)); const d = daysLeft(it); return !!y && y < cy - 1 && !(d !== null && d >= 0); }
   function isNew(it, days) { return !it.verified && !it.baseline && it.firstSeen && dayNum(today) - dayNum(it.firstSeen) <= days; }
@@ -237,7 +273,9 @@
     const f = {}; F.forEach((k) => { f[k] = $('#f-' + k).value; });
     const q = f.q.trim().toLowerCase();
     const unread = $('#f-unread').checked;
+    const updates = $('#f-updates').checked;
     const rows = all.filter((it) => {
+      if (!updates && it.stage === 'update' && !mine[it.id]) return false;
       if (f.state && it.state !== f.state && it.state !== 'All India') return false;
       if (f.type && it.type !== f.type) return false;
       if (f.post && !(it.posts || []).includes(f.post)) {
@@ -299,6 +337,7 @@
     chips.append(el('span', 'chip', it.state || ''));
     if (it.type) chips.append(el('span', 'chip muted', it.type));
     (it.basis || []).slice(0, 2).forEach((b) => chips.append(el('span', 'chip muted', b)));
+    if (it.stage === 'update') chips.append(el('span', 'chip muted', 'Update for applicants'));
     if (isOld(it)) chips.append(el('span', 'chip muted', 'Older notice (' + it.yearHint + ')'));
     const badge = el('span', 'badge ' + (d === null ? 'unknown' : past ? 'past' : d <= 7 ? 'soon' : 'open'),
       d === null ? 'Last date: see notice' : past ? 'Closed' : d === 0 ? 'Last day today' : d + (d === 1 ? ' day left' : ' days left'));
@@ -333,6 +372,7 @@
       const s = linkBtn('Source', it.sourceLink); if (s) act.append(s);
     } else {
       const a = linkBtn('Open notice', it.url, 'primary'); if (a) act.append(a);
+      const pdf = it.docUrl && it.docUrl !== it.url ? linkBtn('Advertisement PDF', it.docUrl) : null; if (pdf) act.append(pdf);
       const p = linkBtn('Recruitment page', it.page); if (p) act.append(p);
     }
     const lab = el('label', 'mystatus', 'My status');
@@ -354,7 +394,9 @@
     $('#k-soon').textContent = soon;
     $('#k-src').textContent = n && n.checkedAt ? n.sourcesOk + ' / ' + n.sourcesTotal : '–';
     $('#k-applied').textContent = Object.values(mine).filter((s) => s === 'Applied').length;
-    $('#checked').textContent = n && n.checkedAt ? 'last checked ' + fmt(n.checkedDate) : 'first check pending';
+    $('#checked').textContent = !(n && n.checkedAt) ? 'first check pending' :
+      (n.mainCheckedDate ? 'last checked ' + fmt(n.mainCheckedDate) : 'main check pending') + ' · sites that block foreign servers: ' +
+      (n.indiaCheckedDate ? 'checked from India ' + fmt(n.indiaCheckedDate) : 'not checked from India yet');
     const lead = $('#lead');
     lead.replaceChildren();
     if (n && n.checkedAt) {
@@ -382,21 +424,21 @@
   function renderHealth() {
     const tb = $('#health'); tb.replaceChildren();
     const h = notices && notices.health ? [...notices.health] : [];
-    if (!h.length) { const tr = el('tr'); const td = el('td', '', 'The first check hasn’t run yet.'); td.colSpan = 5; tr.append(td); tb.append(tr); return; }
-    h.sort((a, b) => (a.ok - b.ok) || a.state.localeCompare(b.state) || a.name.localeCompare(b.name));
+    if (!h.length) { const tr = el('tr'); const td = el('td', '', 'The first check hasn’t run yet.'); td.colSpan = 6; tr.append(td); tb.append(tr); return; }
+    h.sort((a, b) => (a.ok - b.ok) || (a.state || '').localeCompare(b.state || '') || a.name.localeCompare(b.name));
     h.forEach((s) => {
       const tr = el('tr');
       const name = el('td'); const a = el('a', '', s.name); const u = safeUrl(s.url); if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; } name.append(a);
-      tr.append(name, el('td', '', s.state), el('td', '', s.type || ''), el('td', s.ok ? 'ok' : 'err', s.ok ? 'Read OK (' + s.pagesChecked + ' page' + (s.pagesChecked === 1 ? '' : 's') + ')' : s.error), el('td', '', s.ok ? String(s.matches) : '–'));
+      tr.append(name, el('td', '', s.state), el('td', '', s.type || ''), el('td', '', s.via === 'india' ? 'India' : 'GitHub'), el('td', s.ok ? 'ok' : 'err', s.ok ? 'Read OK (' + s.pagesChecked + ' page' + (s.pagesChecked === 1 ? '' : 's') + ')' : s.error), el('td', '', s.ok ? String(s.matches) : '–'));
       tb.append(tr);
     });
   }
 
   const onChange = () => { shown = PAGE; writeURL(); render(); };
-  ['#f-state', '#f-subject', '#f-post', '#f-type', '#f-show', '#f-sort', '#f-unread'].forEach((s) => $(s).addEventListener('change', onChange));
+  ['#f-state', '#f-subject', '#f-post', '#f-type', '#f-show', '#f-sort', '#f-unread', '#f-updates'].forEach((s) => $(s).addEventListener('change', onChange));
   let t; $('#f-q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(onChange, 250); });
   $('#more').addEventListener('click', () => { shown += PAGE; render(); });
-  $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = k === 'show' ? 'open' : k === 'sort' ? 'new' : ''; }); $('#f-unread').checked = false; onChange(); });
+  $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = k === 'show' ? 'open' : k === 'sort' ? 'new' : ''; }); $('#f-unread').checked = false; $('#f-updates').checked = false; onChange(); });
 })();
 </script>
 </body>

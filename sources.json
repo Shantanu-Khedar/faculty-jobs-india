@@ -1,33 +1,37 @@
 {
- "note": "Pages the daily checker reads. 'follow': true also reads up to 5 recruitment/career/notice pages linked from that page on the same site. Add, fix or remove sources here. 'type' and 'state' drive the website filters.",
+ "note": "Official pages checked every day. Sources marked \"runOn\": \"india\" refuse connections from GitHub's servers abroad, so they are checked from a computer in India (the self-hosted runner, see README). All others are checked on GitHub.",
  "sources": [
   {
    "name": "Andhra Pradesh PSC",
    "state": "Andhra Pradesh",
    "type": "Commission (govt colleges)",
    "url": "https://psc.ap.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Arunachal Pradesh PSC",
    "state": "Arunachal Pradesh",
    "type": "Commission (govt colleges)",
    "url": "https://appsc.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Assam PSC",
    "state": "Assam",
    "type": "Commission (govt colleges)",
    "url": "https://apsc.nic.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Bihar PSC",
    "state": "Bihar",
    "type": "Commission (govt colleges)",
    "url": "https://www.bpsc.bih.nic.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Bihar State University Service Commission",
@@ -41,63 +45,72 @@
    "state": "Chhattisgarh",
    "type": "Commission (govt colleges)",
    "url": "https://psc.cg.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Goa PSC",
    "state": "Goa",
    "type": "Commission (govt colleges)",
    "url": "https://gpsc.goa.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Gujarat PSC",
    "state": "Gujarat",
    "type": "Commission (govt colleges)",
    "url": "https://gpsc.gujarat.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Haryana PSC",
    "state": "Haryana",
    "type": "Commission (govt colleges)",
    "url": "https://hpsc.gov.in/en-us/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Himachal Pradesh PSC",
    "state": "Himachal Pradesh",
    "type": "Commission (govt colleges)",
-   "url": "https://www.hppsc.hp.gov.in/hppsc/",
-   "follow": true
+   "url": "https://hppsc.hp.gov.in/hppsc/",
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Jammu & Kashmir PSC",
    "state": "Jammu & Kashmir",
    "type": "Commission (govt colleges)",
    "url": "https://jkpsc.nic.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Jharkhand PSC",
    "state": "Jharkhand",
    "type": "Commission (govt colleges)",
    "url": "https://www.jpsc.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Karnataka Examinations Authority",
    "state": "Karnataka",
    "type": "Commission (govt colleges)",
    "url": "https://cetonline.karnataka.gov.in/kea/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Karnataka PSC",
    "state": "Karnataka",
    "type": "Commission (govt colleges)",
    "url": "https://kpsc.kar.nic.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Kerala PSC",
@@ -111,7 +124,8 @@
    "state": "Madhya Pradesh",
    "type": "Commission (govt colleges)",
    "url": "https://mppsc.mp.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Maharashtra PSC",
@@ -132,14 +146,16 @@
    "state": "Meghalaya",
    "type": "Commission (govt colleges)",
    "url": "https://mpsc.nic.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Mizoram PSC",
    "state": "Mizoram",
    "type": "Commission (govt colleges)",
    "url": "https://mpsc.mizoram.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Nagaland PSC",
@@ -160,28 +176,32 @@
    "state": "Punjab",
    "type": "Commission (govt colleges)",
    "url": "https://ppsc.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Rajasthan PSC",
    "state": "Rajasthan",
    "type": "Commission (govt colleges)",
    "url": "https://rpsc.rajasthan.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Sikkim PSC",
    "state": "Sikkim",
    "type": "Commission (govt colleges)",
    "url": "https://spsc.sikkim.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Tamil Nadu Teachers Recruitment Board",
    "state": "Tamil Nadu",
    "type": "Commission (govt colleges)",
    "url": "https://www.trb.tn.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Tamil Nadu PSC",
@@ -195,14 +215,16 @@
    "state": "Telangana",
    "type": "Commission (govt colleges)",
    "url": "https://www.tgpsc.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Tripura PSC",
    "state": "Tripura",
    "type": "Commission (govt colleges)",
    "url": "https://tpsc.tripura.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "UP Public Service Commission",
@@ -216,14 +238,16 @@
    "state": "Uttar Pradesh",
    "type": "Commission (govt colleges)",
    "url": "https://upessc.up.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Uttarakhand PSC",
    "state": "Uttarakhand",
    "type": "Commission (govt colleges)",
    "url": "https://psc.uk.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "West Bengal College Service Commission",
@@ -237,21 +261,24 @@
    "state": "West Bengal",
    "type": "Commission (govt colleges)",
    "url": "https://wbpsc.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Haryana Higher Education Dept",
    "state": "Haryana",
    "type": "Commission (govt colleges)",
    "url": "https://highereduhry.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Samarth CU recruitment portal (all central universities)",
    "state": "All India",
    "type": "Central university",
    "url": "https://curec.samarth.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Aligarh Muslim University",
@@ -475,7 +502,8 @@
    "state": "Bihar",
    "type": "Central university",
    "url": "https://www.cusb.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Mahatma Gandhi Central University",
@@ -503,7 +531,8 @@
    "state": "Haryana",
    "type": "Central university",
    "url": "https://www.cuh.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Central University of Himachal Pradesh",
@@ -636,7 +665,8 @@
    "state": "West Bengal",
    "type": "IIT / IISc / IISER",
    "url": "https://www.iitkgp.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "IIT Roorkee",
@@ -964,7 +994,7 @@
    "name": "NIT Manipur",
    "state": "Manipur",
    "type": "NIT",
-   "url": "https://www.nitmanipur.ac.in/",
+   "url": "https://nitmanipur.ac.in/",
    "follow": true
   },
   {
@@ -986,7 +1016,8 @@
    "state": "Arunachal Pradesh",
    "type": "NIT",
    "url": "https://www.nitap.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "NIT Sikkim",
@@ -1049,7 +1080,8 @@
    "state": "Madhya Pradesh",
    "type": "AIIMS / medical institute",
    "url": "https://aiimsbhopal.edu.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "AIIMS Bhubaneswar",
@@ -1062,8 +1094,9 @@
    "name": "AIIMS Jodhpur",
    "state": "Rajasthan",
    "type": "AIIMS / medical institute",
-   "url": "https://www.aiimsjodhpur.edu.in/",
-   "follow": true
+   "url": "https://aiimsjodhpur.edu.in/",
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "AIIMS Patna",
@@ -1119,7 +1152,8 @@
    "state": "Uttar Pradesh",
    "type": "AIIMS / medical institute",
    "url": "https://aiimsrbl.edu.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "AIIMS Deoghar",
@@ -1133,21 +1167,24 @@
    "state": "Telangana",
    "type": "AIIMS / medical institute",
    "url": "https://aiimsbibinagar.edu.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "AIIMS Guwahati",
    "state": "Assam",
    "type": "AIIMS / medical institute",
    "url": "https://aiimsguwahati.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "AIIMS Rajkot",
    "state": "Gujarat",
    "type": "AIIMS / medical institute",
    "url": "https://aiimsrajkot.edu.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "AIIMS Bilaspur",
@@ -1189,7 +1226,8 @@
    "state": "Andhra Pradesh",
    "type": "State university",
    "url": "https://www.andhrauniversity.edu.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Sri Venkateswara University",
@@ -1252,7 +1290,8 @@
    "state": "Bihar",
    "type": "State university",
    "url": "https://www.lnmu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Pt. Ravishankar Shukla University",
@@ -1315,7 +1354,8 @@
    "state": "Himachal Pradesh",
    "type": "State university",
    "url": "https://www.hpuniv.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "University of Jammu",
@@ -1357,7 +1397,8 @@
    "state": "Karnataka",
    "type": "State university",
    "url": "https://bangaloreuniversity.karnataka.gov.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Karnatak University Dharwad",
@@ -1455,7 +1496,8 @@
    "state": "Maharashtra",
    "type": "State university",
    "url": "https://mu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "RTM Nagpur University",
@@ -1483,7 +1525,8 @@
    "state": "Odisha",
    "type": "State university",
    "url": "https://utkaluniversity.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Sambalpur University",
@@ -1525,7 +1568,8 @@
    "state": "Rajasthan",
    "type": "State university",
    "url": "https://www.jnvu.edu.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "M.D.S. University Ajmer",
@@ -1539,7 +1583,8 @@
    "state": "Rajasthan",
    "type": "State university",
    "url": "https://www.rtu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "University of Madras",
@@ -1595,14 +1640,16 @@
    "state": "Telangana",
    "type": "State university",
    "url": "https://www.kakatiya.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "JNTU Hyderabad",
    "state": "Telangana",
    "type": "State university",
    "url": "https://jntuh.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "University of Lucknow",
@@ -1644,7 +1691,8 @@
    "state": "Uttar Pradesh",
    "type": "State university",
    "url": "https://aktu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Bundelkhand University",
@@ -1657,8 +1705,9 @@
    "name": "Kumaun University",
    "state": "Uttarakhand",
    "type": "State university",
-   "url": "https://www.kumaun.ac.in/",
-   "follow": true
+   "url": "https://kunainital.ac.in/",
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Uttarakhand Open University",
@@ -1720,7 +1769,7 @@
    "name": "GGSIP University",
    "state": "Delhi",
    "type": "State university",
-   "url": "http://www.ipu.ac.in/",
+   "url": "https://ipu.ac.in/",
    "follow": true
   },
   {
@@ -1728,7 +1777,8 @@
    "state": "Delhi",
    "type": "State university",
    "url": "https://dtu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Ambedkar University Delhi",
@@ -1756,7 +1806,8 @@
    "state": "Haryana",
    "type": "State university",
    "url": "https://kuk.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "MDU Rohtak",
@@ -1777,7 +1828,8 @@
    "state": "Haryana",
    "type": "State university",
    "url": "https://www.cdlu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "CBLU Bhiwani",
@@ -1798,7 +1850,8 @@
    "state": "Haryana",
    "type": "State university",
    "url": "https://crsu.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "Gurugram University",
@@ -1826,7 +1879,8 @@
    "state": "Haryana",
    "type": "State university",
    "url": "https://bpswomenuniversity.ac.in/",
-   "follow": true
+   "follow": true,
+   "runOn": "india"
   },
   {
    "name": "LUVAS Hisar",
