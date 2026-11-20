@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faculty Jobs Tracker – Government Universities &amp; Colleges, India</title>
+<meta name="description" content="Professor, Associate Professor and Assistant Professor openings at government universities, colleges and central institutes across India. Search by state, subject and post. Checked daily.">
+<style>
+  :root {
+    --bg: #faf9f6; --panel: #ffffff; --fg: #1f1e1c; --muted: #6b6862; --line: #e4e1da;
+    --ok: #2f7d4f; --warn: #b26a00; --bad: #b3261e; --accent: #1f4e79; --chip: #f1efe9; --subj: #e8f0f8;
+    --radius: 10px;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1b1a18; --panel: #242320; --fg: #ecebe7; --muted: #a8a49c; --line: #3a3833;
+      --ok: #6cc28f; --warn: #e3a94a; --bad: #f08a80; --accent: #8fb8e0; --chip: #2e2c28; --subj: #23303d; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 26px 18px 60px; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3.6vw, 2.35rem); line-height: 1.2; margin: 0 0 6px; }
+  .sub { color: var(--muted); font-size: 0.86rem; margin: 0 0 16px; }
+  .lead { font-size: 1.02rem; margin: 0 0 18px; }
+  .lead b { font-variant-numeric: tabular-nums; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px; }
+  .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 13px 16px; }
+  .kpi .label { color: var(--muted); font-size: 0.8rem; margin: 0 0 4px; }
+  .kpi .value { font-family: var(--serif); font-size: 1.9rem; line-height: 1.1; margin: 0; font-variant-numeric: tabular-nums; }
+  .kpi .note { color: var(--muted); font-size: 0.76rem; margin: 4px 0 0; }
+  .searchbar { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin-bottom: 14px; }
+  .filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; align-items: end; }
+  .filters label { display: flex; flex-direction: column; gap: 3px; font-size: 0.76rem; color: var(--muted); }
+  .filters .q { grid-column: 1 / -1; }
+  select, input[type=search] { font: inherit; font-size: 0.92rem; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; min-height: 38px; width: 100%; }
+  .row2 { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 10px; font-size: 0.84rem; color: var(--muted); }
+  .row2 label { display: inline-flex; gap: 6px; align-items: center; }
+  button { font: inherit; cursor: pointer; }
+  button.ghost { font-size: 0.84rem; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; }
+  .count { margin: 4px 0 12px; color: var(--muted); font-size: 0.88rem; }
+  .count b { color: var(--fg); }
+  .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 15px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .card.past { opacity: 0.68; }
+  .card.verified { border-color: var(--ok); }
+  .top { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { font-size: 0.72rem; background: var(--chip); border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
+  .chip.subj { background: var(--subj); }
+  .chip.muted { color: var(--muted); background: transparent; border: 1px solid var(--line); }
+  .chip.new { background: var(--accent); color: var(--bg); font-weight: 600; }
+  .chip.ver { color: var(--ok); border: 1px solid var(--ok); background: transparent; font-weight: 600; }
+  .badge { font-size: 0.74rem; font-weight: 600; border: 1px solid currentColor; border-radius: 999px; padding: 2px 9px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .badge.open { color: var(--ok); } .badge.soon { color: var(--warn); } .badge.past { color: var(--muted); } .badge.unknown { color: var(--muted); border-style: dashed; }
+  .title { font-weight: 600; margin: 2px 0 0; line-height: 1.35; overflow-wrap: anywhere; }
+  .inst { margin: 0; font-size: 0.9rem; }
+  .meta { margin: 0; color: var(--muted); font-size: 0.8rem; }
+  .excerpt { margin: 0; color: var(--muted); font-size: 0.8rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  dl.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 4px 14px; margin: 4px 0; }
+  dl.facts dt { color: var(--muted); font-size: 0.72rem; } dl.facts dd { margin: 0; font-size: 0.84rem; overflow-wrap: anywhere; }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-end; margin-top: auto; padding-top: 8px; }
+  a.btn { font-size: 0.82rem; text-decoration: none; color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 11px; }
+  a.btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .mystatus { display: flex; flex-direction: column; gap: 2px; font-size: 0.72rem; color: var(--muted); margin-left: auto; min-width: 130px; }
+  .mystatus select { font-size: 0.82rem; padding: 4px 8px; min-height: 32px; background: var(--panel); }
+  .more { text-align: center; margin: 16px 0; }
+  .empty { color: var(--muted); }
+  h2 { font-size: 1.2rem; font-weight: 600; margin: 36px 0 4px; }
+  .h2note { color: var(--muted); font-size: 0.85rem; margin: 0 0 14px; }
+  .watch { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 5px; background: var(--panel); }
+  .watch p { margin: 0; font-size: 0.86rem; } .watch .body { font-weight: 600; font-size: 0.96rem; } .watch .next { color: var(--muted); }
+  details.foot { margin-top: 26px; color: var(--muted); font-size: 0.86rem; }
+  details.foot summary { cursor: pointer; }
+  table.health { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  table.health th, table.health td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.ok { color: var(--ok); } td.err { color: var(--bad); }
+  .scroll { overflow-x: auto; max-height: 520px; overflow-y: auto; }
+  footer { margin-top: 30px; color: var(--muted); font-size: 0.78rem; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Faculty jobs in government universities &amp; colleges — India</h1>
+  <p class="sub">Professor · Associate Professor · Assistant Professor · Guest / contract faculty · official recruitment pages checked every morning · <span id="checked">first check pending</span></p>
+
+  <p class="lead" id="lead">Loading…</p>
+
+  <div class="kpis">
+    <div class="kpi"><p class="label">New notices, last 7 days</p><p class="value" id="k-new">–</p><p class="note">Across all of India</p></div>
+    <div class="kpi"><p class="label">Closing within 7 days</p><p class="value" id="k-soon">–</p><p class="note">Where a last date was found</p></div>
+    <div class="kpi"><p class="label">Official pages read today</p><p class="value" id="k-src">–</p><p class="note">Universities, institutes, PSCs</p></div>
+    <div class="kpi"><p class="label">Marked “Applied” by you</p><p class="value" id="k-applied">–</p><p class="note">Saved in this browser</p></div>
+  </div>
+
+  <div class="searchbar" id="search">
+    <div class="filters">
+      <label class="q">Search
+        <input type="search" id="f-q" placeholder="University, subject, city, advertisement number…">
+      </label>
+      <label>State / UT
+        <select id="f-state"><option value="">All of India</option></select>
+      </label>
+      <label>Subject
+        <select id="f-subject"><option value="">Any subject</option></select>
+      </label>
+      <label>Post
+        <select id="f-post"><option value="">Any post</option></select>
+      </label>
+      <label>Institution type
+        <select id="f-type"><option value="">Any type</option></select>
+      </label>
+      <label>Show
+        <select id="f-show">
+          <option value="open">Open / date unknown</option>
+          <option value="new7">New in the last 7 days</option>
+          <option value="new30">New in the last 30 days</option>
+          <option value="all">Everything currently listed</option>
+          <option value="mine">Only ones I marked</option>
+        </select>
+      </label>
+      <label>Sort
+        <select id="f-sort">
+          <option value="new">Newest first</option>
+          <option value="deadline">Last date soonest</option>
+        </select>
+      </label>
+    </div>
+    <div class="row2">
+      <label><input type="checkbox" id="f-unread"> With a subject filter, also show notices whose subjects couldn’t be read</label>
+      <button class="ghost" id="f-reset" type="button">Clear filters</button>
+    </div>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="list" id="results"></div>
+  <div class="more"><button class="ghost" id="more" type="button" hidden>Show more</button></div>
+
+  <h2 id="watch">Big drives to watch</h2>
+  <p class="h2note">Large recruitment drives that are not open yet, are rolling, or are in the results stage.</p>
+  <div class="list" id="watch-list"></div>
+
+  <details class="foot" id="health-box">
+    <summary>Which official pages are checked, and whether each check worked</summary>
+    <p>The daily check reads these pages. An error usually means the site was down or blocked the check that day, or that its address changed. Fix or add pages in <code>sources.json</code>.</p>
+    <div class="scroll"><table class="health"><thead><tr><th>Institution</th><th>State</th><th>Type</th><th>Status</th><th>Notices</th></tr></thead><tbody id="health"></tbody></table></div>
+  </details>
+
+  <details class="foot">
+    <summary>How this works, and its limits</summary>
+    <ul>
+      <li>Every morning a GitHub Action reads the official recruitment pages of central universities, IITs, NITs, IISERs, AIIMS, state universities and every state’s Public Service Commission or college service commission, and lists links that look like faculty recruitment notices.</li>
+      <li>Each new notice is opened and read (scanned PDFs are read with OCR) to find its subjects, posts, type of appointment and last date. This is automatic and can miss or mis-read things: <b>always open the official notice before applying</b>.</li>
+      <li>Government colleges in most states recruit through their state commission, so they appear under that commission. Private and aided colleges are not covered.</li>
+      <li>Cards marked “Verified details” were checked by hand on 20 Nov 2026 (Haryana and Punjab).</li>
+      <li>Usual eligibility for Assistant Professor (UGC Regulations 2018): a Master’s degree with 55% marks (5% relaxation for reserved categories) plus NET/SET, or a Ph.D. Many states also need the state language up to Class 10.</li>
+      <li>“My status” marks are saved only in this browser on this device.</li>
+    </ul>
+  </details>
+  <footer>Data: <a href="notices.json">notices.json</a> · <a href="openings.json">openings.json</a> · <a href="watch.json">watch.json</a> · <a href="sources.json">sources.json</a></footer>
+</div>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const PAGE = 30;
+  const todayIST = () => new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Kolkata'}).format(new Date());
+  const dayNum = (s) => Date.parse(String(s).slice(0, 10) + 'T00:00:00Z') / 86400000;
+  const fmt = (s) => {
+    if (!s) return '';
+    const d = new Date(String(s).slice(0, 10) + 'T00:00:00Z');
+    return isNaN(d) ? String(s) : d.toLocaleDateString('en-IN', {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'});
+  };
+  const safeUrl = (u) => (typeof u === 'string' && /^https?:\/\//i.test(u)) ? u : '';
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined && text !== null) n.textContent = text; return n; };
+  const linkBtn = (label, url, cls) => { const u = safeUrl(url); if (!u) return null; const a = el('a', 'btn' + (cls ? ' ' + cls : ''), label); a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; };
+
+  const KEY = 'faculty-tracker-status-v1';
+  let mine = {}; try { mine = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  const saveMine = () => { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} };
+
+  const KIND_TO_TYPE = {'State university': 'State university', 'Central university': 'Central university', 'Central govt institute': 'AIIMS / medical institute', 'Public Service Commission': 'Commission (govt colleges)'};
+  let all = [], notices = null, watch = [], shown = PAGE, today = todayIST();
+
+  const getJSON = (f) => fetch(f + '?v=' + Date.now(), {cache: 'no-store'}).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
+  Promise.allSettled([getJSON('notices.json'), getJSON('openings.json'), getJSON('watch.json')]).then(([n, o, w]) => {
+    notices = n.status === 'fulfilled' ? n.value : null;
+    const verified = (o.status === 'fulfilled' ? o.value.rows : []).map((r) => ({
+      id: 'v-' + r.id, verified: true, title: r.post, subjText: r.subjects, source: r.institution,
+      state: r.state, type: KIND_TO_TYPE[r.kind] || r.kind, url: r.notice || r.apply || r.source, apply: r.apply, notice: r.notice, sourceLink: r.source,
+      posts: r.postTags || [], subjects: r.subjectTags || [], basis: r.basis ? [r.basis] : [], lastDate: r.deadline, firstSeen: '2026-11-20',
+      lastSeen: null, analysed: true, textRead: true, row: r,
+    }));
+    const items = notices && Array.isArray(notices.items) ? notices.items : [];
+    all = verified.concat(items);
+    watch = w.status === 'fulfilled' ? (w.value.rows || []) : [];
+    buildFilters();
+    readURL();
+    render();
+    renderWatch();
+    renderHealth();
+  });
+
+  function isListedNow(it) { return it.verified || !notices || !notices.checkedDate || it.lastSeen === notices.checkedDate; }
+  function daysLeft(it) { return it.lastDate ? Math.round(dayNum(it.lastDate) - dayNum(today)) : null; }
+  function isNew(it, days) { return !it.verified && !it.baseline && it.firstSeen && dayNum(today) - dayNum(it.firstSeen) <= days; }
+
+  function buildFilters() {
+    const subjects = (notices && notices.subjectNames) || [...new Set(all.flatMap((i) => i.subjects || []))].sort();
+    const posts = (notices && notices.postNames) || ['Assistant Professor', 'Associate Professor', 'Professor', 'Guest / contract faculty', 'Lecturer', 'Librarian'];
+    const states = [...new Set(all.map((i) => i.state).concat((notices && notices.health || []).map((h) => h.state)).filter(Boolean))].sort();
+    const types = [...new Set(all.map((i) => i.type).concat((notices && notices.health || []).map((h) => h.type)).filter(Boolean))].sort();
+    const fill = (sel, values) => values.forEach((v) => sel.append(new Option(v, v)));
+    fill($('#f-state'), states.filter((s) => s !== 'All India'));
+    fill($('#f-subject'), [...subjects].sort((a, b) => a.localeCompare(b)));
+    fill($('#f-post'), posts);
+    fill($('#f-type'), types);
+  }
+
+  const F = ['q', 'state', 'subject', 'post', 'type', 'show', 'sort'];
+  function readURL() {
+    const p = new URLSearchParams(location.search);
+    F.forEach((k) => { const v = p.get(k); if (v !== null) { const e = $('#f-' + k); if (e) e.value = v; } });
+    if (p.get('unread') === '1') $('#f-unread').checked = true;
+  }
+  function writeURL() {
+    const p = new URLSearchParams();
+    F.forEach((k) => { const v = $('#f-' + k).value; if (v && !(k === 'show' && v === 'open') && !(k === 'sort' && v === 'new')) p.set(k, v); });
+    if ($('#f-unread').checked) p.set('unread', '1');
+    history.replaceState(null, '', p.toString() ? '?' + p : location.pathname);
+  }
+
+  function filtered() {
+    const f = {}; F.forEach((k) => { f[k] = $('#f-' + k).value; });
+    const q = f.q.trim().toLowerCase();
+    const unread = $('#f-unread').checked;
+    const rows = all.filter((it) => {
+      if (f.state && it.state !== f.state && it.state !== 'All India') return false;
+      if (f.type && it.type !== f.type) return false;
+      if (f.post && !(it.posts || []).includes(f.post)) {
+        if (!(unread && !it.textRead && !(it.posts || []).length)) return false;
+      }
+      if (f.subject && !(it.subjects || []).includes(f.subject)) {
+        if (!(unread && (!it.analysed || !it.textRead || !(it.subjects || []).length))) return false;
+      }
+      const d = daysLeft(it);
+      if (f.show === 'open') { if (!isListedNow(it) && !isNew(it, 30)) return false; if (d !== null && d < 0) return false; }
+      if (f.show === 'new7' && !isNew(it, 7)) return false;
+      if (f.show === 'new30' && !isNew(it, 30)) return false;
+      if (f.show === 'all' && !isListedNow(it)) return false;
+      if (f.show === 'mine' && !mine[it.id]) return false;
+      if (q) {
+        const hay = [it.title, it.subjText || '', it.source, it.state, it.type, (it.subjects || []).join(' '), (it.posts || []).join(' '), it.excerpt || '', it.row ? it.row.advt + ' ' + it.row.notes : ''].join(' ').toLowerCase();
+        if (!q.split(/\s+/).every((w) => hay.includes(w))) return false;
+      }
+      return true;
+    });
+    rows.sort((a, b) => {
+      if (f.sort === 'deadline') {
+        const da = daysLeft(a), db = daysLeft(b);
+        const ka = da === null || da < 0 ? 1e9 : da, kb = db === null || db < 0 ? 1e9 : db;
+        if (ka !== kb) return ka - kb;
+      }
+      if (a.verified !== b.verified && f.sort !== 'deadline') { /* keep verified near the top only when they are open */ }
+      const fa = a.baseline ? '' : (a.firstSeen || ''), fb = b.baseline ? '' : (b.firstSeen || '');
+      if (fa !== fb) return fb.localeCompare(fa);
+      return (a.source || '').localeCompare(b.source || '');
+    });
+    return rows;
+  }
+
+  function render() {
+    today = todayIST();
+    const rows = filtered();
+    const total = all.length;
+    $('#count').replaceChildren('Showing ', el('b', '', String(Math.min(rows.length, shown))), ' of ', el('b', '', String(rows.length)), ' matching notices', total ? ' (' + total + ' tracked in all).' : '.');
+    $('#results').replaceChildren(...rows.slice(0, shown).map(card));
+    if (!rows.length) $('#results').append(el('p', 'empty', notices && notices.checkedAt ? 'Nothing matches these filters. Try “Everything currently listed”, another subject, or tick the box to include notices whose subjects couldn’t be read.' : 'The first daily check hasn’t run yet, so only the hand-checked openings are listed.'));
+    $('#more').hidden = rows.length <= shown;
+    summary();
+  }
+
+  function card(it) {
+    const c = el('article', 'card' + (it.verified ? ' verified' : ''));
+    const d = daysLeft(it), past = d !== null && d < 0;
+    if (past) c.classList.add('past');
+    const top = el('div', 'top');
+    const chips = el('div', 'chips');
+    if (it.verified) chips.append(el('span', 'chip ver', 'Verified details'));
+    if (isNew(it, 7)) chips.append(el('span', 'chip new', 'New'));
+    chips.append(el('span', 'chip', it.state || ''));
+    if (it.type) chips.append(el('span', 'chip muted', it.type));
+    (it.basis || []).slice(0, 2).forEach((b) => chips.append(el('span', 'chip muted', b)));
+    const badge = el('span', 'badge ' + (d === null ? 'unknown' : past ? 'past' : d <= 7 ? 'soon' : 'open'),
+      d === null ? 'Last date: see notice' : past ? 'Closed' : d === 0 ? 'Last day today' : d + (d === 1 ? ' day left' : ' days left'));
+    top.append(chips, badge);
+    c.append(top, el('p', 'title', it.title), el('p', 'inst', it.source));
+    if (it.subjText) c.append(el('p', 'meta', it.subjText));
+    const tags = el('div', 'chips');
+    (it.posts || []).forEach((p) => tags.append(el('span', 'chip', p)));
+    const subj = it.subjects || [];
+    subj.slice(0, 10).forEach((s) => tags.append(el('span', 'chip subj', s)));
+    if (subj.length > 10) tags.append(el('span', 'chip muted', '+' + (subj.length - 10) + ' more subjects'));
+    if (!subj.length) tags.append(el('span', 'chip muted', !it.analysed ? 'Subjects: not read yet' : it.textRead ? 'Subjects: not named' : 'Subjects: couldn’t read notice'));
+    c.append(tags);
+    const facts = el('dl', 'facts');
+    const fact = (k, v) => { if (!v) return; const w = el('div'); w.append(el('dt', '', k), el('dd', '', v)); facts.append(w); };
+    fact('Last date', it.lastDate ? fmt(it.lastDate) + (it.verified ? '' : ' (read from notice)') : '');
+    if (it.verified) {
+      const r = it.row;
+      fact('Hard copy by', fmt(r.hardCopy)); fact('Interview', fmt(r.interview));
+      fact('Asst. Prof. posts', r.posts === null || r.posts === undefined ? '' : String(r.posts));
+      fact('Pay', r.pay); fact('Advt. no.', r.advt);
+    } else {
+      fact('Found on', fmt(it.firstSeen) + (it.baseline ? ' (already listed)' : ''));
+    }
+    if (facts.childElementCount) c.append(facts);
+    if (it.verified && it.row.notes) c.append(el('p', 'meta', it.row.notes));
+    if (!it.verified && it.excerpt) c.append(el('p', 'excerpt', it.excerpt));
+    const act = el('div', 'actions');
+    if (it.verified) {
+      const a = past ? null : linkBtn('Apply', it.apply, 'primary'); if (a) act.append(a);
+      const n = linkBtn('Notice', it.notice); if (n) act.append(n);
+      const s = linkBtn('Source', it.sourceLink); if (s) act.append(s);
+    } else {
+      const a = linkBtn('Open notice', it.url, 'primary'); if (a) act.append(a);
+      const p = linkBtn('Recruitment page', it.page); if (p) act.append(p);
+    }
+    const lab = el('label', 'mystatus', 'My status');
+    const sel = el('select');
+    ['', 'Interested', 'Applied', 'Not eligible', 'Not for me'].forEach((v) => sel.append(new Option(v || 'Not marked', v)));
+    sel.value = mine[it.id] || '';
+    sel.setAttribute('aria-label', 'My status for ' + it.title);
+    sel.addEventListener('change', () => { if (sel.value) mine[it.id] = sel.value; else delete mine[it.id]; saveMine(); summary(); if ($('#f-show').value === 'mine') render(); });
+    lab.append(sel); act.append(lab);
+    c.append(act);
+    return c;
+  }
+
+  function summary() {
+    const n = notices;
+    const new7 = all.filter((i) => isNew(i, 7)).length;
+    const soon = all.filter((i) => { const d = daysLeft(i); return d !== null && d >= 0 && d <= 7 && isListedNow(i); }).length;
+    $('#k-new').textContent = n && n.checkedAt ? new7 : '–';
+    $('#k-soon').textContent = soon;
+    $('#k-src').textContent = n && n.checkedAt ? n.sourcesOk + ' / ' + n.sourcesTotal : '–';
+    $('#k-applied').textContent = Object.values(mine).filter((s) => s === 'Applied').length;
+    $('#checked').textContent = n && n.checkedAt ? 'last checked ' + fmt(n.checkedDate) : 'first check pending';
+    const lead = $('#lead');
+    lead.replaceChildren();
+    if (n && n.checkedAt) {
+      const listed = all.filter((i) => !i.verified && isListedNow(i)).length;
+      lead.append(el('b', '', String(listed)), ' faculty recruitment notices are listed on the official pages checked today; ', el('b', '', String(new7)), ' appeared in the last 7 days.');
+      if (n.waitingToBeRead) lead.append(' ', String(n.waitingToBeRead), ' are still waiting to be read for subjects and will be done over the next few days.');
+    } else {
+      lead.append('The first nationwide check runs tomorrow morning (or when started by hand). Until then, the hand-checked openings from Haryana and Punjab are shown.');
+    }
+  }
+
+  function renderWatch() {
+    $('#watch-list').replaceChildren(...watch.map((r) => {
+      const c = el('article', 'watch');
+      const chips = el('div', 'chips'); chips.append(el('span', 'chip', r.state)); c.append(chips);
+      c.append(el('p', 'body', r.body), el('p', '', r.item), el('p', '', r.status), el('p', 'next', r.next));
+      const act = el('div', 'actions');
+      const a1 = linkBtn('Official page', r.link); if (a1) act.append(a1);
+      const a2 = linkBtn('Source', r.source !== r.link ? r.source : ''); if (a2) act.append(a2);
+      c.append(act);
+      return c;
+    }));
+  }
+
+  function renderHealth() {
+    const tb = $('#health'); tb.replaceChildren();
+    const h = notices && notices.health ? [...notices.health] : [];
+    if (!h.length) { const tr = el('tr'); const td = el('td', '', 'The first check hasn’t run yet.'); td.colSpan = 5; tr.append(td); tb.append(tr); return; }
+    h.sort((a, b) => (a.ok - b.ok) || a.state.localeCompare(b.state) || a.name.localeCompare(b.name));
+    h.forEach((s) => {
+      const tr = el('tr');
+      const name = el('td'); const a = el('a', '', s.name); const u = safeUrl(s.url); if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; } name.append(a);
+      tr.append(name, el('td', '', s.state), el('td', '', s.type || ''), el('td', s.ok ? 'ok' : 'err', s.ok ? 'Read OK (' + s.pagesChecked + ' page' + (s.pagesChecked === 1 ? '' : 's') + ')' : s.error), el('td', '', s.ok ? String(s.matches) : '–'));
+      tb.append(tr);
+    });
+  }
+
+  const onChange = () => { shown = PAGE; writeURL(); render(); };
+  ['#f-state', '#f-subject', '#f-post', '#f-type', '#f-show', '#f-sort', '#f-unread'].forEach((s) => $(s).addEventListener('change', onChange));
+  let t; $('#f-q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(onChange, 250); });
+  $('#more').addEventListener('click', () => { shown += PAGE; render(); });
+  $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = k === 'show' ? 'open' : k === 'sort' ? 'new' : ''; }); $('#f-unread').checked = false; onChange(); });
+})();
+</script>
+</body>
+</html>

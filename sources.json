@@ -1,0 +1,1937 @@
+{
+ "note": "Pages the daily checker reads. 'follow': true also reads up to 5 recruitment/career/notice pages linked from that page on the same site. Add, fix or remove sources here. 'type' and 'state' drive the website filters.",
+ "sources": [
+  {
+   "name": "Andhra Pradesh PSC",
+   "state": "Andhra Pradesh",
+   "type": "Commission (govt colleges)",
+   "url": "https://psc.ap.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Arunachal Pradesh PSC",
+   "state": "Arunachal Pradesh",
+   "type": "Commission (govt colleges)",
+   "url": "https://appsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Assam PSC",
+   "state": "Assam",
+   "type": "Commission (govt colleges)",
+   "url": "https://apsc.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "Bihar PSC",
+   "state": "Bihar",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.bpsc.bih.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "Bihar State University Service Commission",
+   "state": "Bihar",
+   "type": "Commission (govt colleges)",
+   "url": "https://bsusc.bihar.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Chhattisgarh PSC",
+   "state": "Chhattisgarh",
+   "type": "Commission (govt colleges)",
+   "url": "https://psc.cg.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Goa PSC",
+   "state": "Goa",
+   "type": "Commission (govt colleges)",
+   "url": "https://gpsc.goa.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Gujarat PSC",
+   "state": "Gujarat",
+   "type": "Commission (govt colleges)",
+   "url": "https://gpsc.gujarat.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Haryana PSC",
+   "state": "Haryana",
+   "type": "Commission (govt colleges)",
+   "url": "https://hpsc.gov.in/en-us/",
+   "follow": true
+  },
+  {
+   "name": "Himachal Pradesh PSC",
+   "state": "Himachal Pradesh",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.hppsc.hp.gov.in/hppsc/",
+   "follow": true
+  },
+  {
+   "name": "Jammu & Kashmir PSC",
+   "state": "Jammu & Kashmir",
+   "type": "Commission (govt colleges)",
+   "url": "https://jkpsc.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "Jharkhand PSC",
+   "state": "Jharkhand",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.jpsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Karnataka Examinations Authority",
+   "state": "Karnataka",
+   "type": "Commission (govt colleges)",
+   "url": "https://cetonline.karnataka.gov.in/kea/",
+   "follow": true
+  },
+  {
+   "name": "Karnataka PSC",
+   "state": "Karnataka",
+   "type": "Commission (govt colleges)",
+   "url": "https://kpsc.kar.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "Kerala PSC",
+   "state": "Kerala",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.keralapsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Madhya Pradesh PSC",
+   "state": "Madhya Pradesh",
+   "type": "Commission (govt colleges)",
+   "url": "https://mppsc.mp.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Maharashtra PSC",
+   "state": "Maharashtra",
+   "type": "Commission (govt colleges)",
+   "url": "https://mpsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Manipur PSC",
+   "state": "Manipur",
+   "type": "Commission (govt colleges)",
+   "url": "https://mpscmanipur.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Meghalaya PSC",
+   "state": "Meghalaya",
+   "type": "Commission (govt colleges)",
+   "url": "https://mpsc.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "Mizoram PSC",
+   "state": "Mizoram",
+   "type": "Commission (govt colleges)",
+   "url": "https://mpsc.mizoram.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Nagaland PSC",
+   "state": "Nagaland",
+   "type": "Commission (govt colleges)",
+   "url": "https://npsc.nagaland.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Odisha PSC",
+   "state": "Odisha",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.opsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Punjab PSC",
+   "state": "Punjab",
+   "type": "Commission (govt colleges)",
+   "url": "https://ppsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Rajasthan PSC",
+   "state": "Rajasthan",
+   "type": "Commission (govt colleges)",
+   "url": "https://rpsc.rajasthan.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Sikkim PSC",
+   "state": "Sikkim",
+   "type": "Commission (govt colleges)",
+   "url": "https://spsc.sikkim.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Tamil Nadu Teachers Recruitment Board",
+   "state": "Tamil Nadu",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.trb.tn.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Tamil Nadu PSC",
+   "state": "Tamil Nadu",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.tnpsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Telangana PSC",
+   "state": "Telangana",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.tgpsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Tripura PSC",
+   "state": "Tripura",
+   "type": "Commission (govt colleges)",
+   "url": "https://tpsc.tripura.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "UP Public Service Commission",
+   "state": "Uttar Pradesh",
+   "type": "Commission (govt colleges)",
+   "url": "https://uppsc.up.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "UP Education Service Selection Commission",
+   "state": "Uttar Pradesh",
+   "type": "Commission (govt colleges)",
+   "url": "https://upessc.up.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Uttarakhand PSC",
+   "state": "Uttarakhand",
+   "type": "Commission (govt colleges)",
+   "url": "https://psc.uk.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "West Bengal College Service Commission",
+   "state": "West Bengal",
+   "type": "Commission (govt colleges)",
+   "url": "https://www.wbcsconline.in/",
+   "follow": true
+  },
+  {
+   "name": "West Bengal PSC",
+   "state": "West Bengal",
+   "type": "Commission (govt colleges)",
+   "url": "https://wbpsc.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Haryana Higher Education Dept",
+   "state": "Haryana",
+   "type": "Commission (govt colleges)",
+   "url": "https://highereduhry.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Samarth CU recruitment portal (all central universities)",
+   "state": "All India",
+   "type": "Central university",
+   "url": "https://curec.samarth.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Aligarh Muslim University",
+   "state": "Uttar Pradesh",
+   "type": "Central university",
+   "url": "https://www.amu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Banaras Hindu University",
+   "state": "Uttar Pradesh",
+   "type": "Central university",
+   "url": "https://www.bhu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Allahabad",
+   "state": "Uttar Pradesh",
+   "type": "Central university",
+   "url": "https://www.allduniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Babasaheb Bhimrao Ambedkar University",
+   "state": "Uttar Pradesh",
+   "type": "Central university",
+   "url": "https://www.bbau.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Rani Lakshmi Bai Central Agricultural University",
+   "state": "Uttar Pradesh",
+   "type": "Central university",
+   "url": "https://rlbcau.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Delhi",
+   "state": "Delhi",
+   "type": "Central university",
+   "url": "https://www.du.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Jawaharlal Nehru University",
+   "state": "Delhi",
+   "type": "Central university",
+   "url": "https://www.jnu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Jamia Millia Islamia",
+   "state": "Delhi",
+   "type": "Central university",
+   "url": "https://www.jmi.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IGNOU",
+   "state": "Delhi",
+   "type": "Central university",
+   "url": "https://www.ignou.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central Sanskrit University",
+   "state": "Delhi",
+   "type": "Central university",
+   "url": "https://www.sanskrit.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "Shri Lal Bahadur Shastri National Sanskrit University",
+   "state": "Delhi",
+   "type": "Central university",
+   "url": "https://www.slbsrsv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Hyderabad",
+   "state": "Telangana",
+   "type": "Central university",
+   "url": "https://uohyd.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Maulana Azad National Urdu University",
+   "state": "Telangana",
+   "type": "Central university",
+   "url": "https://manuu.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "English and Foreign Languages University",
+   "state": "Telangana",
+   "type": "Central university",
+   "url": "https://www.efluniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Pondicherry University",
+   "state": "Puducherry",
+   "type": "Central university",
+   "url": "https://www.pondiuni.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Visva-Bharati",
+   "state": "West Bengal",
+   "type": "Central university",
+   "url": "https://www.visvabharati.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "North-Eastern Hill University",
+   "state": "Meghalaya",
+   "type": "Central university",
+   "url": "https://nehu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Assam University",
+   "state": "Assam",
+   "type": "Central university",
+   "url": "https://www.aus.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Tezpur University",
+   "state": "Assam",
+   "type": "Central university",
+   "url": "https://www.tezu.ernet.in/",
+   "follow": true
+  },
+  {
+   "name": "Nagaland University",
+   "state": "Nagaland",
+   "type": "Central university",
+   "url": "https://nagalanduniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Mizoram University",
+   "state": "Mizoram",
+   "type": "Central university",
+   "url": "https://mzu.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Manipur University",
+   "state": "Manipur",
+   "type": "Central university",
+   "url": "https://www.manipuruniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central Agricultural University, Imphal",
+   "state": "Manipur",
+   "type": "Central university",
+   "url": "https://www.cau.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Tripura University",
+   "state": "Tripura",
+   "type": "Central university",
+   "url": "https://www.tripurauniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Sikkim University",
+   "state": "Sikkim",
+   "type": "Central university",
+   "url": "https://cus.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Rajiv Gandhi University",
+   "state": "Arunachal Pradesh",
+   "type": "Central university",
+   "url": "https://www.rgu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Mahatma Gandhi Antarrashtriya Hindi Vishwavidyalaya",
+   "state": "Maharashtra",
+   "type": "Central university",
+   "url": "https://www.hindivishwa.org/",
+   "follow": true
+  },
+  {
+   "name": "Dr. Harisingh Gour Vishwavidyalaya",
+   "state": "Madhya Pradesh",
+   "type": "Central university",
+   "url": "https://www.dhsgsu.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Indira Gandhi National Tribal University",
+   "state": "Madhya Pradesh",
+   "type": "Central university",
+   "url": "https://www.igntu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Guru Ghasidas Vishwavidyalaya",
+   "state": "Chhattisgarh",
+   "type": "Central university",
+   "url": "https://www.ggu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "HNB Garhwal University",
+   "state": "Uttarakhand",
+   "type": "Central university",
+   "url": "https://www.hnbgu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of South Bihar",
+   "state": "Bihar",
+   "type": "Central university",
+   "url": "https://www.cusb.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Mahatma Gandhi Central University",
+   "state": "Bihar",
+   "type": "Central university",
+   "url": "https://www.mgcub.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Dr. Rajendra Prasad Central Agricultural University",
+   "state": "Bihar",
+   "type": "Central university",
+   "url": "https://www.rpcau.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Gujarat",
+   "state": "Gujarat",
+   "type": "Central university",
+   "url": "https://www.cug.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Haryana",
+   "state": "Haryana",
+   "type": "Central university",
+   "url": "https://www.cuh.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Himachal Pradesh",
+   "state": "Himachal Pradesh",
+   "type": "Central university",
+   "url": "https://www.cuhimachal.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Jammu",
+   "state": "Jammu & Kashmir",
+   "type": "Central university",
+   "url": "https://www.cujammu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Kashmir",
+   "state": "Jammu & Kashmir",
+   "type": "Central university",
+   "url": "https://www.cukashmir.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Jharkhand",
+   "state": "Jharkhand",
+   "type": "Central university",
+   "url": "https://www.cuj.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Karnataka",
+   "state": "Karnataka",
+   "type": "Central university",
+   "url": "https://www.cuk.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Kerala",
+   "state": "Kerala",
+   "type": "Central university",
+   "url": "https://www.cukerala.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Odisha",
+   "state": "Odisha",
+   "type": "Central university",
+   "url": "https://cuo.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Punjab",
+   "state": "Punjab",
+   "type": "Central university",
+   "url": "https://www.cup.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Rajasthan",
+   "state": "Rajasthan",
+   "type": "Central university",
+   "url": "https://www.curaj.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Tamil Nadu",
+   "state": "Tamil Nadu",
+   "type": "Central university",
+   "url": "https://cutn.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central University of Andhra Pradesh",
+   "state": "Andhra Pradesh",
+   "type": "Central university",
+   "url": "https://cuap.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Central Tribal University of Andhra Pradesh",
+   "state": "Andhra Pradesh",
+   "type": "Central university",
+   "url": "https://ctuap.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "National Sanskrit University, Tirupati",
+   "state": "Andhra Pradesh",
+   "type": "Central university",
+   "url": "https://nsktu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Indian Maritime University",
+   "state": "Tamil Nadu",
+   "type": "Central university",
+   "url": "https://www.imu.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Bombay",
+   "state": "Maharashtra",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitb.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Delhi",
+   "state": "Delhi",
+   "type": "IIT / IISc / IISER",
+   "url": "https://home.iitd.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Kanpur",
+   "state": "Uttar Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitk.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Madras",
+   "state": "Tamil Nadu",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitm.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Kharagpur",
+   "state": "West Bengal",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitkgp.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Roorkee",
+   "state": "Uttarakhand",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitr.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Guwahati",
+   "state": "Assam",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitg.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Hyderabad",
+   "state": "Telangana",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iith.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Bhubaneswar",
+   "state": "Odisha",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitbbs.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Gandhinagar",
+   "state": "Gujarat",
+   "type": "IIT / IISc / IISER",
+   "url": "https://iitgn.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Jodhpur",
+   "state": "Rajasthan",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitj.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Patna",
+   "state": "Bihar",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitp.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Ropar",
+   "state": "Punjab",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitrpr.ac.in/jobs/faculty-positions",
+   "follow": false
+  },
+  {
+   "name": "IIT Mandi",
+   "state": "Himachal Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitmandi.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Indore",
+   "state": "Madhya Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iiti.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT (BHU) Varanasi",
+   "state": "Uttar Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitbhu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Palakkad",
+   "state": "Kerala",
+   "type": "IIT / IISc / IISER",
+   "url": "https://iitpkd.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Tirupati",
+   "state": "Andhra Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iittp.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Jammu",
+   "state": "Jammu & Kashmir",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitjammu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Dharwad",
+   "state": "Karnataka",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitdh.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Bhilai",
+   "state": "Chhattisgarh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitbhilai.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT Goa",
+   "state": "Goa",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitgoa.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IIT (ISM) Dhanbad",
+   "state": "Jharkhand",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iitism.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISc Bangalore",
+   "state": "Karnataka",
+   "type": "IIT / IISc / IISER",
+   "url": "https://iisc.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Pune",
+   "state": "Maharashtra",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iiserpune.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Kolkata",
+   "state": "West Bengal",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iiserkol.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Mohali",
+   "state": "Punjab",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iisermohali.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Bhopal",
+   "state": "Madhya Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iiserb.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Thiruvananthapuram",
+   "state": "Kerala",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iisertvm.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Tirupati",
+   "state": "Andhra Pradesh",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iisertirupati.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "IISER Berhampur",
+   "state": "Odisha",
+   "type": "IIT / IISc / IISER",
+   "url": "https://www.iiserbpr.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "type": "NIT",
+   "url": "https://www.nitt.edu/",
+   "follow": true
+  },
+  {
+   "name": "NIT Karnataka (Surathkal)",
+   "state": "Karnataka",
+   "type": "NIT",
+   "url": "https://www.nitk.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Warangal",
+   "state": "Telangana",
+   "type": "NIT",
+   "url": "https://www.nitw.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Calicut",
+   "state": "Kerala",
+   "type": "NIT",
+   "url": "https://nitc.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Rourkela",
+   "state": "Odisha",
+   "type": "NIT",
+   "url": "https://www.nitrkl.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "MNIT Jaipur",
+   "state": "Rajasthan",
+   "type": "NIT",
+   "url": "https://www.mnit.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "MANIT Bhopal",
+   "state": "Madhya Pradesh",
+   "type": "NIT",
+   "url": "https://www.manit.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "VNIT Nagpur",
+   "state": "Maharashtra",
+   "type": "NIT",
+   "url": "https://vnit.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "MNNIT Allahabad",
+   "state": "Uttar Pradesh",
+   "type": "NIT",
+   "url": "https://www.mnnit.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Durgapur",
+   "state": "West Bengal",
+   "type": "NIT",
+   "url": "https://nitdgp.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Jalandhar",
+   "state": "Punjab",
+   "type": "NIT",
+   "url": "https://www.nitj.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Kurukshetra",
+   "state": "Haryana",
+   "type": "NIT",
+   "url": "https://nitkkr.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Patna",
+   "state": "Bihar",
+   "type": "NIT",
+   "url": "https://www.nitp.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Raipur",
+   "state": "Chhattisgarh",
+   "type": "NIT",
+   "url": "https://www.nitrr.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Srinagar",
+   "state": "Jammu & Kashmir",
+   "type": "NIT",
+   "url": "https://nitsri.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Hamirpur",
+   "state": "Himachal Pradesh",
+   "type": "NIT",
+   "url": "https://nith.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Jamshedpur",
+   "state": "Jharkhand",
+   "type": "NIT",
+   "url": "https://www.nitjsr.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Silchar",
+   "state": "Assam",
+   "type": "NIT",
+   "url": "https://www.nits.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "SVNIT Surat",
+   "state": "Gujarat",
+   "type": "NIT",
+   "url": "https://www.svnit.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Meghalaya",
+   "state": "Meghalaya",
+   "type": "NIT",
+   "url": "https://www.nitmeghalaya.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Manipur",
+   "state": "Manipur",
+   "type": "NIT",
+   "url": "https://www.nitmanipur.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Mizoram",
+   "state": "Mizoram",
+   "type": "NIT",
+   "url": "https://www.nitmz.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Nagaland",
+   "state": "Nagaland",
+   "type": "NIT",
+   "url": "https://www.nitnagaland.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Arunachal Pradesh",
+   "state": "Arunachal Pradesh",
+   "type": "NIT",
+   "url": "https://www.nitap.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Sikkim",
+   "state": "Sikkim",
+   "type": "NIT",
+   "url": "https://www.nitsikkim.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Agartala",
+   "state": "Tripura",
+   "type": "NIT",
+   "url": "https://www.nita.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Goa",
+   "state": "Goa",
+   "type": "NIT",
+   "url": "https://www.nitgoa.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Puducherry",
+   "state": "Puducherry",
+   "type": "NIT",
+   "url": "https://www.nitpy.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Uttarakhand",
+   "state": "Uttarakhand",
+   "type": "NIT",
+   "url": "https://nituk.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Delhi",
+   "state": "Delhi",
+   "type": "NIT",
+   "url": "https://nitdelhi.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NIT Andhra Pradesh",
+   "state": "Andhra Pradesh",
+   "type": "NIT",
+   "url": "https://www.nitandhra.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS New Delhi",
+   "state": "Delhi",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiims.edu/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Bhopal",
+   "state": "Madhya Pradesh",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsbhopal.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Bhubaneswar",
+   "state": "Odisha",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsbhubaneswar.nic.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Jodhpur",
+   "state": "Rajasthan",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsjodhpur.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Patna",
+   "state": "Bihar",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimspatna.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Raipur",
+   "state": "Chhattisgarh",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsraipur.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Rishikesh",
+   "state": "Uttarakhand",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsrishikesh.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Bathinda",
+   "state": "Punjab",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsbathinda.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Nagpur",
+   "state": "Maharashtra",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsnagpur.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Mangalagiri",
+   "state": "Andhra Pradesh",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsmangalagiri.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Gorakhpur",
+   "state": "Uttar Pradesh",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsgorakhpur.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Raebareli",
+   "state": "Uttar Pradesh",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsrbl.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Deoghar",
+   "state": "Jharkhand",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsdeoghar.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Bibinagar",
+   "state": "Telangana",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsbibinagar.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Guwahati",
+   "state": "Assam",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsguwahati.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Rajkot",
+   "state": "Gujarat",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimsrajkot.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Bilaspur",
+   "state": "Himachal Pradesh",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsbilaspur.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Kalyani",
+   "state": "West Bengal",
+   "type": "AIIMS / medical institute",
+   "url": "https://aiimskalyani.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "AIIMS Jammu",
+   "state": "Jammu & Kashmir",
+   "type": "AIIMS / medical institute",
+   "url": "https://www.aiimsjammu.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "PGIMER Chandigarh",
+   "state": "Chandigarh",
+   "type": "AIIMS / medical institute",
+   "url": "https://pgimer.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "JIPMER Puducherry",
+   "state": "Puducherry",
+   "type": "AIIMS / medical institute",
+   "url": "https://jipmer.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Andhra University",
+   "state": "Andhra Pradesh",
+   "type": "State university",
+   "url": "https://www.andhrauniversity.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Sri Venkateswara University",
+   "state": "Andhra Pradesh",
+   "type": "State university",
+   "url": "https://www.svuniversity.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "Acharya Nagarjuna University",
+   "state": "Andhra Pradesh",
+   "type": "State university",
+   "url": "https://www.anu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "JNTU Kakinada",
+   "state": "Andhra Pradesh",
+   "type": "State university",
+   "url": "https://www.jntuk.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "JNTU Anantapur",
+   "state": "Andhra Pradesh",
+   "type": "State university",
+   "url": "https://www.jntua.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Gauhati University",
+   "state": "Assam",
+   "type": "State university",
+   "url": "https://gauhati.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Dibrugarh University",
+   "state": "Assam",
+   "type": "State university",
+   "url": "https://dibru.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Cotton University",
+   "state": "Assam",
+   "type": "State university",
+   "url": "https://cottonuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Patna University",
+   "state": "Bihar",
+   "type": "State university",
+   "url": "https://www.patnauniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "L.N. Mithila University",
+   "state": "Bihar",
+   "type": "State university",
+   "url": "https://www.lnmu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Pt. Ravishankar Shukla University",
+   "state": "Chhattisgarh",
+   "type": "State university",
+   "url": "https://www.prsu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CSVTU Bhilai",
+   "state": "Chhattisgarh",
+   "type": "State university",
+   "url": "https://csvtu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Goa University",
+   "state": "Goa",
+   "type": "State university",
+   "url": "https://www.unigoa.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Gujarat University",
+   "state": "Gujarat",
+   "type": "State university",
+   "url": "https://www.gujaratuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "M.S. University of Baroda",
+   "state": "Gujarat",
+   "type": "State university",
+   "url": "https://www.msubaroda.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Saurashtra University",
+   "state": "Gujarat",
+   "type": "State university",
+   "url": "https://www.saurashtrauniversity.edu/",
+   "follow": true
+  },
+  {
+   "name": "Veer Narmad South Gujarat University",
+   "state": "Gujarat",
+   "type": "State university",
+   "url": "https://www.vnsgu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Sardar Patel University",
+   "state": "Gujarat",
+   "type": "State university",
+   "url": "https://www.spuvvn.edu/",
+   "follow": true
+  },
+  {
+   "name": "Himachal Pradesh University",
+   "state": "Himachal Pradesh",
+   "type": "State university",
+   "url": "https://www.hpuniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Jammu",
+   "state": "Jammu & Kashmir",
+   "type": "State university",
+   "url": "https://www.jammuuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Kashmir",
+   "state": "Jammu & Kashmir",
+   "type": "State university",
+   "url": "https://www.kashmiruniversity.net/",
+   "follow": true
+  },
+  {
+   "name": "Ranchi University",
+   "state": "Jharkhand",
+   "type": "State university",
+   "url": "https://www.ranchiuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Vinoba Bhave University",
+   "state": "Jharkhand",
+   "type": "State university",
+   "url": "https://www.vbu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Mysore",
+   "state": "Karnataka",
+   "type": "State university",
+   "url": "https://uni-mysore.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Bangalore University",
+   "state": "Karnataka",
+   "type": "State university",
+   "url": "https://bangaloreuniversity.karnataka.gov.in/",
+   "follow": true
+  },
+  {
+   "name": "Karnatak University Dharwad",
+   "state": "Karnataka",
+   "type": "State university",
+   "url": "https://www.kud.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Mangalore University",
+   "state": "Karnataka",
+   "type": "State university",
+   "url": "https://mangaloreuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Visvesvaraya Technological University",
+   "state": "Karnataka",
+   "type": "State university",
+   "url": "https://vtu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Kerala",
+   "state": "Kerala",
+   "type": "State university",
+   "url": "https://www.keralauniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Calicut",
+   "state": "Kerala",
+   "type": "State university",
+   "url": "https://www.uoc.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Mahatma Gandhi University",
+   "state": "Kerala",
+   "type": "State university",
+   "url": "https://www.mgu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CUSAT",
+   "state": "Kerala",
+   "type": "State university",
+   "url": "https://www.cusat.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Kannur University",
+   "state": "Kerala",
+   "type": "State university",
+   "url": "https://www.kannuruniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Devi Ahilya Vishwavidyalaya",
+   "state": "Madhya Pradesh",
+   "type": "State university",
+   "url": "https://www.dauniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Barkatullah University",
+   "state": "Madhya Pradesh",
+   "type": "State university",
+   "url": "https://www.bubhopal.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Jiwaji University",
+   "state": "Madhya Pradesh",
+   "type": "State university",
+   "url": "https://www.jiwaji.edu/",
+   "follow": true
+  },
+  {
+   "name": "RGPV Bhopal",
+   "state": "Madhya Pradesh",
+   "type": "State university",
+   "url": "https://www.rgpv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Savitribai Phule Pune University",
+   "state": "Maharashtra",
+   "type": "State university",
+   "url": "https://www.unipune.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Mumbai",
+   "state": "Maharashtra",
+   "type": "State university",
+   "url": "https://mu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "RTM Nagpur University",
+   "state": "Maharashtra",
+   "type": "State university",
+   "url": "https://www.nagpuruniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Dr. Babasaheb Ambedkar Marathwada University",
+   "state": "Maharashtra",
+   "type": "State university",
+   "url": "https://www.bamu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Shivaji University",
+   "state": "Maharashtra",
+   "type": "State university",
+   "url": "https://www.unishivaji.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Utkal University",
+   "state": "Odisha",
+   "type": "State university",
+   "url": "https://utkaluniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Sambalpur University",
+   "state": "Odisha",
+   "type": "State university",
+   "url": "https://www.suniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Ravenshaw University",
+   "state": "Odisha",
+   "type": "State university",
+   "url": "https://www.ravenshawuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "BPUT",
+   "state": "Odisha",
+   "type": "State university",
+   "url": "https://www.bput.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Rajasthan",
+   "state": "Rajasthan",
+   "type": "State university",
+   "url": "https://www.uniraj.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Mohanlal Sukhadia University",
+   "state": "Rajasthan",
+   "type": "State university",
+   "url": "https://www.mlsu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Jai Narain Vyas University",
+   "state": "Rajasthan",
+   "type": "State university",
+   "url": "https://www.jnvu.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "M.D.S. University Ajmer",
+   "state": "Rajasthan",
+   "type": "State university",
+   "url": "https://www.mdsuajmer.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Rajasthan Technical University",
+   "state": "Rajasthan",
+   "type": "State university",
+   "url": "https://www.rtu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Madras",
+   "state": "Tamil Nadu",
+   "type": "State university",
+   "url": "https://www.unom.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Anna University",
+   "state": "Tamil Nadu",
+   "type": "State university",
+   "url": "https://www.annauniv.edu/",
+   "follow": true
+  },
+  {
+   "name": "Bharathidasan University",
+   "state": "Tamil Nadu",
+   "type": "State university",
+   "url": "https://www.bdu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Bharathiar University",
+   "state": "Tamil Nadu",
+   "type": "State university",
+   "url": "https://b-u.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Madurai Kamaraj University",
+   "state": "Tamil Nadu",
+   "type": "State university",
+   "url": "https://mkuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Annamalai University",
+   "state": "Tamil Nadu",
+   "type": "State university",
+   "url": "https://annamalaiuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Osmania University",
+   "state": "Telangana",
+   "type": "State university",
+   "url": "https://www.osmania.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Kakatiya University",
+   "state": "Telangana",
+   "type": "State university",
+   "url": "https://www.kakatiya.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "JNTU Hyderabad",
+   "state": "Telangana",
+   "type": "State university",
+   "url": "https://jntuh.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Lucknow",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://www.lkouniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CCS University Meerut",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://www.ccsuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CSJM University Kanpur",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://csjmu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "DDU Gorakhpur University",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://ddugu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "MJP Rohilkhand University",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://www.mjpru.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "AKTU Lucknow",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://aktu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Bundelkhand University",
+   "state": "Uttar Pradesh",
+   "type": "State university",
+   "url": "https://www.bujhansi.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Kumaun University",
+   "state": "Uttarakhand",
+   "type": "State university",
+   "url": "https://www.kumaun.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Uttarakhand Open University",
+   "state": "Uttarakhand",
+   "type": "State university",
+   "url": "https://uou.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Calcutta",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://www.caluniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Jadavpur University",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://jadavpuruniversity.in/",
+   "follow": true
+  },
+  {
+   "name": "West Bengal State University",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://www.wbsu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of North Bengal",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://www.nbu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "University of Burdwan",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://www.buruniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Vidyasagar University",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://www.vidyasagar.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Presidency University",
+   "state": "West Bengal",
+   "type": "State university",
+   "url": "https://www.presiuniv.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "GGSIP University",
+   "state": "Delhi",
+   "type": "State university",
+   "url": "http://www.ipu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Delhi Technological University",
+   "state": "Delhi",
+   "type": "State university",
+   "url": "https://dtu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Ambedkar University Delhi",
+   "state": "Delhi",
+   "type": "State university",
+   "url": "https://aud.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "NSUT",
+   "state": "Delhi",
+   "type": "State university",
+   "url": "https://www.nsut.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CCS Haryana Agricultural University",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://recruitmentccshau.in/",
+   "follow": false
+  },
+  {
+   "name": "Kurukshetra University",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://kuk.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "MDU Rohtak",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://mdu.ac.in/admin/EventPage.aspx?id=1007",
+   "follow": false
+  },
+  {
+   "name": "GJU Hisar",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.gjust.ac.in/Page/Index_notification/Job/672",
+   "follow": false
+  },
+  {
+   "name": "CDLU Sirsa",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.cdlu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CBLU Bhiwani",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://cblu.ac.in/?page_id=2735",
+   "follow": false
+  },
+  {
+   "name": "Indira Gandhi University, Meerpur",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://igu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "CRSU Jind",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://crsu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Gurugram University",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://gurugramuniversity.ac.in/allNotifications/recruitmentNotice/index.php",
+   "follow": false
+  },
+  {
+   "name": "J.C. Bose UST, Faridabad",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://jcboseust.ac.in/archive_notice?type=recruitment",
+   "follow": false
+  },
+  {
+   "name": "DCRUST Murthal",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.dcrustm.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "BPS Mahila Vishwavidyalaya",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://bpswomenuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "LUVAS Hisar",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.luvas.edu.in/",
+   "follow": true
+  },
+  {
+   "name": "MHU Karnal",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.mhu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "UHS Rohtak",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.uhsr.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Shri Krishna AYUSH University",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://skau.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "DBRANLU Sonipat",
+   "state": "Haryana",
+   "type": "State university",
+   "url": "https://www.dbranlu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "GNDU Amritsar",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "http://online.gndu.ac.in/career-with-us.aspx",
+   "follow": false
+  },
+  {
+   "name": "Punjabi University, Patiala",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://www.punjabiuniversity.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "PAU Ludhiana",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://www.pau.edu/",
+   "follow": true
+  },
+  {
+   "name": "GADVASU Ludhiana",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://www.gadvasu.in/",
+   "follow": true
+  },
+  {
+   "name": "BFUHS Faridkot",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://bfuhs.ggsmch.org/university-recruitment/",
+   "follow": false
+  },
+  {
+   "name": "IKGPTU Kapurthala",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://ptu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "MRSPTU Bathinda",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://mrsptu.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "PSOU Patiala",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://psou.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "RGNUL Patiala",
+   "state": "Punjab",
+   "type": "State university",
+   "url": "https://www.rgnul.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Panjab University (own departments)",
+   "state": "Chandigarh",
+   "type": "State university",
+   "url": "https://onlinejobs.puchd.ac.in/",
+   "follow": false
+  }
+ ]
+}

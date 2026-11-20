@@ -1,0 +1,88 @@
+{
+ "rows": [
+  {
+   "id": "ppsc-1091",
+   "state": "Punjab",
+   "body": "PPSC - Punjab government colleges",
+   "item": "1,091 Assistant Professor + 67 Librarian posts",
+   "status": "Approved by the Punjab Cabinet on 7 Mar 2026; a PPSC advertisement is not confirmed yet",
+   "next": "Watch ppsc.gov.in. This replaces the 2021 drive that the Supreme Court cancelled on 14 Jul 2025.",
+   "link": "https://ppsc.gov.in",
+   "source": "https://www.babushahi.com/view-news.php?id=218118"
+  },
+  {
+   "id": "hpsc-2424",
+   "state": "Haryana",
+   "body": "HPSC - Haryana government colleges",
+   "item": "2,424 Assistant Professor (College Cadre) posts, Advt. 42-67 of 2024",
+   "status": "Subject-wise results still being declared; latest notice 16 Nov 2026 (History)",
+   "next": "No new HPSC Assistant Professor advertisement found yet for 2026-27. Watch hpsc.gov.in.",
+   "link": "https://hpsc.gov.in/en-us/",
+   "source": "https://hpsc.gov.in/Portals/0/Ann_Inclus_Result_AP_History_16_11_2026.pdf"
+  },
+  {
+   "id": "iit-ropar-rolling",
+   "state": "Punjab",
+   "body": "IIT Ropar",
+   "item": "Rolling faculty advertisement (Assistant Professor Grade I / II)",
+   "status": "Rolling - applications processed periodically; Ph.D. required",
+   "next": "Check open departments and areas on the faculty positions page.",
+   "link": "https://www.iitrpr.ac.in/jobs/faculty-positions",
+   "source": "https://www.iitrpr.ac.in/api/v2/files/download/150"
+  },
+  {
+   "id": "esic-ludhiana",
+   "state": "Punjab",
+   "body": "ESIC Medical College, Ludhiana",
+   "item": "Contract medical faculty incl. Assistant Professor (monthly walk-in)",
+   "status": "Monthly drive; current round: email by 19 Nov, walk-in 23 Nov 2026",
+   "next": "Next monthly round expected in December.",
+   "link": "",
+   "source": "https://govtjobsalert.in/esic-ludhiana-faculty-sr-tutor-recruitment-2026/"
+  },
+  {
+   "id": "gurugram-38",
+   "state": "Haryana",
+   "body": "Gurugram University",
+   "item": "38 regular Assistant Professor posts (Advt. T-1-12/2025)",
+   "status": "Applications closed 30 Dec 2025; results being declared subject-wise",
+   "next": "Check the recruitment notices page for results.",
+   "link": "https://gurugramuniversity.ac.in/RECRUITMENT/",
+   "source": "https://gurugramuniversity.ac.in/RECRUITMENT/"
+  },
+  {
+   "id": "mdu-withdrawal",
+   "state": "Haryana",
+   "body": "MDU Rohtak",
+   "item": "Previously advertised Assistant Professor posts",
+   "status": "Withdrawn by notice dated 22 Oct 2026",
+   "next": "Watch the MDU notices page for a fresh advertisement.",
+   "link": "https://mdu.ac.in/admin/EventPage.aspx?id=1007",
+   "source": "https://mdu.ac.in/admin/EventPage.aspx?id=1007"
+  },
+  {
+   "id": "panjab-univ",
+   "state": "Chandigarh",
+   "body": "Panjab University, Chandigarh",
+   "item": "University teaching departments",
+   "status": "No open advertisement; shortlisting for Advt. 2/2025 under way",
+   "next": "Its faculty portal also lists affiliated colleges, which are mostly private or aided, not government.",
+   "link": "https://onlinejobs.puchd.ac.in/",
+   "source": "https://onlinejobs.puchd.ac.in/"
+  }
+ ],
+ "meta": [
+  {
+   "label": "Compiled",
+   "value": "20 Nov 2026, by Claude from web searches"
+  },
+  {
+   "label": "Scope",
+   "value": "Assistant Professor posts at government universities, central institutes and PSC drives in Haryana and Punjab, all subjects"
+  },
+  {
+   "label": "Caveat",
+   "value": "Many details come from job-portal summaries; always confirm on the official advertisement before applying"
+  }
+ ]
+}
