@@ -42,7 +42,7 @@ TIMEOUT = 25
 MAX_FOLLOW = 5
 WORKERS = 16
 KEEP_DAYS = 150            # forget notices not seen for this many days
-ANALYSIS_VERSION = 2       # bump to re-read every notice after changing the tagging rules
+ANALYSIS_VERSION = 3       # bump to re-read every notice after changing the tagging rules
 ANALYSE_PER_RUN = int(os.environ.get("ANALYSE_PER_RUN", "400"))
 OCR_PER_RUN = int(os.environ.get("OCR_PER_RUN", "30"))
 MAX_DOC_BYTES = 15 * 1024 * 1024
@@ -72,7 +72,7 @@ EXCLUDE = re.compile(
     r"nominat|superannuat|retire|relieving|extension\s+of\s+(service|tenure)|re-?employment|"
     r"provisional\s+answer|objection|hall\s+ticket|call\s+letter|provisional\s+list|wait\s*-?\s*list|"
     r"eligibility\s+list|eligibility_list|regarding\s+(the\s+)?applicants|written\s+test|non[\s-]*faculty|"
-    r"screening\s+report|merit\s+list|interview\s+result|joining\s+report",
+    r"screening\s+report|merit\s+(list|panel)|interview\s+result|joining\s+report|vacancy\s+status|feedback|requisition",
     re.I)
 FOLLOW = re.compile(r"recruit|career|\bjobs?\b|vacanc|employment|advertisement|notices?\b|teaching\s+posts|"
                     r"faculty\s+(position|recruit)|opportunit", re.I)
@@ -488,6 +488,7 @@ def parse_date(m):
 def find_last_date(text, seen_on):
     """Best guess at the last date to apply: a date shortly after a 'last date' phrase."""
     lo, hi = seen_on - dt.timedelta(days=45), seen_on + dt.timedelta(days=150)
+    text = " ".join(text.split())          # PDF layouts put long runs of spaces between words
     best = None
     for k in LASTDATE_KEY.finditer(text):
         window = text[k.end(): k.end() + 160]
