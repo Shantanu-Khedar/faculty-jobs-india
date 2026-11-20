@@ -1,0 +1,58 @@
+name: India check (runs on a computer in India)
+
+# Most state commission sites (HPSC, PPSC, ...) and some universities refuse
+# connections from GitHub's servers abroad. This check reads them from a
+# self-hosted runner on a computer in India (see README). If that computer is
+# off or asleep, the run waits in the queue (up to 24 hours) until it is back.
+# Nothing is installed on the computer outside the runner's own folder.
+
+on:
+  schedule:
+    - cron: "47 4 * * *"    # every day at 10:17 IST
+  workflow_dispatch:         # run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: india-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    if: github.repository == 'Shantanu-Khedar/faculty-jobs-india'
+    runs-on: [self-hosted, macOS]
+    timeout-minutes: 60
+    steps:
+      - name: Get the code (no git needed)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf code && mkdir code
+          curl -fsSL -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/tarball/${GITHUB_SHA}" | tar -xzf - -C code --strip-components=1
+          ls code
+
+      - name: Get uv (a private copy of Python, kept inside the runner's folder)
+        run: |
+          UVDIR="$RUNNER_TOOL_CACHE/uv"
+          if [ ! -x "$UVDIR/uv" ]; then
+            mkdir -p "$UVDIR"
+            ARCH=$(uname -m); [ "$ARCH" = "arm64" ] && ARCH=aarch64
+            curl -fsSL "https://github.com/astral-sh/uv/releases/latest/download/uv-${ARCH}-apple-darwin.tar.gz" \
+              | tar -xzf - -C "$UVDIR" --strip-components=1
+          fi
+          "$UVDIR/uv" --version
+
+      - name: Check the sites that block servers abroad, and upload india.json
+        working-directory: code
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          UV_CACHE_DIR: ${{ runner.tool_cache }}/uv-cache
+          UV_PYTHON_INSTALL_DIR: ${{ runner.tool_cache }}/uv-python
+          TIME_BUDGET_SECONDS: "2700"
+          READ_WORKERS: "16"
+        run: |
+          "$RUNNER_TOOL_CACHE/uv/uv" run --no-project --python 3.12 \
+            --with requests --with pypdfium2 --with truststore \
+            python check_notices.py --group india --push

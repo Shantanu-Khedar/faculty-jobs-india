@@ -1,5 +1,8 @@
 name: Daily notice check
 
+# Reads every source in sources.json that GitHub's servers can reach.
+# Sources marked "runOn": "india" are read by india.yml on a computer in India.
+
 on:
   schedule:
     - cron: "17 1 * * *"   # every day at 06:47 IST
@@ -29,7 +32,8 @@ jobs:
       - name: Check official pages and read new notices
         env:
           TIME_BUDGET_SECONDS: "2700"
-        run: python check_notices.py
+          READ_WORKERS: "24"
+        run: python check_notices.py --group main
       - name: Save results
         run: |
           git config user.name "github-actions[bot]"
