@@ -42,6 +42,7 @@ TIMEOUT = 25
 MAX_FOLLOW = 5
 WORKERS = 16
 KEEP_DAYS = 150            # forget notices not seen for this many days
+ANALYSIS_VERSION = 2       # bump to re-read every notice after changing the tagging rules
 ANALYSE_PER_RUN = int(os.environ.get("ANALYSE_PER_RUN", "400"))
 OCR_PER_RUN = int(os.environ.get("OCR_PER_RUN", "30"))
 MAX_DOC_BYTES = 15 * 1024 * 1024
@@ -69,7 +70,9 @@ EXCLUDE = re.compile(
     r"counsel+ing|knowledge\s+test|additional\s+(duty|charge)|in-?charge|assigning|"
     r"regarding\s+(the\s+)?(appointment|assignment|nomination)\s+of\s+(prof|dr|shri|smt)|appoint(ed|ment\s+of)?\s+prof\.?\s+[a-z]|"
     r"nominat|superannuat|retire|relieving|extension\s+of\s+(service|tenure)|re-?employment|"
-    r"provisional\s+answer|objection|hall\s+ticket|call\s+letter",
+    r"provisional\s+answer|objection|hall\s+ticket|call\s+letter|provisional\s+list|wait\s*-?\s*list|"
+    r"eligibility\s+list|eligibility_list|regarding\s+(the\s+)?applicants|written\s+test|non[\s-]*faculty|"
+    r"screening\s+report|merit\s+list|interview\s+result|joining\s+report",
     re.I)
 FOLLOW = re.compile(r"recruit|career|\bjobs?\b|vacanc|employment|advertisement|notices?\b|teaching\s+posts|"
                     r"faculty\s+(position|recruit)|opportunit", re.I)
@@ -517,18 +520,30 @@ def analyse(item, allow_ocr, today):
         text, kind, ocr = "", "unreadable", False
         item["readError"] = f"{type(e).__name__}: {str(e)[:100]}"
     seen_on = dt.date.fromisoformat(item.get("firstSeen") or today)
-    posts, basis, subjects = tag(text, item["title"])
+    title = item["title"]
+    if kind == "pdf":
+        # A PDF is the notice itself: read posts, subjects and dates from its text.
+        posts, basis, subjects = tag(text, title)
+        if len(subjects) > 30:
+            # Lists nearly every subject: a general notice or a prospectus. Trust the title only.
+            subjects = tag("", title)[2]
+        last = find_last_date(text, seen_on) or find_last_date(title, seen_on)
+    else:
+        # A web page carries menus and other notices too, so only its link text is trusted.
+        posts, basis, subjects = tag("", title)
+        last = find_last_date(title, seen_on)
     item.update({
         "analysed": True,
+        "analysisVersion": ANALYSIS_VERSION,
         "docKind": kind,
         "ocr": ocr,
-        "textRead": len(text.strip()) > 150,
+        "textRead": kind == "pdf" and len(text.strip()) > 150,
         "posts": posts,
         "basis": basis,
         "subjects": subjects,
-        "lastDate": find_last_date(text, seen_on) if text else find_last_date(item["title"], seen_on),
-        "excerpt": " ".join(text.split())[:320],
-        "yearHint": year_hint(item["title"], urllib.parse.unquote(item["url"]), text[:3000]) or item.get("yearHint"),
+        "lastDate": last,
+        "excerpt": " ".join(text.split())[:320] if kind == "pdf" else "",
+        "yearHint": year_hint(title, urllib.parse.unquote(item["url"]), text[:3000] if kind == "pdf" else "") or item.get("yearHint"),
     })
     return item
 
@@ -568,7 +583,8 @@ def main():
                     new_count += 1
 
     # Read notices that haven't been read yet: new ones first, then the rest.
-    todo = [it for it in items.values() if not it.get("analysed") and it.get("lastSeen") == today]
+    todo = [it for it in items.values()
+            if it.get("lastSeen") == today and (not it.get("analysed") or it.get("analysisVersion") != ANALYSIS_VERSION)]
     todo.sort(key=lambda it: it.get("firstSeen", ""), reverse=True)   # newest first
     todo.sort(key=lambda it: it.get("baseline", False))                # then new before baseline
     todo = todo[:ANALYSE_PER_RUN]
@@ -607,7 +623,8 @@ def main():
         "sourcesTotal": len(results),
         "newToday": new_count,
         "analysedToday": analysed,
-        "waitingToBeRead": sum(1 for it in kept if not it.get("analysed") and it.get("lastSeen") == today),
+        "waitingToBeRead": sum(1 for it in kept if it.get("lastSeen") == today and
+                               (not it.get("analysed") or it.get("analysisVersion") != ANALYSIS_VERSION)),
         "everRead": ever,
         "subjectNames": [n for n, _, _ in SUBJECTS],
         "postNames": [n for n, _ in POSTS],

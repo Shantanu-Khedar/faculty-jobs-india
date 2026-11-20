@@ -310,7 +310,7 @@
     const subj = it.subjects || [];
     subj.slice(0, 10).forEach((s) => tags.append(el('span', 'chip subj', s)));
     if (subj.length > 10) tags.append(el('span', 'chip muted', '+' + (subj.length - 10) + ' more subjects'));
-    if (!subj.length) tags.append(el('span', 'chip muted', !it.analysed ? 'Subjects: not read yet' : it.textRead ? 'Subjects: not named' : 'Subjects: couldn’t read notice'));
+    if (!subj.length) tags.append(el('span', 'chip muted', !it.analysed ? 'Subjects: not read yet' : it.textRead ? 'Subjects: not named' : it.docKind === 'html' ? 'Subjects: see notice page' : 'Subjects: couldn’t read notice'));
     c.append(tags);
     const facts = el('dl', 'facts');
     const fact = (k, v) => { if (!v) return; const w = el('div'); w.append(el('dt', '', k), el('dd', '', v)); facts.append(w); };
