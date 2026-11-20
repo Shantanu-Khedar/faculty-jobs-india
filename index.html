@@ -193,7 +193,7 @@
       posts: r.postTags || [], subjects: r.subjectTags || [], basis: r.basis ? [r.basis] : [], lastDate: r.deadline, firstSeen: '2026-11-20',
       lastSeen: null, analysed: true, textRead: true, row: r,
     }));
-    const items = notices && Array.isArray(notices.items) ? notices.items : [];
+    const items = (notices && Array.isArray(notices.items) ? notices.items : []).map((it) => (!it.analysisVersion || (it.subjects || []).length > 30) ? {...it, analysed: false, subjects: [], posts: it.analysisVersion ? it.posts : [], lastDate: it.analysisVersion ? it.lastDate : ''} : it);
     all = verified.concat(items);
     watch = w.status === 'fulfilled' ? (w.value.rows || []) : [];
     buildFilters();
