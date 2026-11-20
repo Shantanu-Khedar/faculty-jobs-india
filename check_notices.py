@@ -62,7 +62,14 @@ EXCLUDE = re.compile(
     r"document\s+verification|appointment\s+letter|posting|transfer|seniority|promotion|"
     r"career\s+advancement|\bcas\b|joining|attendance|time\s*table|exam(ination)?\s+(date|schedule|centre|center)|"
     r"emeritus|professor\s+of\s+practice\s+lecture|award|felicitat|obituar|condolence|seminar|webinar|conference|"
-    r"workshop|lecture\s+series|memorial\s+lecture|admission|ph\.?\s*d\.?\s+(entrance|admission)|tender|quotation",
+    r"workshop|lecture\s+series|memorial\s+lecture|admission|ph\.?\s*d\.?\s+(entrance|admission)|tender|quotation|"
+    r"non[\s-]*teaching|project\s+(technical|assistant|associate|fellow|staff|scientist|consultant)|"
+    r"research\s+(assistant|associate|fellow)|\bjrf\b|\bsrf\b|grievance|select(ed|ion)\s+(list|candidates)|"
+    r"final\s+select|list\s+of\s+(selected|candidates|applicants)|application\s+status|selection\s+criteria|"
+    r"counsel+ing|knowledge\s+test|additional\s+(duty|charge)|in-?charge|assigning|"
+    r"regarding\s+(the\s+)?(appointment|assignment|nomination)\s+of\s+(prof|dr|shri|smt)|appoint(ed|ment\s+of)?\s+prof\.?\s+[a-z]|"
+    r"nominat|superannuat|retire|relieving|extension\s+of\s+(service|tenure)|re-?employment|"
+    r"provisional\s+answer|objection|hall\s+ticket|call\s+letter",
     re.I)
 FOLLOW = re.compile(r"recruit|career|\bjobs?\b|vacanc|employment|advertisement|notices?\b|teaching\s+posts|"
                     r"faculty\s+(position|recruit)|opportunit", re.I)
@@ -207,31 +214,45 @@ BLOCK_TAGS = {"tr", "li", "p", "dd", "dt", "h1", "h2", "h3", "h4", "h5", "h6", "
 
 
 class LinkParser(HTMLParser):
-    """Collects (link text, href, text of the surrounding row/item) for every <a>."""
+    """Collects (link text, href, text of the surrounding row/item) for every <a>.
+
+    The row/item text is used only when that row holds few links, so that
+    navigation menus don't lend their words to every link inside them."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.links, self._href, self._title, self._text = [], None, "", []
-        self._blocks = []            # stack of [tag, [text parts]]
+        self._blocks = []            # stack of [tag, [text parts], [link count]]
+        self._skip = 0
+        self._block = None
 
     def handle_starttag(self, tag, attrs):
+        if tag in ("script", "style", "noscript", "svg"):
+            self._skip += 1
+            return
         if tag in BLOCK_TAGS:
             # a <td> inside a <tr> shares the row's text
-            if tag == "td" and self._blocks and self._blocks[-1][0] == "tr":
-                return
-            self._blocks.append([tag, []])
+            if not (tag == "td" and self._blocks and self._blocks[-1][0] == "tr"):
+                self._blocks.append([tag, [], [0]])
         if tag == "a":
             a = dict(attrs)
             self._href, self._title, self._text = a.get("href"), a.get("title") or "", []
-            self._block = self._blocks[-1][1] if self._blocks else None
+            self._block = self._blocks[-1] if self._blocks else None
+            if self._block is not None:
+                self._block[2][0] += 1
 
     def handle_data(self, data):
+        if self._skip:
+            return
         if self._blocks:
             self._blocks[-1][1].append(data)
         if self._href is not None:
             self._text.append(data)
 
     def handle_endtag(self, tag):
+        if tag in ("script", "style", "noscript", "svg"):
+            self._skip = max(0, self._skip - 1)
+            return
         if tag == "a" and self._href is not None:
             text = " ".join(" ".join(self._text).split())
             self.links.append([text or self._title.strip(), self._href, self._block])
@@ -245,8 +266,10 @@ class LinkParser(HTMLParser):
     def results(self):
         out = []
         for text, href, block in self.links:
-            ctx = " ".join(" ".join(block).split()) if block is not None else ""
-            out.append((text, href, ctx[:400]))
+            ctx = ""
+            if block is not None and block[2][0] <= 3:
+                ctx = " ".join(" ".join(block[1]).split())[:400]
+            out.append((text, href, ctx))
         return out
 
 
@@ -334,6 +357,15 @@ def tidy(label):
     return " ".join(t.split())
 
 
+YEAR_RX = re.compile(r"(?<!\d)(20[12]\d)(?!\d)")
+
+
+def year_hint(*texts):
+    years = [int(y) for t in texts if t for y in YEAR_RX.findall(t)]
+    years = [y for y in years if 2010 <= y <= 2035]
+    return max(years) if years else None
+
+
 def is_notice(label):
     norm = re.sub(r"[_+]+", " ", label)
     return bool(INCLUDE.search(norm)) and not EXCLUDE.search(norm)
@@ -381,7 +413,8 @@ def scan_source(src):
                 continue
             label = tidy(label) or label
             key = hashlib.sha1((u + "|" + label.lower()).encode()).hexdigest()[:14]
-            found[key] = {"id": key, "title": label[:240], "url": u, "page": page_url}
+            found[key] = {"id": key, "title": label[:240], "url": u, "page": page_url,
+                          "yearHint": year_hint(label, urllib.parse.unquote(u))}
     res["found"] = list(found.values())
     res["matches"] = len(found)
     return res
@@ -495,6 +528,7 @@ def analyse(item, allow_ocr, today):
         "subjects": subjects,
         "lastDate": find_last_date(text, seen_on) if text else find_last_date(item["title"], seen_on),
         "excerpt": " ".join(text.split())[:320],
+        "yearHint": year_hint(item["title"], urllib.parse.unquote(item["url"]), text[:3000]) or item.get("yearHint"),
     })
     return item
 
@@ -525,6 +559,8 @@ def main():
                 it["lastSeen"] = today
                 it["url"] = f["url"]
                 it.update({"source": res["name"], "state": res["state"], "type": res["type"]})
+                if not it.get("analysed"):
+                    it["yearHint"] = f.get("yearHint")
             else:
                 items[f["id"]] = {**f, "source": res["name"], "state": res["state"], "type": res["type"],
                                   "firstSeen": today, "lastSeen": today, "baseline": first_time}
@@ -557,7 +593,8 @@ def main():
             analyse(it, True, today)
 
     cutoff = (now.date() - dt.timedelta(days=KEEP_DAYS)).isoformat()
-    kept = [it for it in items.values() if it.get("lastSeen", today) >= cutoff]
+    kept = [it for it in items.values()
+            if it.get("lastSeen", today) >= cutoff and (it.get("verifiedRule") or is_notice(it.get("title", "")))]
     kept.sort(key=lambda it: (it.get("firstSeen", ""), it.get("source", "")), reverse=True)
 
     health = [{k: r[k] for k in ("name", "state", "type", "url", "ok", "error", "pagesChecked", "matches")}

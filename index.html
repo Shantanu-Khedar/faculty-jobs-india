@@ -205,6 +205,7 @@
 
   function isListedNow(it) { return it.verified || !notices || !notices.checkedDate || it.lastSeen === notices.checkedDate; }
   function daysLeft(it) { return it.lastDate ? Math.round(dayNum(it.lastDate) - dayNum(today)) : null; }
+  function isOld(it) { const y = it.yearHint; const cy = Number(today.slice(0, 4)); const d = daysLeft(it); return !!y && y < cy - 1 && !(d !== null && d >= 0); }
   function isNew(it, days) { return !it.verified && !it.baseline && it.firstSeen && dayNum(today) - dayNum(it.firstSeen) <= days; }
 
   function buildFilters() {
@@ -246,7 +247,7 @@
         if (!(unread && (!it.analysed || !it.textRead || !(it.subjects || []).length))) return false;
       }
       const d = daysLeft(it);
-      if (f.show === 'open') { if (!isListedNow(it) && !isNew(it, 30)) return false; if (d !== null && d < 0) return false; }
+      if (f.show === 'open') { if (!isListedNow(it) && !isNew(it, 30)) return false; if (d !== null && d < 0) return false; if (isOld(it)) return false; }
       if (f.show === 'new7' && !isNew(it, 7)) return false;
       if (f.show === 'new30' && !isNew(it, 30)) return false;
       if (f.show === 'all' && !isListedNow(it)) return false;
@@ -266,6 +267,11 @@
       if (a.verified !== b.verified && f.sort !== 'deadline') { /* keep verified near the top only when they are open */ }
       const fa = a.baseline ? '' : (a.firstSeen || ''), fb = b.baseline ? '' : (b.firstSeen || '');
       if (fa !== fb) return fb.localeCompare(fa);
+      if (a.verified !== b.verified) return a.verified ? -1 : 1;
+      const ya = a.yearHint || 0, yb = b.yearHint || 0;
+      if (ya !== yb) return yb - ya;
+      const la = a.lastDate || '', lb = b.lastDate || '';
+      if (la !== lb) return lb.localeCompare(la);
       return (a.source || '').localeCompare(b.source || '');
     });
     return rows;
@@ -293,6 +299,7 @@
     chips.append(el('span', 'chip', it.state || ''));
     if (it.type) chips.append(el('span', 'chip muted', it.type));
     (it.basis || []).slice(0, 2).forEach((b) => chips.append(el('span', 'chip muted', b)));
+    if (isOld(it)) chips.append(el('span', 'chip muted', 'Older notice (' + it.yearHint + ')'));
     const badge = el('span', 'badge ' + (d === null ? 'unknown' : past ? 'past' : d <= 7 ? 'soon' : 'open'),
       d === null ? 'Last date: see notice' : past ? 'Closed' : d === 0 ? 'Last day today' : d + (d === 1 ? ' day left' : ' days left'));
     top.append(chips, badge);
