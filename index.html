@@ -100,6 +100,8 @@
     <div class="kpi"><p class="label">Marked “Applied” by you</p><p class="value" id="k-applied">–</p><p class="note">Saved in this browser</p></div>
   </div>
 
+  <p class="sub dir"><a href="institutions.html">Browse all universities and colleges we check — Haryana, Punjab, Rajasthan, Delhi, UP and the rest of India →</a></p>
+
   <section class="manual" id="manual" hidden>
     <h2>Check these pages by hand</h2>
     <p class="h2note">These official pages block automated checks, so their new notices may be missing below. Open them yourself now and then.</p>
@@ -113,6 +115,9 @@
       </label>
       <label>State / UT
         <select id="f-state"><option value="">All of India</option></select>
+      </label>
+      <label>District
+        <select id="f-district"><option value="">Pick a state first</option></select>
       </label>
       <label>Subject
         <select id="f-subject"><option value="">Any subject</option></select>
@@ -195,7 +200,7 @@
   const saveMine = () => { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} };
 
   const KIND_TO_TYPE = {'State university': 'State university', 'Central university': 'Central university', 'Central govt institute': 'AIIMS / medical institute', 'Public Service Commission': 'Commission (govt colleges)'};
-  let all = [], notices = null, watch = [], shown = PAGE, today = todayIST();
+  let all = [], notices = null, watch = [], shown = PAGE, today = todayIST(), onlySrc = '';
 
   const getJSON = (f) => fetch(f + '?v=' + Date.now(), {cache: 'no-store'}).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
   // notices.json comes from the check on GitHub; india.json from the check on a computer in India.
@@ -266,18 +271,30 @@
     fill($('#f-subject'), [...subjects].sort((a, b) => a.localeCompare(b)));
     fill($('#f-post'), posts);
     fill($('#f-type'), types);
+    buildDistricts();
+  }
+  function buildDistricts() {
+    const st = $('#f-state').value, sel = $('#f-district'), cur = sel.value;
+    const ds = st ? [...new Set(all.filter((i) => i.state === st).map((i) => i.district).concat((notices && notices.health || []).filter((h) => h.state === st).map((h) => h.district)).filter(Boolean))].sort() : [];
+    sel.replaceChildren(new Option(st ? (ds.length ? 'Any district' : 'No districts listed') : 'Pick a state first', ''), ...ds.map((d) => new Option(d, d)));
+    if (ds.includes(cur)) sel.value = cur;
+    sel.disabled = !ds.length;
   }
 
-  const F = ['q', 'state', 'subject', 'post', 'type', 'show', 'sort'];
+  const F = ['q', 'state', 'district', 'subject', 'post', 'type', 'show', 'sort'];
   function readURL() {
     const p = new URLSearchParams(location.search);
     F.forEach((k) => { const v = p.get(k); if (v !== null) { const e = $('#f-' + k); if (e) e.value = v; } });
     if (p.get('unread') === '1') $('#f-unread').checked = true;
+    buildDistricts();
+    if (p.get('district')) $('#f-district').value = p.get('district');
+    onlySrc = p.get('src') || '';
   }
   function writeURL() {
     const p = new URLSearchParams();
     F.forEach((k) => { const v = $('#f-' + k).value; if (v && !(k === 'show' && v === 'open') && !(k === 'sort' && v === 'new')) p.set(k, v); });
     if ($('#f-unread').checked) p.set('unread', '1');
+    if (onlySrc) p.set('src', onlySrc);
     history.replaceState(null, '', p.toString() ? '?' + p : location.pathname);
   }
 
@@ -289,6 +306,8 @@
     const rows = all.filter((it) => {
       if (!updates && it.stage === 'update' && !mine[it.id]) return false;
       if (f.state && it.state !== f.state && it.state !== 'All India') return false;
+      if (f.district && it.district !== f.district) return false;
+      if (onlySrc && it.source !== onlySrc) return false;
       if (f.type && it.type !== f.type) return false;
       if (f.post && !(it.posts || []).includes(f.post)) {
         if (!(unread && !it.textRead && !(it.posts || []).length)) return false;
@@ -332,6 +351,7 @@
     const rows = filtered();
     const total = all.length;
     $('#count').replaceChildren('Showing ', el('b', '', String(Math.min(rows.length, shown))), ' of ', el('b', '', String(rows.length)), ' matching notices', total ? ' (' + total + ' tracked in all).' : '.');
+    if (onlySrc) { const a = el('a', '', 'show all'); a.href = '#'; a.addEventListener('click', (e) => { e.preventDefault(); onlySrc = ''; onChange(); }); $('#count').append(' Only notices from ', el('b', '', onlySrc), ' — ', a, '.'); }
     $('#results').replaceChildren(...rows.slice(0, shown).map(card));
     if (!rows.length) $('#results').append(el('p', 'empty', notices && notices.checkedAt ? 'Nothing matches these filters. Try “Everything currently listed”, another subject, or tick the box to include notices whose subjects couldn’t be read.' : 'The first daily check hasn’t run yet, so only the hand-checked openings are listed.'));
     $('#more').hidden = rows.length <= shown;
@@ -346,7 +366,7 @@
     const chips = el('div', 'chips');
     if (it.verified) chips.append(el('span', 'chip ver', 'Verified details'));
     if (isNew(it, 7)) chips.append(el('span', 'chip new', 'New'));
-    chips.append(el('span', 'chip', it.state || ''));
+    chips.append(el('span', 'chip', (it.state || '') + (it.district ? ' · ' + it.district : '')));
     if (it.type) chips.append(el('span', 'chip muted', it.type));
     (it.basis || []).slice(0, 2).forEach((b) => chips.append(el('span', 'chip muted', b)));
     if (it.stage === 'update') chips.append(el('span', 'chip muted', 'Update for applicants'));
@@ -439,12 +459,13 @@
     const h = (notices && notices.health || []).filter((s) => !s.ok && !s.pending);
     const home = (s) => s.state === 'Haryana' || s.state === 'Punjab' ? 0 : 1;
     h.sort((a, b) => home(a) - home(b) || (a.state || '').localeCompare(b.state || '') || a.name.localeCompare(b.name));
-    $('#manual-list').replaceChildren(...h.map((s) => {
+    $('#manual-list').replaceChildren(...h.slice(0, 24).map((s) => {
       const a = el('a', home(s) ? '' : 'hp', s.name + ' · ' + s.state);
       const u = safeUrl(MANUAL_URL[s.name] || s.url); if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
       return a;
     }));
     $('#manual').hidden = !h.length;
+    if (h.length > 24) { const more = el('a', '', 'See all ' + h.length + ' in the list of institutions →'); more.href = 'institutions.html?show=bad&state='; $('#manual-list').append(more); }
   }
 
   function renderHealth() {
@@ -461,10 +482,11 @@
   }
 
   const onChange = () => { shown = PAGE; writeURL(); render(); };
-  ['#f-state', '#f-subject', '#f-post', '#f-type', '#f-show', '#f-sort', '#f-unread', '#f-updates'].forEach((s) => $(s).addEventListener('change', onChange));
+  $('#f-state').addEventListener('change', () => { buildDistricts(); $('#f-district').value = ''; onChange(); });
+  ['#f-district', '#f-subject', '#f-post', '#f-type', '#f-show', '#f-sort', '#f-unread', '#f-updates'].forEach((s) => $(s).addEventListener('change', onChange));
   let t; $('#f-q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(onChange, 250); });
   $('#more').addEventListener('click', () => { shown += PAGE; render(); });
-  $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = k === 'show' ? 'open' : k === 'sort' ? 'new' : ''; }); $('#f-unread').checked = false; $('#f-updates').checked = false; onChange(); });
+  $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = k === 'show' ? 'open' : k === 'sort' ? 'new' : ''; }); $('#f-unread').checked = false; $('#f-updates').checked = false; onlySrc = ''; buildDistricts(); onChange(); });
 })();
 </script>
 </body>

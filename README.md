@@ -34,7 +34,8 @@ The India check only downloads this repository's code and a private copy of Pyth
 
 - **Run a check now:** Actions → *Daily notice check* or *India check* → Run workflow.
 - **Add or fix a source:** edit `sources.json` (name, state, type, url, follow, optional `"runOn": "india"`). `follow: true` also reads up to 5 recruitment/career pages linked from that page.
-- **See which pages failed:** at the bottom of the website, "Which official pages are checked".
+- **See which pages failed:** at the bottom of the website, "Which official pages are checked", or `institutions.html?show=bad&state=`.
+- **Browse every institution:** `institutions.html` (opens on Haryana). Haryana's 189 government and 96 government-aided colleges come from the Directorate of Higher Education's college directory; Punjab's colleges from the Department of Higher Education. Entries with `"check": false` have no website and are listed only.
 - **Run it on your own computer:** `pip install requests pypdfium2` then `python check_notices.py --group main` (or `--group india`).
 
 ## Files
@@ -42,6 +43,7 @@ The India check only downloads this repository's code and a private copy of Pyth
 | File | What it is |
 |---|---|
 | `index.html` | The website |
+| `institutions.html` | List of every university and college that is checked, with filters by state, district and type |
 | `notices.json` | Written by the daily check on GitHub |
 | `india.json` | Written by the India check |
 | `openings.json` | Hand-checked openings |

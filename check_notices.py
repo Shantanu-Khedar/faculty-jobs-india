@@ -59,7 +59,7 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 TIMEOUT = 25
 MAX_FOLLOW = 5
-WORKERS = 16
+WORKERS = int(os.environ.get("SCAN_WORKERS", "32"))   # pages are read in parallel
 READ_WORKERS = int(os.environ.get("READ_WORKERS", "24"))
 KEEP_DAYS = 150            # forget notices not seen for this many days
 ANALYSIS_VERSION = 4       # bump to re-read every notice after changing the tagging rules
@@ -75,7 +75,8 @@ INCLUDE = re.compile(
     r"teaching\s+(post|position|faculty|staff|vacanc|cadre)|faculty\s+(recruit|position|post|vacanc|requirement)|"
     r"recruitment\s+of\s+(teachers|faculty)|guest\s+(faculty|lecturer)|extension\s+lecturer|"
     r"ad-?hoc\s+(faculty|teacher|lecturer)|contractual\s+faculty|\blecturers?\b|"
-    r"walk[\s-]*in.*(faculty|teach|professor)|rolling\s+advertisement",
+    r"walk[\s-]*in.*(faculty|teach|professor)|rolling\s+advertisement|vidya\s+sambal|"
+    r"सहायक\s*(प्रोफ़?ेसर|आचार्य)|सह\s*-?\s*आचार्य|एक्सटेंशन\s*लेक्चरर|अतिथि\s*(प्राध्यापक|संकाय|शिक्षक|व्याख्याता)|विद्या\s*संबल",
     re.I)
 EXCLUDE = re.compile(
     r"\bresults?\b|answer\s*key|admit\s*card|e-?admit|roll\s*n|syllabus|scrutiny|short\s*-?\s*list|"
@@ -104,7 +105,8 @@ EXCLUDE = re.compile(
     r"appointment\s+of\s+(dr|prof|shri|smt|mr|ms)\b|\bas\s+(the\s+)?(chairperson|head|dean|director|co-?ordinator|registrar|"
     r"controller|proctor|warden|convener|nodal|member|principal)\b|^\W*(prof|dr|shri|smt)\.\s*[a-z]|"
     r"read\s+more|press\s+release|discover|fossil|patent|achievement|alumni|felicitation|"
-    r"student\s+(club|welfare|council)|students\s+by|distribution\s+of|\bnirf\b|ranking",
+    r"student\s+(club|welfare|council)|students\s+by|distribution\s+of|\bnirf\b|ranking|"
+    r"परिणाम|प्रवेश\s*पत्र|उत्तर\s*कुंजी|चयन\s*सूची|मेरिट\s*सूची|पाठ्यक्रम|स्थानांतरण",
     re.I)
 # Residency posts at medical colleges are not faculty posts unless the notice also names faculty posts.
 RESIDENT = re.compile(r"senior\s+residents?|junior\s+residents?|senior\s+demonstrators?|tutors?\b", re.I)
@@ -140,10 +142,10 @@ FOLLOW = re.compile(r"recruit|career|\bjobs?\b|vacanc|employment|advertisement|n
 
 # Posts a notice mentions.
 POSTS = [
-    ("Assistant Professor", re.compile(r"assistant\s*-?\s*professor|asst\.?\s*prof|assistant\s*(&|and|/|,)\s*associate\s+prof", re.I)),
+    ("Assistant Professor", re.compile(r"assistant\s*-?\s*professor|asst\.?\s*prof|assistant\s*(&|and|/|,)\s*associate\s+prof|सहायक\s*(प्रोफ़?ेसर|आचार्य)", re.I)),
     ("Associate Professor", re.compile(r"associate\s*-?\s*professor|assoc\.?\s*prof", re.I)),
     ("Professor", re.compile(r"(?<!assistant )(?<!associate )(?<!asst\. )(?<!asst )\bprofessors?\b(?!\s+of\s+practice)", re.I)),
-    ("Guest / contract faculty", re.compile(r"guest\s+(faculty|lecturer|teacher)|contractual\s+(faculty|basis)|on\s+contract|ad-?hoc|extension\s+lecturer|visiting\s+faculty|teaching\s+assistant", re.I)),
+    ("Guest / contract faculty", re.compile(r"guest\s+(faculty|lecturer|teacher)|contractual\s+(faculty|basis)|on\s+contract|ad-?hoc|extension\s+lecturer|visiting\s+faculty|teaching\s+assistant|vidya\s+sambal|विद्या\s*संबल|अतिथि|एक्सटेंशन\s*लेक्चरर", re.I)),
     ("Lecturer", re.compile(r"\blecturers?\b(?!\s+series)", re.I)),
     ("Librarian", re.compile(r"\b(assistant\s+|deputy\s+)?librarian\b", re.I)),
 ]
@@ -401,15 +403,24 @@ LEGACY.headers.update(SESSION.headers)
 LEGACY.mount("https://", LegacySSLAdapter())
 
 
-def get(url, stream=False):
+def _get(url, stream=False):
     try:
-        r = SESSION.get(url, timeout=TIMEOUT, stream=stream)
+        return SESSION.get(url, timeout=TIMEOUT, stream=stream)
     except requests.exceptions.SSLError:
         # Many government sites have broken certificate chains or very old TLS settings.
         try:
-            r = SESSION.get(url, timeout=TIMEOUT, stream=stream, verify=False)
+            return SESSION.get(url, timeout=TIMEOUT, stream=stream, verify=False)
         except requests.exceptions.SSLError:
-            r = LEGACY.get(url, timeout=TIMEOUT, stream=stream, verify=False)
+            return LEGACY.get(url, timeout=TIMEOUT, stream=stream, verify=False)
+
+
+def get(url, stream=False):
+    try:
+        r = _get(url, stream)
+    except requests.exceptions.ConnectionError:
+        if not url.startswith("http://"):
+            raise
+        r = _get("https://" + url[len("http://"):], stream)   # some college sites no longer answer on plain http
     r.raise_for_status()
     return r
 
@@ -505,6 +516,7 @@ def site_key(u):
 
 def scan_source(src):
     res = {"name": src["name"], "state": src["state"], "type": src.get("type", ""), "url": src["url"],
+           "district": src.get("district", ""),
            "ok": False, "error": "", "pagesChecked": 0, "matches": 0, "found": []}
     try:
         final_url, html = fetch_page(src["url"])
@@ -796,6 +808,8 @@ def main():
     out_path = os.path.join(HERE, out_name)
 
     all_sources = json.load(open(SOURCES_FILE, encoding="utf-8"))["sources"]
+    # Entries with "check": false (or no page to read) are listed on the website only.
+    all_sources = [s for s in all_sources if s.get("check", True) and s.get("url")]
     if args.group == "main":
         sources = [s for s in all_sources if s.get("runOn") != "india"]
     elif args.group == "india":
@@ -833,11 +847,12 @@ def main():
                 it = items[f["id"]]
                 it["lastSeen"] = today
                 it["url"] = f["url"]
-                it.update({"source": res["name"], "state": res["state"], "type": res["type"]})
+                it.update({"source": res["name"], "state": res["state"], "type": res["type"], "district": res["district"]})
                 if not it.get("analysed"):
                     it["yearHint"] = f.get("yearHint")
             else:
                 items[f["id"]] = {**f, "source": res["name"], "state": res["state"], "type": res["type"],
+                                  "district": res["district"],
                                   "firstSeen": today, "lastSeen": today, "baseline": first_time}
                 if not first_time:
                     new_count += 1
@@ -887,11 +902,12 @@ def main():
     kept.sort(key=lambda it: (it.get("firstSeen", ""), it.get("source", "")), reverse=True)
 
     via = "india" if args.group == "india" else "github"
-    health = [{**{k: r[k] for k in ("name", "state", "type", "url", "ok", "error", "pagesChecked", "matches")}, "via": via}
+    health = [{**{k: r[k] for k in ("name", "state", "type", "district", "url", "ok", "error", "pagesChecked", "matches")}, "via": via}
               for r in results]
     if args.group == "main":
         # List the India-only sources too, so the site's table shows every source.
-        health += [{"name": s["name"], "state": s["state"], "type": s.get("type", ""), "url": s["url"], "ok": False,
+        health += [{"name": s["name"], "state": s["state"], "type": s.get("type", ""), "district": s.get("district", ""),
+                    "url": s["url"], "ok": False,
                     "error": "Waiting for the check from India (this site blocks servers outside India).",
                     "pagesChecked": 0, "matches": 0, "via": "india", "pending": True}
                    for s in all_sources if s.get("runOn") == "india"]

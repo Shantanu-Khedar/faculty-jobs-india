@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Universities &amp; colleges we check – Faculty Jobs Tracker</title>
+<meta name="description" content="Government universities, government colleges and government-aided colleges in Haryana, Punjab, Rajasthan, Delhi, West UP and the rest of India whose official pages are checked every day for faculty recruitment notices.">
+<style>
+  :root {
+    --bg: #faf9f6; --panel: #ffffff; --fg: #1f1e1c; --muted: #6b6862; --line: #e4e1da;
+    --ok: #2f7d4f; --warn: #b26a00; --bad: #b3261e; --accent: #1f4e79; --chip: #f1efe9;
+    --radius: 10px;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1b1a18; --panel: #242320; --fg: #ecebe7; --muted: #a8a49c; --line: #3a3833;
+      --ok: #6cc28f; --warn: #e3a94a; --bad: #f08a80; --accent: #8fb8e0; --chip: #2e2c28; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 26px 18px 60px; }
+  .back { font-size: 0.86rem; margin: 0 0 10px; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3.6vw, 2.2rem); line-height: 1.2; margin: 0 0 6px; }
+  .sub { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; max-width: 780px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 13px 16px; }
+  .kpi .label { color: var(--muted); font-size: 0.8rem; margin: 0 0 4px; }
+  .kpi .value { font-family: var(--serif); font-size: 1.9rem; line-height: 1.1; margin: 0; font-variant-numeric: tabular-nums; }
+  .kpi .note { color: var(--muted); font-size: 0.76rem; margin: 4px 0 0; }
+  .searchbar { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin-bottom: 14px; }
+  .filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; align-items: end; }
+  .filters label { display: flex; flex-direction: column; gap: 3px; font-size: 0.76rem; color: var(--muted); }
+  .filters .q { grid-column: 1 / -1; }
+  select, input[type=search] { font: inherit; font-size: 0.92rem; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; min-height: 38px; width: 100%; }
+  .row2 { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 10px; font-size: 0.84rem; color: var(--muted); }
+  button.ghost { font: inherit; font-size: 0.84rem; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+  .summary { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+  .summary button { font: inherit; font-size: 0.78rem; background: var(--chip); color: var(--fg); border: 1px solid transparent; border-radius: 999px; padding: 3px 11px; cursor: pointer; }
+  .summary button.on { border-color: var(--fg); font-weight: 600; }
+  .count { margin: 4px 0 10px; color: var(--muted); font-size: 0.88rem; }
+  .count b { color: var(--fg); }
+  .tablewrap { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 0.74rem; color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
+  tr:last-child td { border-bottom: 0; }
+  td.name b { font-weight: 600; }
+  .small { display: block; color: var(--muted); font-size: 0.76rem; }
+  .st { font-size: 0.78rem; white-space: nowrap; }
+  .st.ok { color: var(--ok); } .st.bad { color: var(--bad); } .st.wait { color: var(--warn); } .st.new, .st.listed { color: var(--muted); }
+  .st.listed { white-space: normal; }
+  .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .links a { margin-right: 10px; white-space: nowrap; font-size: 0.82rem; }
+  .group td { background: var(--chip); font-weight: 600; font-size: 0.8rem; }
+  .more { text-align: center; margin: 14px 0; }
+  .note { color: var(--muted); font-size: 0.84rem; margin-top: 18px; }
+  footer { margin-top: 30px; color: var(--muted); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="./">← Back to faculty notices</a></p>
+  <h1>Universities &amp; colleges we check</h1>
+  <p class="sub">Government universities, government colleges and government-aided colleges. Every morning the official page of each one is read for Assistant Professor, Associate Professor, Professor, guest faculty and extension lecturer notices. <span id="checked"></span></p>
+
+  <div class="kpis">
+    <div class="kpi"><p class="label">Institutions in this view</p><p class="value" id="k-n">–</p><p class="note" id="k-n-note">&nbsp;</p></div>
+    <div class="kpi"><p class="label">Read in the latest check</p><p class="value" id="k-ok">–</p><p class="note">From GitHub or from India</p></div>
+    <div class="kpi"><p class="label">Check these by hand</p><p class="value" id="k-bad">–</p><p class="note">Site blocked or down</p></div>
+    <div class="kpi"><p class="label">Open notices from them</p><p class="value" id="k-open">–</p><p class="note">Openings listed today</p></div>
+  </div>
+
+  <div class="searchbar">
+    <div class="filters">
+      <label class="q">Search institution, district or university
+        <input type="search" id="f-q" placeholder="e.g. Hisar, Kurukshetra University, women, aided">
+      </label>
+      <label>State
+        <select id="f-state"><option value="">All states</option></select>
+      </label>
+      <label>District
+        <select id="f-district"><option value="">Any district</option></select>
+      </label>
+      <label>Type
+        <select id="f-type"><option value="">Any type</option></select>
+      </label>
+      <label>Show
+        <select id="f-show">
+          <option value="">All</option>
+          <option value="open">With open notices</option>
+          <option value="ok">Read OK in the latest check</option>
+          <option value="bad">Blocked or down (check by hand)</option>
+        </select>
+      </label>
+    </div>
+    <div class="row2"><button class="ghost" id="f-reset" type="button">Clear filters</button></div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+  <p class="count" id="count">Loading…</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Institution</th><th>District</th><th>Latest check</th><th>Open notices</th><th>Links</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div class="more"><button class="ghost" id="more" type="button" hidden>Show more</button></div>
+
+  <p class="note">Government colleges in most states hire regular Assistant Professors through the state commission (HPSC, PPSC, RPSC, UPPSC/UPESSC) or the higher education department, so those pages are checked too; colleges themselves post extension lecturer, guest faculty and (in aided colleges) regular posts. Haryana's list comes from the Directorate of Higher Education's college directory; Punjab's from the Department of Higher Education. To add or fix an institution, edit <code>sources.json</code>.</p>
+  <footer>Data: <a href="sources.json">sources.json</a> · <a href="notices.json">notices.json</a> · <a href="india.json">india.json</a></footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined && text !== null) n.textContent = text; return n; };
+  const safeUrl = (u) => (typeof u === 'string' && /^https?:\/\//i.test(u)) ? u : '';
+  const link = (label, url) => { const u = safeUrl(url); if (!u) return null; const a = el('a', '', label); a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; };
+  const fmt = (iso) => { if (!iso) return ''; const d = new Date(iso + 'T00:00:00'); return isNaN(d) ? iso : d.toLocaleDateString('en-IN', {day: 'numeric', month: 'short', year: 'numeric'}); };
+  const todayIST = () => new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
+  const PAGE = 150;
+  const TYPE_ORDER = ['Commission (govt colleges)', 'College recruitment portal', 'Central university', 'State university', 'IIT / IISc / IISER', 'NIT', 'AIIMS / medical institute', 'Other national institute', 'University college', 'Government college', 'Govt-aided college'];
+  const STATE_FIRST = ['Haryana', 'Punjab', 'Rajasthan', 'Delhi', 'Uttar Pradesh', 'Chandigarh'];
+  const stateRank = (s) => { const i = STATE_FIRST.indexOf(s); return i < 0 ? 99 : i; };
+  const typeRank = (t) => { const i = TYPE_ORDER.indexOf(t); return i < 0 ? 50 : i; };
+
+  let inst = [], shown = PAGE;
+  const getJSON = (f) => fetch(f + '?v=' + Date.now(), {cache: 'no-store'}).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
+
+  Promise.allSettled([getJSON('sources.json'), getJSON('notices.json'), getJSON('india.json')]).then(([s, n, i]) => {
+    const sources = s.status === 'fulfilled' ? (s.value.sources || []) : [];
+    const main = n.status === 'fulfilled' ? n.value : null;
+    const india = i.status === 'fulfilled' && i.value && i.value.checkedAt ? i.value : null;
+    const health = new Map();
+    (main && main.health || []).forEach((h) => health.set(h.name, {...h, via: h.via || 'github', date: main.checkedDate}));
+    (india && india.health || []).forEach((h) => { const p = health.get(h.name); if (!p || h.ok || !p.ok) health.set(h.name, {...h, via: 'india', date: india.checkedDate}); });
+    const today = todayIST(), cy = Number(today.slice(0, 4));
+    const open = new Map();
+    [[main], [india]].forEach(([d]) => {
+      if (!d || !Array.isArray(d.items)) return;
+      d.items.forEach((it) => {
+        if (it.lastSeen !== d.checkedDate || it.stage === 'update') return;
+        const last = it.lastDate || it.titleLastDate || '';
+        if (last && last < today) return;
+        if (it.yearHint && it.yearHint < cy - 1 && !(last && last >= today)) return;
+        open.set(it.source, (open.get(it.source) || 0) + 1);
+      });
+    });
+    inst = sources.map((src) => ({...src, h: health.get(src.name) || null, open: open.get(src.name) || 0}));
+    const dates = [main && main.checkedDate, india && india.checkedDate].filter(Boolean).sort();
+    $('#checked').textContent = dates.length ? 'Latest check: ' + fmt(dates[dates.length - 1]) + '.' : '';
+    buildFilters();
+    readURL();
+    render();
+  });
+
+  const statusOf = (x) => x.check === false ? 'listed' : !x.h ? 'new' : x.h.ok ? 'ok' : x.h.pending ? 'wait' : 'bad';
+
+  function fillSelect(sel, values, first) {
+    const cur = sel.value;
+    sel.replaceChildren(new Option(first, ''), ...values.map((v) => new Option(v, v)));
+    if (values.includes(cur)) sel.value = cur;
+  }
+  function buildFilters() {
+    const states = [...new Set(inst.map((x) => x.state))].sort((a, b) => stateRank(a) - stateRank(b) || a.localeCompare(b));
+    fillSelect($('#f-state'), states, 'All states');
+    fillSelect($('#f-type'), [...new Set(inst.map((x) => x.type))].sort((a, b) => typeRank(a) - typeRank(b) || a.localeCompare(b)), 'Any type');
+    buildDistricts();
+  }
+  function buildDistricts() {
+    const st = $('#f-state').value;
+    const ds = [...new Set(inst.filter((x) => !st || x.state === st).map((x) => x.district).filter(Boolean))].sort();
+    fillSelect($('#f-district'), ds, ds.length ? 'Any district' : 'No districts listed');
+  }
+
+  const F = ['q', 'state', 'district', 'type', 'show'];
+  function readURL() {
+    const p = new URLSearchParams(location.search);
+    const has = F.some((k) => p.has(k));
+    if (!has) $('#f-state').value = 'Haryana';    // this list is focused on Haryana by default
+    F.forEach((k) => { if (p.has(k)) $('#f-' + k).value = p.get(k); });
+    buildDistricts();
+    if (p.has('district')) $('#f-district').value = p.get('district');
+  }
+  function writeURL() {
+    const p = new URLSearchParams();
+    F.forEach((k) => { const v = $('#f-' + k).value; if (v) p.set(k, v); });
+    if (!$('#f-state').value) p.set('state', '');
+    history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p : ''));
+  }
+
+  function filtered(skipType) {
+    const f = {}; F.forEach((k) => { f[k] = $('#f-' + k).value; });
+    if (skipType) f.type = '';
+    const words = f.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    return inst.filter((x) => {
+      if (f.state && x.state !== f.state) return false;
+      if (f.district && x.district !== f.district) return false;
+      if (f.type && x.type !== f.type) return false;
+      const s = statusOf(x);
+      if (f.show === 'open' && !x.open) return false;
+      if (f.show === 'ok' && s !== 'ok') return false;
+      if (f.show === 'bad' && !(s === 'bad' || s === 'wait')) return false;
+      if (words.length) {
+        const hay = [x.name, x.district || '', x.state, x.type, x.note || '', x.url, x.website || ''].join(' ').toLowerCase();
+        if (!words.every((w) => hay.includes(w))) return false;
+      }
+      return true;
+    }).sort((a, b) => stateRank(a.state) - stateRank(b.state) || a.state.localeCompare(b.state) ||
+      typeRank(a.type) - typeRank(b.type) || (a.district || '').localeCompare(b.district || '') || a.name.localeCompare(b.name));
+  }
+
+  function summary(rows) {
+    const byType = new Map();
+    rows.forEach((x) => byType.set(x.type, (byType.get(x.type) || 0) + 1));
+    const cur = $('#f-type').value;
+    const box = $('#summary'); box.replaceChildren();
+    [...byType.entries()].sort((a, b) => typeRank(a[0]) - typeRank(b[0])).forEach(([t, n]) => {
+      const b = el('button', t === cur ? 'on' : '', t + ' · ' + n);
+      b.type = 'button';
+      b.addEventListener('click', () => { $('#f-type').value = t === cur ? '' : t; onChange(); });
+      box.append(b);
+    });
+  }
+
+  function render() {
+    const rowsAll = filtered();
+    const st = $('#f-state').value;
+    summary(filtered(true));
+    $('#k-n').textContent = rowsAll.length;
+    $('#k-n-note').textContent = (st || 'All states') + ($('#f-district').value ? ' · ' + $('#f-district').value : '');
+    $('#k-ok').textContent = rowsAll.filter((x) => statusOf(x) === 'ok').length;
+    $('#k-bad').textContent = rowsAll.filter((x) => ['bad', 'wait'].includes(statusOf(x))).length;
+    $('#k-open').textContent = rowsAll.reduce((n, x) => n + x.open, 0);
+    $('#count').replaceChildren('Showing ', el('b', '', String(Math.min(shown, rowsAll.length))), ' of ', el('b', '', String(rowsAll.length)), ' institutions.');
+    const tb = $('#rows'); tb.replaceChildren();
+    let lastGroup = '';
+    rowsAll.slice(0, shown).forEach((x) => {
+      const g = x.state + ' — ' + x.type;
+      if (g !== lastGroup) { const tr = el('tr', 'group'); const td = el('td', '', g); td.colSpan = 5; tr.append(td); tb.append(tr); lastGroup = g; }
+      const tr = el('tr');
+      const name = el('td', 'name'); name.append(el('b', '', x.name)); if (x.note) name.append(el('span', 'small', x.note));
+      const dist = el('td', '', x.district || '–');
+      const s = statusOf(x);
+      const stTd = el('td');
+      const txt = s === 'ok' ? 'Read OK' + (x.h.via === 'india' ? ' (from India)' : '') : s === 'wait' ? 'Waiting for check from India' : s === 'bad' ? 'Blocked or down — open by hand' : s === 'listed' ? 'Not checked — no website listed; posts come through the department / commission' : 'Added recently — first check pending';
+      const span = el('span', 'st ' + s, txt); if (x.h && x.h.error) span.title = x.h.error; stTd.append(span);
+      if (x.h && x.h.date) stTd.append(el('span', 'small', fmt(x.h.date) + (s === 'ok' ? ' · ' + x.h.matches + ' notice link' + (x.h.matches === 1 ? '' : 's') + ' on page' : '')));
+      const openTd = el('td', 'num');
+      if (x.open) { const a = el('a', '', x.open + ' open'); a.href = './?src=' + encodeURIComponent(x.name); openTd.append(a); } else openTd.textContent = '–';
+      const links = el('td', 'links');
+      const home = x.website || (safeUrl(x.url) ? new URL(x.url).origin + '/' : '');
+      const a1 = link('Website', home); if (a1) links.append(a1);
+      if (safeUrl(x.url) && x.url.replace(/\/$/, '') !== (home || '').replace(/\/$/, '')) { const a2 = link('Page we check', x.url); if (a2) links.append(a2); }
+      tr.append(name, dist, stTd, openTd, links);
+      tb.append(tr);
+    });
+    if (!rowsAll.length) { const tr = el('tr'); const td = el('td', '', inst.length ? 'Nothing matches these filters.' : 'Loading the list…'); td.colSpan = 5; tr.append(td); tb.append(tr); }
+    $('#more').hidden = rowsAll.length <= shown;
+  }
+
+  const onChange = () => { shown = PAGE; writeURL(); render(); };
+  $('#f-state').addEventListener('change', () => { buildDistricts(); $('#f-district').value = ''; onChange(); });
+  ['#f-district', '#f-type', '#f-show'].forEach((s) => $(s).addEventListener('change', onChange));
+  let t; $('#f-q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(onChange, 200); });
+  $('#more').addEventListener('click', () => { shown += PAGE; render(); });
+  $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = ''; }); buildDistricts(); onChange(); });
+})();
+</script>
+</body>
+</html>
