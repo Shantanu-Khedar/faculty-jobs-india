@@ -146,9 +146,8 @@
    "name": "Meghalaya PSC",
    "state": "Meghalaya",
    "type": "Commission (govt colleges)",
-   "url": "https://mpsc.nic.in/",
-   "follow": true,
-   "runOn": "india"
+   "url": "https://mpsc.meghalaya.gov.in/",
+   "follow": true
   },
   {
    "name": "Mizoram PSC",
@@ -1014,7 +1013,7 @@
    "name": "NIT Meghalaya",
    "state": "Meghalaya",
    "type": "NIT",
-   "url": "https://www.nitmeghalaya.in/",
+   "url": "https://www.nitm.ac.in/",
    "follow": true
   },
   {
@@ -1272,7 +1271,7 @@
    "name": "Acharya Nagarjuna University",
    "state": "Andhra Pradesh",
    "type": "State university",
-   "url": "https://www.anu.ac.in/",
+   "url": "https://www.nagarjunauniversity.ac.in/",
    "follow": true
   },
   {
@@ -2059,7 +2058,11 @@
    "type": "State university",
    "url": "https://onlinejobs.puchd.ac.in/",
    "follow": false,
-   "district": "Chandigarh"
+   "district": "Chandigarh",
+   "pages": [
+    "https://jobs.puchd.ac.in/list-jobs.php"
+   ],
+   "note": "Includes guest-faculty posts at its six constituent colleges (Panjab University jobs page)"
   },
   {
    "name": "Maharishi Valmiki Sanskrit University",
@@ -2146,7 +2149,7 @@
    "state": "Punjab",
    "district": "Gurdaspur",
    "type": "State university",
-   "url": "https://sbssu.ac.in/",
+   "url": "https://sbssugsp.ac.in/",
    "follow": true
   },
   {
@@ -2154,7 +2157,7 @@
    "state": "Punjab",
    "district": "Ferozepur",
    "type": "State university",
-   "url": "https://sbsstc.ac.in/",
+   "url": "https://sbssu.ac.in/",
    "follow": true
   },
   {
@@ -2327,7 +2330,7 @@
    "state": "Rajasthan",
    "district": "Bikaner",
    "type": "State university",
-   "url": "https://www.rajuvas.org/",
+   "url": "https://rajuvas.ac.in/",
    "follow": true
   },
   {
@@ -2571,9 +2574,8 @@
    "state": "Uttar Pradesh",
    "district": "Meerut",
    "type": "State university",
-   "url": "https://www.svbpmeerut.ac.in/",
-   "follow": true,
-   "runOn": "india"
+   "url": "https://www.svpuat.edu.in/",
+   "follow": true
   },
   {
    "name": "Major Dhyan Chand Sports University",
@@ -2676,7 +2678,7 @@
    "district": "Bhiwani",
    "type": "Government college",
    "url": "",
-   "note": "Ch. Bansi Lal University",
+   "note": "The address the department lists (gcisharwal.ac.in) does not exist (checked 28 Nov 2026)",
    "follow": true,
    "check": false
   },
@@ -3674,10 +3676,9 @@
    "state": "Haryana",
    "district": "Mahendragarh",
    "type": "Government college",
-   "url": "",
+   "url": "http://gcenarnaul.ac.in/",
    "note": "Indira Gandhi University",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Kanina",
@@ -4334,10 +4335,9 @@
    "state": "Haryana",
    "district": "Sonipat",
    "type": "Government college",
-   "url": "",
+   "url": "http://gcbaroda.ac.in/",
    "note": "Bhagat Phool Singh Mahila Vishwavidyalaya",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Barota",
@@ -4496,7 +4496,10 @@
    "type": "Govt-aided college",
    "url": "http://aryagirlscollegeamb.org",
    "note": "Govt-aided · Kurukshetra University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "http://aryagirlscollegeamb.org/index.php?option=com_content&view=article&id=72&Itemid=103"
+   ]
   },
   {
    "name": "DAV College Ambala City",
@@ -4521,10 +4524,12 @@
    "state": "Haryana",
    "district": "Ambala",
    "type": "Govt-aided college",
-   "url": "http://gmncollegeambala.com",
+   "url": "https://www.gmncollegeambala.ac.in/",
    "note": "Govt-aided · Kurukshetra University · NAAC A++",
    "follow": true,
-   "runOn": "india"
+   "pages": [
+    "https://www.gmncollegeambala.ac.in/news-adhoc-advertisment.html"
+   ]
   },
   {
    "name": "Mdsd College",
@@ -4543,7 +4548,10 @@
    "url": "http://mpncmullana.ac.in",
    "note": "Govt-aided · Kurukshetra University",
    "follow": true,
-   "runOn": "india"
+   "runOn": "india",
+   "pages": [
+    "http://mpncmullana.ac.in/latest-update/48.html"
+   ]
   },
   {
    "name": "S.A. Jain PG College, Ambala",
@@ -4559,9 +4567,12 @@
    "state": "Haryana",
    "district": "Ambala",
    "type": "Govt-aided college",
-   "url": "http://sdcollegeambala.org",
+   "url": "https://www.sdcollegeambala.ac.in/",
    "note": "Govt-aided · Kurukshetra University · NAAC A++",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.sdcollegeambala.ac.in/vacancies-openings/"
+   ]
   },
   {
    "name": "Sant Mohan Singh Khalsa Labana Girls College, Ambala",
@@ -4570,16 +4581,22 @@
    "type": "Govt-aided college",
    "url": "http://smskhalsalabanacollege.com",
    "note": "Govt-aided · Kurukshetra University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://smskhalsalabanacollege.com/pages/job"
+   ]
   },
   {
    "name": "Sohan Lal DAV College of Education, Ambala",
    "state": "Haryana",
    "district": "Ambala",
    "type": "Govt-aided college",
-   "url": "http://sldaveducation.org",
+   "url": "https://sldaveducation.in/",
    "note": "Govt-aided · Kurukshetra University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://sldaveducation.in/news-notices/whats-new/"
+   ]
   },
   {
    "name": "Adarsh Mahila Mahavidyalya, Bhiwani",
@@ -4588,7 +4605,10 @@
    "type": "Govt-aided college",
    "url": "http://ammb.ac.in",
    "note": "Govt-aided · Ch. Bansi Lal University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://ammb.ac.in/recruitment/"
+   ]
   },
   {
    "name": "Banwari Lal Jindal Suiwala College, Tosham",
@@ -4604,7 +4624,7 @@
    "state": "Haryana",
    "district": "Bhiwani",
    "type": "Govt-aided college",
-   "url": "http://kmcollegeofeducation.org/web/",
+   "url": "https://kmcollegeofeducation.org/",
    "note": "Govt-aided · Ch. Bansi Lal University",
    "follow": true
   },
@@ -4615,17 +4635,19 @@
    "type": "Govt-aided college",
    "url": "http://vaishcollegebhiwani.ac.in",
    "note": "Govt-aided · Ch. Bansi Lal University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://vaishcollegebhiwani.ac.in/pages.aspx?pageid=158"
+   ]
   },
   {
    "name": "Apeejay Saraswati P.G. College for Girls, Bhiwani",
    "state": "Haryana",
    "district": "Charkhi Dadri",
    "type": "Govt-aided college",
-   "url": "http://apeejay.edusaraswati",
+   "url": "https://www.apeejay.edu/saraswati/",
    "note": "Govt-aided · Ch. Bansi Lal University · Girls",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Janta Vidya Mandir Ganpat Rai Rasiwasia College, CharkhiDadri",
@@ -4644,7 +4666,10 @@
    "type": "Govt-aided college",
    "url": "http://mmjk.ac.in",
    "note": "Govt-aided · Ch. Bansi Lal University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://mmjk.ac.in/Pages.aspx?pageid=5015"
+   ]
   },
   {
    "name": "Saraswati College of Education, CharkhiDadri",
@@ -4660,17 +4685,16 @@
    "state": "Haryana",
    "district": "Faridabad",
    "type": "Govt-aided college",
-   "url": "http://aggarwalcollege.org",
+   "url": "https://aggarwalcollegeballabgarh.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University · NAAC A++",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "DAV Centenary College, Faridabad",
    "state": "Haryana",
    "district": "Faridabad",
    "type": "Govt-aided college",
-   "url": "http://davccfbd.com",
+   "url": "https://www.davccfbd.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University",
    "follow": true
   },
@@ -4688,9 +4712,12 @@
    "state": "Haryana",
    "district": "Fatehabad",
    "type": "Govt-aided college",
-   "url": "http://mmcollegeonline.com",
+   "url": "https://mmcollege.ac.in/",
    "note": "Govt-aided · Chaudhary Devi Lal University · NAAC B++",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://mmcollege.ac.in/vacancies"
+   ]
   },
   {
    "name": "N.B.G.S.M College, Gurugram",
@@ -4717,7 +4744,10 @@
    "type": "Govt-aided college",
    "url": "http://WWW.crcoehsr.ac.in",
    "note": "Govt-aided · Guru Jambheshwar University of Science and Technology (GJUST)",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://crcoehsr.ac.in/news.php"
+   ]
   },
   {
    "name": "Chhaju Ram Memorial Jat College, Hisar",
@@ -4727,17 +4757,22 @@
    "url": "http://www.crmjatcollege.ac.in",
    "note": "Govt-aided · Guru Jambheshwar University of Science and Technology (GJUST)",
    "follow": true,
-   "runOn": "india"
+   "runOn": "india",
+   "pages": [
+    "https://crmjatcollege.ac.in/career-with-us.html"
+   ]
   },
   {
    "name": "Dayanand College, Hisar",
    "state": "Haryana",
    "district": "Hisar",
    "type": "Govt-aided college",
-   "url": "http://dncollege.com",
+   "url": "https://www.dnc.ac.in/",
    "note": "Govt-aided · Guru Jambheshwar University of Science and Technology (GJUST)",
    "follow": true,
-   "runOn": "india"
+   "pages": [
+    "https://dnc.ac.in/teaching-job.html"
+   ]
   },
   {
    "name": "Fateh Chand College for Women, Hisar",
@@ -4754,17 +4789,16 @@
    "state": "Haryana",
    "district": "Hisar",
    "type": "Govt-aided college",
-   "url": "http://sdmmhansi.com",
+   "url": "https://sdmahilamahavidyalya.ac.in/",
    "note": "Govt-aided · Guru Jambheshwar University of Science and Technology (GJUST) · Girls",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Maharaja Agrrasen P.G. College for Women, Jhajjar",
    "state": "Haryana",
    "district": "Jhajjar",
    "type": "Govt-aided college",
-   "url": "http://macw.org",
+   "url": "http://macw.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University · Girls",
    "follow": true
   },
@@ -4773,10 +4807,12 @@
    "state": "Haryana",
    "district": "Jhajjar",
    "type": "Govt-aided college",
-   "url": "http://vakmbahadurgarh.orgonline",
+   "url": "https://www.vakmbahadurgarh.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University · Girls",
    "follow": true,
-   "runOn": "india"
+   "pages": [
+    "https://www.vakmbahadurgarh.ac.in/recruitment-portal-is-live/"
+   ]
   },
   {
    "name": "CR Kisan College, Jind",
@@ -4795,7 +4831,10 @@
    "type": "Govt-aided college",
    "url": "http://hkmvjind.com",
    "note": "Govt-aided · Ch. Ranbir Singh University · Girls · NAAC B",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://hkmvjind.com/notice/Advertisement-Application-Form-for-Part-Time-Lecturer-2025-26"
+   ]
   },
   {
    "name": "S.D Mahila Mahavidyalya, Narwana",
@@ -4813,7 +4852,10 @@
    "type": "Govt-aided college",
    "url": "http://barjckaul.com",
    "note": "Govt-aided · Kurukshetra University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://barjckaul.com/recruitment/"
+   ]
   },
   {
    "name": "Ch. Ishwar Singh Kanya Mahavidyalaya Dhand-Dadwana, Kaithal",
@@ -4823,7 +4865,10 @@
    "url": "http://ciskmvdhand.com",
    "note": "Govt-aided · Kurukshetra University · Girls",
    "follow": true,
-   "runOn": "india"
+   "runOn": "india",
+   "pages": [
+    "https://ciskmvdhand.com/advertisement/"
+   ]
   },
   {
    "name": "Ch. Ishwar Singh Kanya Mahavidyalaya Fatehpur Pundri, Kaithal",
@@ -4832,7 +4877,10 @@
    "type": "Govt-aided college",
    "url": "http://www.ciskmv.com",
    "note": "Govt-aided · Kurukshetra University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.ciskmv.com/advertisement"
+   ]
   },
   {
    "name": "DAV College, Cheeka",
@@ -4841,7 +4889,10 @@
    "type": "Govt-aided college",
    "url": "http://www.davcollegecheeka.in",
    "note": "Govt-aided · Kurukshetra University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "http://davcollegecheeka.in/job/"
+   ]
   },
   {
    "name": "DAV College, Pundri",
@@ -4866,10 +4917,12 @@
    "state": "Haryana",
    "district": "Kaithal",
    "type": "Govt-aided college",
-   "url": "http://rksdcollege.org",
+   "url": "https://rksdcollege.ac.in/",
    "note": "Govt-aided · Kurukshetra University",
    "follow": true,
-   "runOn": "india"
+   "pages": [
+    "https://rksdcollege.ac.in/job-recruitment/"
+   ]
   },
   {
    "name": "DAV College,Karnal",
@@ -4905,7 +4958,10 @@
    "type": "Govt-aided college",
    "url": "http://gnkckarnal.ac.in",
    "note": "Govt-aided · Kurukshetra University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.gnkckarnal.ac.in/recruitment-2026/"
+   ]
   },
   {
    "name": "Kumari Vidyavati Anand DAV College for Women, Karnal",
@@ -4939,7 +4995,7 @@
    "state": "Haryana",
    "district": "Kurukshetra",
    "type": "Govt-aided college",
-   "url": "http://davcpehowa.org",
+   "url": "https://davcpehowa.org/",
    "note": "Govt-aided · Kurukshetra University",
    "follow": true
   },
@@ -4948,7 +5004,7 @@
    "state": "Haryana",
    "district": "Kurukshetra",
    "type": "Govt-aided college",
-   "url": "http://dmmkkr.com",
+   "url": "https://dmmkkr.ac.in/",
    "note": "Govt-aided · Kurukshetra University · Girls · NAAC A",
    "follow": true
   },
@@ -4957,20 +5013,18 @@
    "state": "Haryana",
    "district": "Kurukshetra",
    "type": "Govt-aided college",
-   "url": "http://igncollege.in",
+   "url": "https://www.igncollege.ac.in/",
    "note": "Govt-aided · Kurukshetra University · NAAC A",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Markanda National College, Shahabad Markanda, Kurukshetra",
    "state": "Haryana",
    "district": "Kurukshetra",
    "type": "Govt-aided college",
-   "url": "http://mncshahabad.com",
+   "url": "https://mncs.ac.in/",
    "note": "Govt-aided · Kurukshetra University · NAAC B",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "SNRL Jairam Girls College",
@@ -4996,7 +5050,7 @@
    "state": "Haryana",
    "district": "Palwal",
    "type": "Govt-aided college",
-   "url": "http://ggdsdcollegepalwal.in",
+   "url": "https://ggdsdcollegepalwal.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University",
    "follow": true
   },
@@ -5032,10 +5086,9 @@
    "state": "Haryana",
    "district": "Panipat",
    "type": "Govt-aided college",
-   "url": "http://ibpgcollegepanipat.com",
+   "url": "http://ibpgcollegepanipat.ac.in/",
    "note": "Govt-aided · Kurukshetra University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "S.D (pg) College Panipat",
@@ -5051,10 +5104,9 @@
    "state": "Haryana",
    "district": "Panipat",
    "type": "Govt-aided college",
-   "url": "",
+   "url": "https://www.vgcsmk.in/",
    "note": "Govt-aided · Kurukshetra University · Girls",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Ahir College, Rewari",
@@ -5063,7 +5115,10 @@
    "type": "Govt-aided college",
    "url": "http://ahircollege.ac.in",
    "note": "Govt-aided · Indira Gandhi University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://ahircollege.ac.in/career.aspx"
+   ]
   },
   {
    "name": "DAV Girls College, Kosli",
@@ -5072,7 +5127,10 @@
    "type": "Govt-aided college",
    "url": "http://davgckosli.org.in",
    "note": "Govt-aided · Indira Gandhi University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://davgckosli.org.in/recruitment.php"
+   ]
   },
   {
    "name": "Kishan Lal Public College, Rewari",
@@ -5088,7 +5146,7 @@
    "state": "Haryana",
    "district": "Rewari",
    "type": "Govt-aided college",
-   "url": "http://rbseducation.org",
+   "url": "https://rbseducation.in/",
    "note": "Govt-aided · Indira Gandhi University",
    "follow": true
   },
@@ -5117,7 +5175,10 @@
    "type": "Govt-aided college",
    "url": "http://jatcollegerohtak.ac.in",
    "note": "Govt-aided · Maharishi Dayanand University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://jatcollegerohtak.ac.in/recruitment/"
+   ]
   },
   {
    "name": "Chhotu Ram College of Education,Rohtak",
@@ -5142,10 +5203,9 @@
    "state": "Haryana",
    "district": "Rohtak",
    "type": "Govt-aided college",
-   "url": "http://gbdcrohtak.com",
+   "url": "http://gbdcrohtak.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Maharani Kishori Jat Kanya Mahavidyalaya, Rohtak",
@@ -5170,10 +5230,9 @@
    "state": "Haryana",
    "district": "Rohtak",
    "type": "Govt-aided college",
-   "url": "http://sjkckalanaur.com",
+   "url": "http://sjkc.ac.in/",
    "note": "Govt-aided · Maharishi Dayanand University · NAAC A",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Vaish College of Education, Rohtak",
@@ -5208,10 +5267,10 @@
    "state": "Haryana",
    "district": "Sirsa",
    "type": "Govt-aided college",
-   "url": "http://bskcollege.co.in",
-   "note": "Govt-aided · Chaudhary Devi Lal University · Girls",
+   "url": "",
+   "note": "No working website found (checked 28 Nov 2026); its old address now leads to an unrelated site",
    "follow": true,
-   "runOn": "india"
+   "check": false
   },
   {
    "name": "CMK National PG College, Sirsa",
@@ -5220,7 +5279,10 @@
    "type": "Govt-aided college",
    "url": "http://cmksirsa.com",
    "note": "Govt-aided · Chaudhary Devi Lal University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://cmksirsa.com/vacancies"
+   ]
   },
   {
    "name": "Maharana Partap College(for Women) Mandi Dabwali, Sirsa",
@@ -5238,7 +5300,10 @@
    "type": "Govt-aided college",
    "url": "http://sghsc.in",
    "note": "Govt-aided · Chaudhary Devi Lal University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://sghsc.in/application-form-for-the-post-of-assistant-professor/"
+   ]
   },
   {
    "name": "CRA College, Sonipat",
@@ -5247,7 +5312,10 @@
    "type": "Govt-aided college",
    "url": "http://cracollegesonepat.org",
    "note": "Govt-aided · Maharishi Dayanand University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://recruitment2.cracollegesonepat.org/?college=cra-sonepat"
+   ]
   },
   {
    "name": "GVM Girls College, Sonipat",
@@ -5263,10 +5331,9 @@
    "state": "Haryana",
    "district": "Sonipat",
    "type": "Govt-aided college",
-   "url": "http://hcoesonepat.orghcoe",
+   "url": "https://hcoesonepat.org/",
    "note": "Govt-aided · Maharishi Dayanand University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Hindu College, Sonipat",
@@ -5322,7 +5389,10 @@
    "url": "http://davcsadhaura.com",
    "note": "Govt-aided · Kurukshetra University",
    "follow": true,
-   "runOn": "india"
+   "runOn": "india",
+   "pages": [
+    "https://davcsadhaura.com/recruitment/"
+   ]
   },
   {
    "name": "Guru Nanak Girl College, YamunaNagar",
@@ -5331,7 +5401,10 @@
    "type": "Govt-aided college",
    "url": "http://gngcollegeynr.com",
    "note": "Govt-aided · Kurukshetra University · Girls",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://gngcollegeynr.com/job-recruitment/"
+   ]
   },
   {
    "name": "Guru Nanak Khalsa College, YamunaNagar",
@@ -5358,7 +5431,10 @@
    "type": "Govt-aided college",
    "url": "http://mac.ac.in",
    "note": "Govt-aided · Kurukshetra University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://mac.ac.in/Content.aspx?pageid=60"
+   ]
   },
   {
    "name": "Mukand Lal National College, Radaur",
@@ -5385,10 +5461,9 @@
    "state": "Punjab",
    "district": "Amritsar",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcajnala.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "SR Govt College for Women, Amritsar",
@@ -5485,20 +5560,18 @@
    "state": "Punjab",
    "district": "Ferozepur",
    "type": "Government college",
-   "url": "",
+   "url": "https://gczira.com/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Gurdaspur",
    "state": "Punjab",
    "district": "Gurdaspur",
    "type": "Government college",
-   "url": "",
+   "url": "https://govtcollegegurdaspur.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "G.K.S.M. Govt College, Tanda Urmar",
@@ -5515,10 +5588,9 @@
    "state": "Punjab",
    "district": "Hoshiarpur",
    "type": "Government college",
-   "url": "",
+   "url": "http://gctalwara.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Hoshiarpur",
@@ -5555,10 +5627,9 @@
    "state": "Punjab",
    "district": "Kapurthala",
    "type": "Government college",
-   "url": "",
+   "url": "http://gcbholath.com/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "NJSA Govt College, Kapurthala",
@@ -5605,10 +5676,12 @@
    "state": "Punjab",
    "district": "Ludhiana",
    "type": "Government college",
-   "url": "",
+   "url": "https://gckaramsar.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
    "follow": true,
-   "check": false
+   "pages": [
+    "https://gckaramsar.ac.in/about/jobs.html"
+   ]
   },
   {
    "name": "S.C.D. Govt College, Ludhiana",
@@ -5665,20 +5738,18 @@
    "state": "Punjab",
    "district": "Mohali",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcderabassi.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Mohali",
    "state": "Punjab",
    "district": "Mohali",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcmohali.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Sri Muktsar Sahib",
@@ -5705,10 +5776,9 @@
    "state": "Punjab",
    "district": "Patiala",
    "type": "Government college",
-   "url": "",
+   "url": "http://gcgpatiala.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt Kirti College, Nial Patran",
@@ -5755,20 +5825,18 @@
    "state": "Punjab",
    "district": "Rupnagar",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcropar.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt Shivalik College, Naya Nangal",
    "state": "Punjab",
    "district": "Rupnagar",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcnayanangal.com/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "SBSS Memorial Govt College for Girls, Munne",
@@ -5815,20 +5883,18 @@
    "state": "Punjab",
    "district": "Sangrur",
    "type": "Government college",
-   "url": "",
+   "url": "http://gcamargarh.com/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt College, Malerkotla",
    "state": "Punjab",
    "district": "Sangrur",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcmalerkotla.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "Govt Ranbir College, Sangrur",
@@ -5865,10 +5931,9 @@
    "state": "Punjab",
    "district": "Shaheed Bhagat Singh Nagar",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcpojewal.org/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "SGAD Govt College, Tarn Taran",
@@ -5955,10 +6020,12 @@
    "state": "Punjab",
    "district": "Ludhiana",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcmachhiwara.ac.in/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
    "follow": true,
-   "check": false
+   "pages": [
+    "https://gcmachhiwara.ac.in/jobs"
+   ]
   },
   {
    "name": "Govt College Shahkot",
@@ -5996,7 +6063,7 @@
    "district": "Rupnagar",
    "type": "Government college",
    "url": "",
-   "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
+   "note": "Same college as Govt Shivalik College, Naya Nangal (checked under that name)",
    "follow": true,
    "check": false
   },
@@ -6015,10 +6082,9 @@
    "state": "Punjab",
    "district": "Fazilka",
    "type": "Government college",
-   "url": "",
+   "url": "https://gcabohar.com/",
    "note": "Assistant Professors are recruited by the Punjab Higher Education Dept / PPSC",
-   "follow": true,
-   "check": false
+   "follow": true
   },
   {
    "name": "General Shivdev Singh Diwan Gurbachan Singh Khalsa College, Patiala",
@@ -6034,10 +6100,12 @@
    "state": "Punjab",
    "district": "Patiala",
    "type": "Govt-aided college",
-   "url": "http://gurmatcollegepatiala.in/",
+   "url": "http://gurmatcollegepatiala.org.in/",
    "note": "Govt-aided · Punjabi University",
    "follow": true,
-   "runOn": "india"
+   "pages": [
+    "http://gurmatcollegepatiala.org.in/index.php/vacancies-jobs.html"
+   ]
   },
   {
    "name": "Multani Mal Modi College, Patiala",
@@ -6055,7 +6123,10 @@
    "type": "Govt-aided college",
    "url": "http://www.patelcollege.in/",
    "note": "Govt-aided · Punjabi University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://patelcollege.in/job.aspx"
+   ]
   },
   {
    "name": "Public College, Samana",
@@ -6064,7 +6135,10 @@
    "type": "Govt-aided college",
    "url": "http://www.pcsamana.org.in/",
    "note": "Govt-aided · Punjabi University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.pcsamana.org.in/carrier-opportunities/"
+   ]
   },
   {
    "name": "Akal Degree College for Women, Sangrur",
@@ -6089,10 +6163,9 @@
    "state": "Punjab",
    "district": "Sangrur",
    "type": "Govt-aided college",
-   "url": "http://dbcbardwaldhuri.com/dbcsite/",
+   "url": "https://dbcebardwal.org/",
    "note": "Govt-aided · Punjabi University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Guru Tegh Bahadur College, Bhawanigarh",
@@ -6108,10 +6181,9 @@
    "state": "Punjab",
    "district": "Sangrur",
    "type": "Govt-aided college",
-   "url": "http://www.kmrdjaincollege.org/",
+   "url": "https://kmrdjaincollege.in/",
    "note": "Govt-aided · Punjabi University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Sant Baba Attar Singh Khalsa College, Sandour",
@@ -7025,10 +7097,9 @@
    "state": "Punjab",
    "district": "Fazilka",
    "type": "Govt-aided college",
-   "url": "https://www.gcamabohar.org.in/",
+   "url": "https://gcmdav.org/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "D.A.V. College for Women, Ferozepur Cantt, Ferozepur",
@@ -7044,10 +7115,9 @@
    "state": "Punjab",
    "district": "Ferozepur",
    "type": "Govt-aided college",
-   "url": "http://www.dscwfzr.org/",
+   "url": "https://dscw.in/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Dev Samaj College of Education for Women, Ferozepur",
@@ -7063,10 +7133,9 @@
    "state": "Punjab",
    "district": "Ferozepur",
    "type": "Govt-aided college",
-   "url": "https://gncfzr.com/",
+   "url": "https://gncfzr.in/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "R.S.D. College, Ferozepur City, Ferozepur",
@@ -7167,7 +7236,10 @@
    "type": "Govt-aided college",
    "url": "https://spncollegemukerian.com/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://spncollegemukerian.com/application-form-for-teaching-posts-on-adhoc-temporary-basis/"
+   ]
   },
   {
    "name": "A.S. College, Khanna, Ludhiana",
@@ -7213,7 +7285,10 @@
    "type": "Govt-aided college",
    "url": "http://www.sidhwankhurdeducation.com/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "http://www.sidhwankhurdeducation.com/news/vacancy"
+   ]
   },
   {
    "name": "G.H.G. Khalsa College of Education, Gurusar Sadhar, Ludhiana",
@@ -7222,7 +7297,10 @@
    "type": "Govt-aided college",
    "url": "http://www.ghgcollegesadhar.org/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.ghgcollegesadhar.org/./JobsPub.php"
+   ]
   },
   {
    "name": "GHG Khalsa College, Gursar Sudhar",
@@ -7231,7 +7309,10 @@
    "type": "Govt-aided college",
    "url": "http://www.ghgcollegesadhar.org/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.ghgcollegesadhar.org/./JobsPub.php"
+   ]
   },
   {
    "name": "Govind National College, Narangwal, Ludhiana",
@@ -7240,7 +7321,10 @@
    "type": "Govt-aided college",
    "url": "https://gncnarangwal.com/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://gncnarangwal.com/job-openings/"
+   ]
   },
   {
    "name": "Gujranwala Guru Nanak Khalsa College, Ludhiana",
@@ -7267,7 +7351,10 @@
    "type": "Govt-aided college",
    "url": "http://www.gnwldh.com/home/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://www.gnwldh.com/advertisements/"
+   ]
   },
   {
    "name": "Guru Nanak National College, Doraha, Ludhiana",
@@ -7276,7 +7363,10 @@
    "type": "Govt-aided college",
    "url": "https://gnncdoraha.edu.in/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://gnncdoraha.edu.in/jobs"
+   ]
   },
   {
    "name": "Guru Teg Bahadur National College, Dakha, Ludhiana",
@@ -7304,7 +7394,10 @@
    "url": "https://www.kcwsidhwan.org/",
    "note": "Govt-aided · Panjab University",
    "follow": true,
-   "runOn": "india"
+   "runOn": "india",
+   "pages": [
+    "https://www.kcwsidhwan.org/recruitment"
+   ]
   },
   {
    "name": "Lajpat Rai DAV College, Jagraon, Ludhiana",
@@ -7314,7 +7407,10 @@
    "url": "https://lrdavjagraon.com/",
    "note": "Govt-aided · Panjab University",
    "follow": true,
-   "runOn": "india"
+   "runOn": "india",
+   "pages": [
+    "https://lrdavjagraon.com/faculty/guest-faculty/"
+   ]
   },
   {
    "name": "Malwa Central College of Education for Women, Civil Lines, Ludhiana",
@@ -7331,17 +7427,16 @@
    "state": "Punjab",
    "district": "Ludhiana",
    "type": "Govt-aided college",
-   "url": "http://malwacollege.co.in/",
+   "url": "http://malwacollege.ac.in/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Master Tara Singh Memorial College for Women, Ludhiana",
    "state": "Punjab",
    "district": "Ludhiana",
    "type": "Govt-aided college",
-   "url": "http://mtsmldh.com/",
+   "url": "https://www.mtsmludhiana.com/",
    "note": "Govt-aided · Panjab University",
    "follow": true
   },
@@ -7350,7 +7445,7 @@
    "state": "Punjab",
    "district": "Ludhiana",
    "type": "Govt-aided college",
-   "url": "http://www.ramgarhiagirlscollege.com/",
+   "url": "http://www.ramgarhiagirlscollegeldh.com/",
    "note": "Govt-aided · Panjab University",
    "follow": true
   },
@@ -7361,7 +7456,10 @@
    "type": "Govt-aided college",
    "url": "http://www.sdpcollege.com/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://sdpcollege.com/job_perfoma"
+   ]
   },
   {
    "name": "Swami Ganga Giri Janta Girls College, Raikot, Ludhiana",
@@ -7370,7 +7468,10 @@
    "type": "Govt-aided college",
    "url": "http://www.sggjgirlscollege.com/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "http://sggjgirlscollege.com/vacancies/Teaching"
+   ]
   },
   {
    "name": "Arjan Das College, Dharmkot, Moga",
@@ -7388,14 +7489,17 @@
    "type": "Govt-aided college",
    "url": "http://www.dmcm157.com/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "http://www.dmcm157.com/jobs.php"
+   ]
   },
   {
    "name": "D.M College of Education, Moga",
    "state": "Punjab",
    "district": "Moga",
    "type": "Govt-aided college",
-   "url": "http://dmcedumoga.com/",
+   "url": "http://dmcedumoga.in/",
    "note": "Govt-aided · Panjab University",
    "follow": true
   },
@@ -7432,10 +7536,9 @@
    "state": "Punjab",
    "district": "Sri Muktsar Sahib",
    "type": "Govt-aided college",
-   "url": "http://dkcmkt.com/",
+   "url": "https://dkcmuktsar.org/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "DAV College, Malout, Distt. Sri Muktsar Sahib",
@@ -7453,7 +7556,10 @@
    "type": "Govt-aided college",
    "url": "https://gncmkt.ac.in/",
    "note": "Govt-aided · Panjab University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "https://gncmkt.ac.in/career-with-us/index.html"
+   ]
   },
   {
    "name": "Guru Nanak National College, Killianwali, Sri Muktsar Sahib",
@@ -7469,20 +7575,18 @@
    "state": "Punjab",
    "district": "Sri Muktsar Sahib",
    "type": "Govt-aided college",
-   "url": "http://www.kcemkt.org/",
+   "url": "https://kcemkt.org/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "Mata Misri Devi DAV College, Giddarbaha, Sri Muktsar Sahib",
    "state": "Punjab",
    "district": "Sri Muktsar Sahib",
    "type": "Govt-aided college",
-   "url": "http://mmddavgdb.org.in/",
+   "url": "https://mmddavgdb.in/",
    "note": "Govt-aided · Panjab University",
-   "follow": true,
-   "runOn": "india"
+   "follow": true
   },
   {
    "name": "University College, Barnala",
@@ -7539,10 +7643,10 @@
    "state": "Punjab",
    "district": "Faridkot",
    "type": "University college",
-   "url": "http://ucjaitu.com/",
-   "note": "Constituent college of Punjabi University",
+   "url": "",
+   "note": "No working website found (checked 28 Nov 2026)",
    "follow": true,
-   "runOn": "india"
+   "check": false
   },
   {
    "name": "University College, Chuni Kalan",
@@ -7580,7 +7684,10 @@
    "type": "University college",
    "url": "http://universitycollegesardulgarh.blogspot.com/p/welcome.html",
    "note": "Constituent college of Punjabi University",
-   "follow": true
+   "follow": true,
+   "pages": [
+    "http://universitycollegesardulgarh.blogspot.com/p/blog-page_36.html"
+   ]
   },
   {
    "name": "University College, Ghanaur",
@@ -7681,9 +7788,10 @@
    "state": "Punjab",
    "district": "Jalandhar",
    "type": "University college",
-   "url": "http://www.gnducjal.org/",
-   "note": "Constituent college of Guru Nanak Dev University",
-   "follow": true
+   "url": "",
+   "note": "No working website found (checked 28 Nov 2026); its old address was taken over by a spam site",
+   "follow": true,
+   "check": false
   },
   {
    "name": "Guru Nanak Dev University College, Nakodar (Jalandhar)",
@@ -7708,10 +7816,10 @@
    "state": "Punjab",
    "district": "Kapurthala",
    "type": "University college",
-   "url": "http://gnducmithra.ac.in/",
-   "note": "Constituent college of Guru Nanak Dev University",
+   "url": "",
+   "note": "No working website found (checked 28 Nov 2026)",
    "follow": true,
-   "runOn": "india"
+   "check": false
   },
   {
    "name": "Bebe Nanaki (Girls) University College, Fattu Dhinga, Sultanpur Lodhi, Kapurthala",
@@ -7755,16 +7863,18 @@
    "state": "Punjab",
    "district": "Ferozepur",
    "type": "University college",
-   "url": "https://puccghs.puchd.ac.in/",
-   "note": "Constituent college of Panjab University",
-   "follow": true
+   "url": "",
+   "note": "No website of its own (the address listed before belonged to the Guru Har Sahai college); Panjab University lists its posts on its jobs page",
+   "follow": true,
+   "check": false,
+   "website": "https://jobs.puchd.ac.in/list-jobs.php"
   },
   {
    "name": "Panjab University Constituent College (Nihalsingh Wala)",
    "state": "Punjab",
    "district": "Moga",
    "type": "University college",
-   "url": "http://www.puccnsw.in/",
+   "url": "https://ccnsw.puchd.ac.in/",
    "note": "Constituent college of Panjab University",
    "follow": true
   },
@@ -7791,10 +7901,9 @@
    "state": "Punjab",
    "district": "Moga",
    "type": "University college",
-   "url": "",
+   "url": "https://puccd.puchd.ac.in/",
    "note": "Constituent college of Panjab University",
-   "follow": true,
-   "check": false
+   "follow": true
   }
  ]
 }

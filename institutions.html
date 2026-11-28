@@ -49,8 +49,8 @@
   td.name b { font-weight: 600; }
   .small { display: block; color: var(--muted); font-size: 0.76rem; }
   .st { font-size: 0.78rem; white-space: nowrap; }
-  .st.ok { color: var(--ok); } .st.bad { color: var(--bad); } .st.wait { color: var(--warn); } .st.new, .st.listed { color: var(--muted); }
-  .st.listed { white-space: normal; }
+  .st.ok { color: var(--ok); } .st.bad { color: var(--bad); } .st.wait { color: var(--warn); } .st.new, .st.listed, .st.offline { color: var(--muted); }
+  .st.listed, .st.offline { white-space: normal; }
   .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
   .links a { margin-right: 10px; white-space: nowrap; font-size: 0.82rem; }
   .group td { background: var(--chip); font-weight: 600; font-size: 0.8rem; }
@@ -92,6 +92,7 @@
           <option value="open">With open notices</option>
           <option value="ok">Read OK in the latest check</option>
           <option value="bad">Blocked or down (check by hand)</option>
+          <option value="offline">Website offline (address lapsed)</option>
         </select>
       </label>
     </div>
@@ -157,7 +158,8 @@
     render();
   });
 
-  const statusOf = (x) => x.check === false ? 'listed' : !x.h ? 'new' : x.h.ok ? 'ok' : x.h.pending ? 'wait' : 'bad';
+  const statusOf = (x) => x.check === false ? 'listed' : !x.h ? 'new' : x.h.ok ? 'ok' : x.h.pending ? 'wait' :
+    /^Website offline/.test(x.h.error || '') ? 'offline' : 'bad';
 
   function fillSelect(sel, values, first) {
     const cur = sel.value;
@@ -204,6 +206,7 @@
       if (f.show === 'open' && !x.open) return false;
       if (f.show === 'ok' && s !== 'ok') return false;
       if (f.show === 'bad' && !(s === 'bad' || s === 'wait')) return false;
+      if (f.show === 'offline' && s !== 'offline') return false;
       if (words.length) {
         const hay = [x.name, x.district || '', x.state, x.type, x.note || '', x.url, x.website || ''].join(' ').toLowerCase();
         if (!words.every((w) => hay.includes(w))) return false;
@@ -246,7 +249,7 @@
       const dist = el('td', '', x.district || '–');
       const s = statusOf(x);
       const stTd = el('td');
-      const txt = s === 'ok' ? 'Read OK' + (x.h.via === 'india' ? ' (from India)' : '') : s === 'wait' ? 'Waiting for check from India' : s === 'bad' ? 'Blocked or down — open by hand' : s === 'listed' ? 'Not checked — no website listed; posts come through the department / commission' : 'Added recently — first check pending';
+      const txt = s === 'ok' ? 'Read OK' + (x.h.via === 'india' ? ' (from India)' : '') : s === 'wait' ? 'Waiting for check from India' : s === 'bad' ? 'Blocked or down — open by hand' : s === 'offline' ? 'Website offline — the college has not renewed its web address. Checked daily; it comes back here by itself once renewed.' : s === 'listed' ? 'Not checked — no working website' : 'Added recently — first check pending';
       const span = el('span', 'st ' + s, txt); if (x.h && x.h.error) span.title = x.h.error; stTd.append(span);
       if (x.h && x.h.date) stTd.append(el('span', 'small', fmt(x.h.date) + (s === 'ok' ? ' · ' + x.h.matches + ' notice link' + (x.h.matches === 1 ? '' : 's') + ' on page' : '')));
       const openTd = el('td', 'num');

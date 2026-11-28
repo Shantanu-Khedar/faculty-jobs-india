@@ -456,7 +456,7 @@
   // Better pages to open by hand than the home pages the check uses.
   const MANUAL_URL = {'CRSU Jind': 'https://website.crsu.ac.in/teaching-recruitment/'};
   function renderManual() {
-    const h = (notices && notices.health || []).filter((s) => !s.ok && !s.pending);
+    const h = (notices && notices.health || []).filter((s) => !s.ok && !s.pending && !/^Website offline/.test(s.error || ''));
     const home = (s) => s.state === 'Haryana' || s.state === 'Punjab' ? 0 : 1;
     h.sort((a, b) => home(a) - home(b) || (a.state || '').localeCompare(b.state || '') || a.name.localeCompare(b.name));
     $('#manual-list').replaceChildren(...h.slice(0, 24).map((s) => {

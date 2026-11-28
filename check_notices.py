@@ -33,6 +33,7 @@ import json
 import os
 import re
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
@@ -514,6 +515,20 @@ def site_key(u):
     return ".".join(parts[-n:])
 
 
+# .ac.in addresses that the registry (ERNET) has suspended, e.g. when a college did not renew
+# its domain, point to these addresses instead of the college's server.
+LAPSED_IPS = {"127.0.0.1", "144.16.2.130"}
+
+
+def lapsed(url):
+    host = urllib.parse.urlparse(url).hostname or ""
+    try:
+        ips = {a[4][0] for a in socket.getaddrinfo(host, 80, proto=socket.IPPROTO_TCP)}
+    except Exception:  # noqa: BLE001
+        return False
+    return bool(ips) and ips <= LAPSED_IPS
+
+
 def scan_source(src):
     res = {"name": src["name"], "state": src["state"], "type": src.get("type", ""), "url": src["url"],
            "district": src.get("district", ""),
@@ -522,13 +537,17 @@ def scan_source(src):
         final_url, html = fetch_page(src["url"])
     except Exception as e:  # noqa: BLE001
         res["error"] = f"{type(e).__name__}: {str(e)[:150]}"
+        if isinstance(e, requests.exceptions.ConnectionError) and lapsed(src["url"]):
+            res["error"] = "Website offline: the college's web address has lapsed (not renewed)"
         return res
     res["ok"] = True
     pages = [(final_url, html)]
-    if src.get("follow"):
-        seen, follow = {final_url}, []
-        for text, u, _ctx in links_on(final_url, html):
-            if len(follow) >= MAX_FOLLOW:
+    # "pages": the site's own recruitment / notice pages, always read as well
+    extra = [u for u in src.get("pages", []) if u and u != final_url]
+    if src.get("follow") or extra:
+        seen, follow = {final_url, *extra}, list(extra)
+        for text, u, _ctx in (links_on(final_url, html) if src.get("follow") else []):
+            if len(follow) >= MAX_FOLLOW + len(extra):
                 break
             low = u.lower().split("?")[0]
             if u in seen or site_key(u) != site_key(final_url) or low.endswith((".pdf", ".jpg", ".jpeg", ".png", ".doc", ".docx", ".xls", ".xlsx", ".zip")):
