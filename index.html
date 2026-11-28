@@ -57,6 +57,9 @@
   .chip.muted { color: var(--muted); background: transparent; border: 1px solid var(--line); }
   .chip.new { background: var(--accent); color: var(--bg); font-weight: 600; }
   .chip.ver { color: var(--ok); border: 1px solid var(--ok); background: transparent; font-weight: 600; }
+  .chip.fund { font-weight: 600; background: transparent; border: 1px solid currentColor; }
+  .chip.fund.govt { color: var(--ok); } .chip.fund.aided { color: var(--accent); } .chip.fund.private { color: var(--warn); } .chip.fund.unknown { color: var(--muted); }
+  .chip.sf { color: var(--warn); background: transparent; border: 1px dashed var(--warn); }
   .badge { font-size: 0.74rem; font-weight: 600; border: 1px solid currentColor; border-radius: 999px; padding: 2px 9px; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .badge.open { color: var(--ok); } .badge.soon { color: var(--warn); } .badge.past { color: var(--muted); } .badge.unknown { color: var(--muted); border-style: dashed; }
   .title { font-weight: 600; margin: 2px 0 0; line-height: 1.35; overflow-wrap: anywhere; }
@@ -127,6 +130,9 @@
       </label>
       <label>Institution type
         <select id="f-type"><option value="">Any type</option></select>
+      </label>
+      <label>Govt / aided / private
+        <select id="f-fund"><option value="">All</option><option value="govt">Government</option><option value="aided">Govt-aided</option><option value="private">Private</option></select>
       </label>
       <label>Show
         <select id="f-show">
@@ -200,6 +206,23 @@
   const saveMine = () => { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} };
 
   const KIND_TO_TYPE = {'State university': 'State university', 'Central university': 'Central university', 'Central govt institute': 'AIIMS / medical institute', 'Public Service Commission': 'Commission (govt colleges)'};
+  // Who runs the institution: shown on every notice and used by the "Govt / aided / private" filter.
+  // University portals list posts of their affiliated colleges, which can be aided or private: the notice's own words decide.
+  const SELF_FIN = /self[\s-]*financ|un-?aided|self[\s-]*supporting/i;
+  const AIDED_TXT = /grant[\s-]*in[\s-]*aid|\baided\b/i;
+  const PRIVATE_TXT = /\bprivate\b|self[\s-]*financ(ing|ed)\s+(college|institut)/i;
+  const FUND_LABEL = {govt: 'Government', aided: 'Govt-aided', private: 'Private', unknown: 'Aided or private — see notice'};
+  function funding(it) {
+    if (it._fund) return it._fund;
+    const txt = [it.title, it.excerpt || '', it.subjText || '', (it.basis || []).join(' ')].join(' ');
+    let f = 'govt';
+    if (it.type === 'Govt-aided college') f = 'aided';
+    else if (it.type === 'College recruitment portal' || it.type === 'Commission (govt colleges)')
+      f = AIDED_TXT.test(txt) ? 'aided' : PRIVATE_TXT.test(txt) ? 'private' : it.type === 'College recruitment portal' ? 'unknown' : 'govt';
+    it._fund = f;
+    return f;
+  }
+  const selfFinancing = (it) => SELF_FIN.test([it.title, it.excerpt || '', (it.basis || []).join(' ')].join(' '));
   let all = [], notices = null, watch = [], shown = PAGE, today = todayIST(), onlySrc = '';
 
   const getJSON = (f) => fetch(f + '?v=' + Date.now(), {cache: 'no-store'}).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
@@ -281,7 +304,7 @@
     sel.disabled = !ds.length;
   }
 
-  const F = ['q', 'state', 'district', 'subject', 'post', 'type', 'show', 'sort'];
+  const F = ['q', 'state', 'district', 'subject', 'post', 'type', 'fund', 'show', 'sort'];
   function readURL() {
     const p = new URLSearchParams(location.search);
     F.forEach((k) => { const v = p.get(k); if (v !== null) { const e = $('#f-' + k); if (e) e.value = v; } });
@@ -309,6 +332,7 @@
       if (f.district && it.district !== f.district) return false;
       if (onlySrc && it.source !== onlySrc) return false;
       if (f.type && it.type !== f.type) return false;
+      if (f.fund && funding(it) !== f.fund) return false;
       if (f.post && !(it.posts || []).includes(f.post)) {
         if (!(unread && !it.textRead && !(it.posts || []).length)) return false;
       }
@@ -322,7 +346,7 @@
       if (f.show === 'all' && !isListedNow(it)) return false;
       if (f.show === 'mine' && !mine[it.id]) return false;
       if (q) {
-        const hay = [it.title, it.subjText || '', it.source, it.state, it.type, (it.subjects || []).join(' '), (it.posts || []).join(' '), it.excerpt || '', it.row ? it.row.advt + ' ' + it.row.notes : ''].join(' ').toLowerCase();
+        const hay = [it.title, it.subjText || '', it.source, it.state, it.type, FUND_LABEL[funding(it)], (it.subjects || []).join(' '), (it.posts || []).join(' '), it.excerpt || '', it.row ? it.row.advt + ' ' + it.row.notes : ''].join(' ').toLowerCase();
         if (!q.split(/\s+/).every((w) => hay.includes(w))) return false;
       }
       return true;
@@ -366,9 +390,12 @@
     const chips = el('div', 'chips');
     if (it.verified) chips.append(el('span', 'chip ver', 'Verified details'));
     if (isNew(it, 7)) chips.append(el('span', 'chip new', 'New'));
+    const fu = funding(it);
+    chips.append(el('span', 'chip fund ' + fu, FUND_LABEL[fu]));
     chips.append(el('span', 'chip', (it.state || '') + (it.district ? ' · ' + it.district : '')));
     if (it.type) chips.append(el('span', 'chip muted', it.type));
-    (it.basis || []).slice(0, 2).forEach((b) => chips.append(el('span', 'chip muted', b)));
+    (it.basis || []).filter((b) => b !== 'Self-financing').slice(0, 2).forEach((b) => chips.append(el('span', 'chip muted', b)));
+    if (selfFinancing(it)) chips.append(el('span', 'chip sf', 'Self-financing post'));
     if (it.stage === 'update') chips.append(el('span', 'chip muted', 'Update for applicants'));
     if (isOld(it)) chips.append(el('span', 'chip muted', 'Older notice (' + it.yearHint + ')'));
     const badge = el('span', 'badge ' + (d === null ? 'unknown' : past ? 'past' : d <= 7 ? 'soon' : 'open'),
@@ -483,7 +510,7 @@
 
   const onChange = () => { shown = PAGE; writeURL(); render(); };
   $('#f-state').addEventListener('change', () => { buildDistricts(); $('#f-district').value = ''; onChange(); });
-  ['#f-district', '#f-subject', '#f-post', '#f-type', '#f-show', '#f-sort', '#f-unread', '#f-updates'].forEach((s) => $(s).addEventListener('change', onChange));
+  ['#f-district', '#f-subject', '#f-post', '#f-type', '#f-fund', '#f-show', '#f-sort', '#f-unread', '#f-updates'].forEach((s) => $(s).addEventListener('change', onChange));
   let t; $('#f-q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(onChange, 250); });
   $('#more').addEventListener('click', () => { shown += PAGE; render(); });
   $('#f-reset').addEventListener('click', () => { F.forEach((k) => { $('#f-' + k).value = k === 'show' ? 'open' : k === 'sort' ? 'new' : ''; }); $('#f-unread').checked = false; $('#f-updates').checked = false; onlySrc = ''; buildDistricts(); onChange(); });

@@ -155,6 +155,9 @@ BASIS = [
     ("Contract", re.compile(r"contract(ual)?\s*(basis)?|on\s+contract", re.I)),
     ("Guest", re.compile(r"guest\s+(faculty|lecturer)|lecture\s+basis|visiting", re.I)),
     ("Ad-hoc / temporary", re.compile(r"ad-?hoc|temporary|stop[\s-]*gap", re.I)),
+    # how the post is paid for: self-financing posts (also at aided colleges) are not on the government grant
+    ("Self-financing", re.compile(r"self[\s-]*financ|un-?aided\s+(post|basis|course|scheme|programme)|self[\s-]*supporting", re.I)),
+    ("Aided post", re.compile(r"grant[\s-]*in[\s-]*aid|(against|on)\s+(the\s+)?(sanctioned\s+)?aided\s+posts?|sanctioned\s+aided", re.I)),
 ]
 
 # Subjects. "strict" ones are common words, counted only next to post or
