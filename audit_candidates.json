@@ -1,0 +1,7 @@
+{
+ "_note": "Extra addresses for audit_sites.py to try, by source name (in addition to the listed address and automatic guesses).",
+ "Dayanand College, Hisar": ["https://www.dnc.ac.in/"],
+ "Apeejay Saraswati P.G. College for Girls, Bhiwani": ["https://apeejay.edu/saraswati/", "https://www.apeejay.edu/"],
+ "Vaish Arya Kanya Mahavidyalaya Bahadurgarh": ["http://vakmbahadurgarh.org/"],
+ "Hindu College of Education, Sonipat": ["http://hcoesonepat.org/"]
+}
