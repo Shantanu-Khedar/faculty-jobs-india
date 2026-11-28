@@ -239,6 +239,17 @@
     $('#k-bad').textContent = rowsAll.filter((x) => ['bad', 'wait'].includes(statusOf(x))).length;
     $('#k-open').textContent = rowsAll.reduce((n, x) => n + x.open, 0);
     $('#count').replaceChildren('Showing ', el('b', '', String(Math.min(shown, rowsAll.length))), ' of ', el('b', '', String(rowsAll.length)), ' institutions.');
+    const only = [];
+    if ($('#f-district').value) only.push($('#f-district').value + ' district');
+    if ($('#f-type').value) only.push($('#f-type').value);
+    if ($('#f-show').value) only.push($('#f-show').selectedOptions[0].text.toLowerCase());
+    if ($('#f-q').value.trim()) only.push('“' + $('#f-q').value.trim() + '”');
+    if (only.length) {
+      const all = el('a', '', 'Show all of ' + (st || 'India'));
+      all.href = '#';
+      all.addEventListener('click', (e) => { e.preventDefault(); ['#f-district', '#f-type', '#f-show', '#f-q'].forEach((s) => { $(s).value = ''; }); onChange(); });
+      $('#count').append(' Only ' + only.join(' · ') + ' — ', all);
+    }
     const tb = $('#rows'); tb.replaceChildren();
     let lastGroup = '';
     rowsAll.slice(0, shown).forEach((x) => {

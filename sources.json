@@ -2089,6 +2089,23 @@
    "follow": true
   },
   {
+   "name": "Sports University of Haryana, Rai",
+   "state": "Haryana",
+   "district": "Sonipat",
+   "type": "State university",
+   "url": "https://www.suoh.ac.in/recruitment",
+   "website": "https://www.suoh.ac.in/",
+   "follow": true
+  },
+  {
+   "name": "Pt. Deen Dayal Upadhyaya University of Health Sciences, Karnal",
+   "state": "Haryana",
+   "district": "Karnal",
+   "type": "State university",
+   "url": "https://www.uhskarnal.ac.in/",
+   "follow": true
+  },
+  {
    "name": "IIM Rohtak",
    "state": "Haryana",
    "district": "Rohtak",
