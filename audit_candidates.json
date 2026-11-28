@@ -1,7 +1,91 @@
 {
  "_note": "Extra addresses for audit_sites.py to try, by source name (in addition to the listed address and automatic guesses).",
- "Dayanand College, Hisar": ["https://www.dnc.ac.in/"],
- "Apeejay Saraswati P.G. College for Girls, Bhiwani": ["https://apeejay.edu/saraswati/", "https://www.apeejay.edu/"],
- "Vaish Arya Kanya Mahavidyalaya Bahadurgarh": ["http://vakmbahadurgarh.org/"],
- "Hindu College of Education, Sonipat": ["http://hcoesonepat.org/"]
+ "Dayanand College, Hisar": [
+  "https://www.dnc.ac.in/"
+ ],
+ "Apeejay Saraswati P.G. College for Girls, Bhiwani": [
+  "https://www.apeejay.edu/saraswati/"
+ ],
+ "Vaish Arya Kanya Mahavidyalaya Bahadurgarh": [
+  "https://www.vakmbahadurgarh.ac.in/"
+ ],
+ "Hindu College of Education, Sonipat": [
+  "https://hcoesonepat.org/"
+ ],
+ "Aggarwal College Ballabgarh": [
+  "https://www.aggarwalcollege.ac.in/",
+  "https://aggarwalcollegeballabgarh.ac.in/"
+ ],
+ "DAV Centenary College, Faridabad": [
+  "https://www.davccfbd.ac.in/"
+ ],
+ "Markanda National College, Shahabad Markanda, Kurukshetra": [
+  "http://www.mncs.ac.in/"
+ ],
+ "S.D. Mahila Mahavidyalya, Hansi": [
+  "http://sdmahilamahavidyalya.ac.in/",
+  "http://www.sdwomencollege.com/"
+ ],
+ "SJK College Kalanaur": [
+  "http://sjkc.ac.in/"
+ ],
+ "Vaish Girls College, Samalkha": [
+  "http://www.vgcsmk.in/"
+ ],
+ "KM College of Education, Bhiwani": [
+  "https://kmcollegeofeducation.org/"
+ ],
+ "DAV College, Pehowa": [
+  "https://davcpehowa.org/"
+ ],
+ "Sanatan Dharma College, Ambala Cantt": [
+  "https://www.sdcollegeambala.ac.in/"
+ ],
+ "Govt College, Baroda": [
+  "http://gcbaroda.ac.in/"
+ ],
+ "Govt College, Issarwal": [
+  "http://gcisharwal.ac.in/"
+ ],
+ "Govt College of Education, Narnaul": [
+  "http://gcenarnaul.ac.in/"
+ ],
+ "Master Tara Singh Memorial College for Women, Ludhiana": [
+  "https://www.mtsmludhiana.com/"
+ ],
+ "Ramgarhia Girls College, Miller Ganj, Ludhiana": [
+  "http://www.ramgarhiagirlscollegeldh.com/",
+  "http://www.ramgarhiacollege.com/"
+ ],
+ "Panjab University Constituent College (Nihalsingh Wala)": [
+  "https://ccnsw.puchd.ac.in/"
+ ],
+ "Panjab University Constituent College (Mokham Khan Wala)": [
+  "https://puccmkw.puchd.ac.in/",
+  "https://ccmkw.puchd.ac.in/",
+  "https://pucmkw.puchd.ac.in/",
+  "https://puccmkwala.puchd.ac.in/"
+ ],
+ "Saheed Udham Singh Panjab University Constituent College (Guru Har Sahai)": [
+  "https://puccghs.puchd.ac.in/"
+ ],
+ "PU Constituent College, Dharamkot": [
+  "https://puccd.puchd.ac.in/"
+ ],
+ "NIT Meghalaya": [
+  "https://www.nitm.ac.in/"
+ ],
+ "Acharya Nagarjuna University": [
+  "https://www.nagarjunauniversity.ac.in/"
+ ],
+ "Sardar Beant Singh State University": [
+  "https://sbssugsp.ac.in/"
+ ],
+ "Meghalaya PSC": [
+  "https://mpsc.meghalaya.gov.in/"
+ ],
+ "SVBP University of Agriculture and Technology": [
+  "https://www.svbpuat.ac.in/",
+  "https://svbpmeerut.ac.in/"
+ ]
 }
