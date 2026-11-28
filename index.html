@@ -47,6 +47,11 @@
   .card.verified { border-color: var(--ok); }
   .top { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
   .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .manual { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 14px 0; }
+  .manual h2 { margin: 0 0 4px; font-size: 1rem; }
+  .manual-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .manual-list a { font-size: 0.8rem; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; text-decoration: none; }
+  .manual-list a.hp { font-weight: 600; }
   .chip { font-size: 0.72rem; background: var(--chip); border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
   .chip.subj { background: var(--subj); }
   .chip.muted { color: var(--muted); background: transparent; border: 1px solid var(--line); }
@@ -94,6 +99,12 @@
     <div class="kpi"><p class="label">Official pages read</p><p class="value" id="k-src">–</p><p class="note">Latest checks from GitHub and India</p></div>
     <div class="kpi"><p class="label">Marked “Applied” by you</p><p class="value" id="k-applied">–</p><p class="note">Saved in this browser</p></div>
   </div>
+
+  <section class="manual" id="manual" hidden>
+    <h2>Check these pages by hand</h2>
+    <p class="h2note">These official pages block automated checks, so their new notices may be missing below. Open them yourself now and then.</p>
+    <div class="manual-list" id="manual-list"></div>
+  </section>
 
   <div class="searchbar" id="search">
     <div class="filters">
@@ -237,6 +248,7 @@
     render();
     renderWatch();
     renderHealth();
+    renderManual();
   });
 
   function isListedNow(it) { return it.verified || !notices || !it._checked || it.lastSeen === it._checked; }
@@ -419,6 +431,20 @@
       c.append(act);
       return c;
     }));
+  }
+
+  // Better pages to open by hand than the home pages the check uses.
+  const MANUAL_URL = {'CRSU Jind': 'https://website.crsu.ac.in/teaching-recruitment/'};
+  function renderManual() {
+    const h = (notices && notices.health || []).filter((s) => !s.ok && !s.pending);
+    const home = (s) => s.state === 'Haryana' || s.state === 'Punjab' ? 0 : 1;
+    h.sort((a, b) => home(a) - home(b) || (a.state || '').localeCompare(b.state || '') || a.name.localeCompare(b.name));
+    $('#manual-list').replaceChildren(...h.map((s) => {
+      const a = el('a', home(s) ? '' : 'hp', s.name + ' · ' + s.state);
+      const u = safeUrl(MANUAL_URL[s.name] || s.url); if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      return a;
+    }));
+    $('#manual').hidden = !h.length;
   }
 
   function renderHealth() {
