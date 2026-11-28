@@ -57,7 +57,7 @@ GROUP_FILES = {"main": "notices.json", "india": "india.json", "all": "notices.js
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-TIMEOUT = 25
+TIMEOUT = (10, 25)         # seconds to connect, seconds to wait for data
 MAX_FOLLOW = 5
 WORKERS = int(os.environ.get("SCAN_WORKERS", "32"))   # pages are read in parallel
 READ_WORKERS = int(os.environ.get("READ_WORKERS", "24"))
@@ -536,7 +536,10 @@ def scan_source(src):
             if FOLLOW.search(text or "") or FOLLOW.search(urllib.parse.urlparse(u).path):
                 seen.add(u)
                 follow.append(u)
+        t0 = time.time()
         for u in follow:
+            if time.time() - t0 > 90:      # don't let one slow site hold up the whole check
+                break
             try:
                 pages.append(fetch_page(u))
             except Exception:  # noqa: BLE001
