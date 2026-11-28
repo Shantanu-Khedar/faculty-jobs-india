@@ -517,7 +517,7 @@ def site_key(u):
 
 # .ac.in addresses that the registry (ERNET) has suspended, e.g. when a college did not renew
 # its domain, point to these addresses instead of the college's server.
-LAPSED_IPS = {"127.0.0.1", "144.16.2.130"}
+LAPSED_IPS = {"127.0.0.1", "::1", "144.16.2.130"}
 
 
 def lapsed(url):
