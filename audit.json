@@ -1,7 +1,7 @@
 {
-"ranAt": "2026-11-28T17:04:06+05:30",
+"ranAt": "2026-11-28T17:19:06+05:30",
 "states": [],
-"seconds": 220,
+"seconds": 241,
 "results": [
 {
 "name": "Samarth CU recruitment portal (all central universities)",
@@ -611,62 +611,18 @@
 "kind": "listed"
 },
 {
-"url": "http://anu.edu.in/",
-"tried": [
-[
-"http://anu.edu.in/",
-"connection refused"
-],
-[
-"https://anu.edu.in/",
-"connection refused"
-]
-],
-"ok": false,
-"error": "connection refused",
-"kind": "guess"
-},
-{
-"url": "http://anu.org.in/",
+"url": "https://www.nagarjunauniversity.ac.in/",
 "ok": true,
 "status": 200,
-"final": "http://anu.org.in/",
+"final": "https://www.nagarjunauniversity.ac.in/",
 "offsite": false,
-"title": "Parked Domain name on Hostinger DNS system",
-"bytes": 31493,
-"nLinks": 5,
-"parked": "Parked Domain",
-"spam": "",
-"soon": "",
-"sample": "Parked Domain name on Hostinger DNS system Registered at If this is your domain, you can manage it in your Hostinger account. Manage domain Start your online journey Build your website today Launch your business with WordPress or Website Bu",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"acharya",
-"nagarjuna"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://anu.co.in/",
-"ok": false,
-"status": 200,
-"final": "http://anu.co.in/",
-"offsite": false,
-"title": "",
-"bytes": 114,
+"title": "ANU - ACHARYA NAGARJUNA UNIVERSITY",
+"bytes": 3582,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "",
+"sample": "ANU - ACHARYA NAGARJUNA UNIVERSITY",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -676,126 +632,19 @@
 "acharya",
 "nagarjuna"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://anu.in/",
-"ok": true,
-"status": 200,
-"final": "https://sedo.com/search/details/?domain=anu.in&campaignId=329145&origin=sales_lander_15",
-"offsite": true,
-"title": "Domain Details Page",
-"bytes": 1378,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Domain Details Page",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
+"coreFound": [
 "acharya",
 "nagarjuna"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://anu.com/",
-"ok": true,
-"status": 200,
-"final": "https://anu.com/",
-"offsite": false,
-"title": "anu.com",
-"bytes": 3651,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "anu.com www.anu.com * * * Contact: q22@domainregistryinc.com 2026-11-28 11:33:00",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
+"inTitle": [
 "acharya",
 "nagarjuna"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://anu.net/",
-"ok": true,
-"status": 200,
-"final": "https://anu.net/",
-"offsite": false,
-"title": "Anu Internet Services",
-"bytes": 144850,
-"nLinks": 26,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Anu Internet Services Anu logo Open main menu Close main menu Toggle Theme Log In Webmail Why Anu Security Hosting Services Contact Why Anu Security Hosting Services Contact Ctrl+Shift+C Theme Ctrl+Shift+D Log In Ctrl+Shift+L Webmail Ctrl+S",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"acharya",
-"nagarjuna"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://anu.org/",
-"ok": false,
-"status": 503,
-"final": "https://americanfreedomnews.us/",
-"offsite": true,
-"title": "",
-"bytes": 4991,
-"nLinks": 1,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Offline Mode We will be offline for the forseeable future. Thank you for your support and for visting, perhaps we will be back online at some point. In the meantime, please check out Caste Football .",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"acharya",
-"nagarjuna"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
 }
-],
-"guessesTried": 7
+]
 },
 {
 "name": "Andhra University",
@@ -937,33 +786,6 @@
 "spam": "",
 "soon": "",
 "sample": "Just a moment...",
-"recruit": [],
-"notices": [],
-"town": "Anantapur",
-"townHit": false,
-"otherHits": [],
-"core": [
-"jntu"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://jntua.in/",
-"ok": true,
-"status": 200,
-"final": "https://jntua.in/",
-"offsite": false,
-"title": "Coming Soon",
-"bytes": 2994,
-"nLinks": 1,
-"parked": "",
-"spam": "",
-"soon": "Coming Soon",
-"sample": "Coming Soon jntua.in We're under construction. Please check back for an update soon.",
 "recruit": [],
 "notices": [],
 "town": "Anantapur",
@@ -2056,7 +1878,7 @@
 "final": "https://www.aiimspatna.edu.in/",
 "offsite": false,
 "title": "You are being redirected...",
-"bytes": 1223,
+"bytes": 1411,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -2083,7 +1905,7 @@
 "final": "https://aiimspatna.edu.in",
 "offsite": true,
 "title": "You are being redirected...",
-"bytes": 1491,
+"bytes": 1415,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -2121,7 +1943,7 @@
 "final": "https://www.cusb.ac.in/",
 "offsite": false,
 "title": "About University - Central University of South Bihar, Gaya, Bihar",
-"bytes": 142451,
+"bytes": 142723,
 "nLinks": 251,
 "parked": "",
 "spam": "",
@@ -2221,7 +2043,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Home - Dr. Rajendra Prasad Central Agricultural University Skip to content Feedback Webmail Contact Us 28/11/2026 5:00 PM Skip to Main Content Screen Reader Access हिन्दी में देखे Feedback Contact Us 28/11/2026 5:00 PM Skip to Main Content ",
+"sample": "Home - Dr. Rajendra Prasad Central Agricultural University Skip to content Feedback Webmail Contact Us 28/11/2026 5:15 PM Skip to Main Content Screen Reader Access हिन्दी में देखे Feedback Contact Us 28/11/2026 5:15 PM Skip to Main Content ",
 "recruit": [
 [
 "Job Opportunities",
@@ -2329,10 +2151,10 @@
 "url": "https://www.mgcub.ac.in/",
 "ok": true,
 "status": 200,
-"final": "https://mgcub.ac.in/",
+"final": "https://www.mgcub.ac.in/",
 "offsite": false,
 "title": "Mahatma Gandhi Central University, Motihari (Bihar) | Mahatma Gandhi Central University",
-"bytes": 283599,
+"bytes": 286887,
 "nLinks": 558,
 "parked": "",
 "spam": "",
@@ -2341,21 +2163,21 @@
 "recruit": [
 [
 "Recruitment",
-"https://mgcub.ac.in/recruitment"
+"https://www.mgcub.ac.in/recruitment"
 ]
 ],
 "notices": [
 [
 "Parisar Pratibimba",
-"https://mgcub.ac.in/publications/e-news-letter"
+"https://www.mgcub.ac.in/publications/e-news-letter"
 ],
 [
 "News Clipping",
-"https://mgcub.ac.in/newspaper-clippings"
+"https://www.mgcub.ac.in/newspaper-clippings"
 ],
 [
 "View all",
-"https://mgcub.ac.in/latest"
+"https://www.mgcub.ac.in/latest"
 ]
 ],
 "town": "",
@@ -2645,12 +2467,39 @@
 "final": "http://lnmu.in/",
 "offsite": false,
 "title": "",
-"bytes": 27314,
+"bytes": 27332,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
 "sample": "Do Not Sell or Share My Personal Information",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"mithila"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://lnmu.net/",
+"ok": true,
+"status": 200,
+"final": "http://lnmu.net/",
+"offsite": false,
+"title": "Loading...",
+"bytes": 469,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Loading...",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -2678,33 +2527,6 @@
 "spam": "Casino",
 "soon": "",
 "sample": "BC Game Login — Crypto Slots & Live Casino Games 2026 BC / GAME Overview Bonuses Register Games Mobile Payments FAQ Overview Bonuses Register Games Mobile Payments FAQ BC Game · Crypto Casino · India 2026 Login to BC Game & Play for Real Mo",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"mithila"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://lnmu.net/",
-"ok": true,
-"status": 200,
-"final": "https://zairuc.com/fk?dat=GfAi4Tw5wOFV%2FLmuAmkUPH49fnlCRHZicHRjdzVTYmx5aU5tS091ditmQnB6MUdDdnR0ZU8rcE8vMkp1QllxTEVpM3lGM3N4aUVvYTk3MExTdzJmT0FYRkFPK2kyOTNFQUlVd0d3SzNPaklmMUtPdWwyM2VPZktjeVNPTUEvWCt4czJxd2hMMGlzMXZQUjVZSFc2REpBYlRyQUZ0WmJ0T1BvQ3o3M1htc0lVU3lTVW8wRGtXV0EzSlJmc3RpdVJwMUNyK2tzU0w1UWhta05IcHlxdE5yTWVNbDF4Z294cjEwZGpwV1FOQ2d3WWJJM3BWRFAxek80RjdzSWxQTnA0eG1MT0JEUnhEeVV0M2FIMldVODhHWnJZNytmdFlRSE52RFU2UVZFUjA3OGJFQTdIM3lMVGZSRUxMb2xERlZvSVZ2K2Y0ZC9SM0o3VnFveWNGU3puTDk0bDR2aWJhZVZFNUlVdmxkWndoWUxlMnhhTjlaRTlzQm1VQ09Yemkxdy9SbXJHZ0VRMDN3VENkLzFHVmhxWU1QVEUvUDlhZ0tKZ1I2aHM1eW5yZ2VxeWExMHh2TjJIT3NuV3VyZjJUS1hLdnVzSEJMcDZHK1Q4UlZ4REZDalJVSEhFYTNqSzRFdDh1ajIwcHBkczlqOE05NE5MR2JZSFlxUWdTUU5tNnNCYTdHNjhSWFkvUVdPT3phLzdsM0JDTFc3VWx5cTN1cXo1K2dvajdKZUtlQmI1RWE0YmJScVhkS2VuMHRBWldOOWdwdUJvbllqVG4va2MvZFErOUJBMjU0TkZhNjdYdy9TTWFuTTJKbTdyaWpJUjlUVmtiNE8rQ3drU00waUlzOTF2bGF2WWNibVVGTVdsM0pNL0JCdzZhOTZGT2pxNEVFOVFwNnpGeVFER3pXUmNNUjJJSy9OS0JsQ3BZTlJQN1JKVTVYWlFIR0pOLzFyN1EvRTZra3RzOTJraWFGdXo5eUZUTXBrR1lGbXE1MmlsTk8wdGtCZU10WElqc1gzTGsxckgrVXEvNWNjUytuQ0xVV3FlRjlhdWdCU3Z1SHVJaG4wQTNSdzdIazdrRkFUUEt2WGJubjFqczlLTEtSUCtKdVNmcEJRaU1CYmVPOG8wODBwQzVWTmRxL2o1WjU1ZHIreGp2dVRZT0wrZXYrOHFqSEZ2eU1YcGZLNlUvSkFGUWEzMzJTdy9waWxzVEVYTVRCR0h2cWNPVGo3OHJ4V3NpbXg2Y2NSOTJmenNiWG9rUy80ZjZ1VGlBaHRjYjJ2enhSOUdISlJIOGgvUFpFMTRZQTlmNk43eXMwUXF4ZHFEMjJXQVZFT0I3QUNUOGFRZVFKN2ZHY21tbzdzZ21GNHh5alFFQTBtWm1qelBtR1lpNlIrK1A5ZVlxY1pScXN0cUdDbTN2SFM1c0NJWXM0MlQvU281NldvUmYzcDkwYXljbUNmdTJiL2FZL0pGRWd6K1dBWTRqakhMd2dQYnFUb2xuNFdmT0xLaVMvNEN5QnZxcFJwZkVKcjkxNUZRRE81QVdHR2RyK0tMRmwrVXVrdVhTYlZiUTNXb3o3N0xTZnJFdVpYS1hpNlBwWkQ0ZkoxRUhWYmNVWGdyaEpERnA2VGVZSlRNWHpzczBlYjN4N3FqSzE2aVhBLzRzYzJCMnV4T0MrL0dFYncvQkRSVE9YemZnYUlXT29BUU1iZVdHa2Q3eklrPQ%3D%3D",
-"offsite": true,
-"title": "Verification",
-"bytes": 2887,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Verification Verification Required Checking if you're a real user... Verifying JavaScript... JavaScript is disabled. Please enable it to continue.",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -2774,18 +2596,18 @@
 "kind": "listed"
 },
 {
-"url": "http://patnauniversity.com/",
+"url": "http://patnauniversity.org.in/",
 "ok": true,
 "status": 200,
-"final": "http://patnauniversity.com/",
+"final": "http://patnauniversity.org.in/",
 "offsite": false,
-"title": "Redirecting...",
-"bytes": 5580,
-"nLinks": 0,
-"parked": "",
+"title": "IIS Windows Server",
+"bytes": 703,
+"nLinks": 1,
+"parked": "IIS Windows Server",
 "spam": "",
 "soon": "",
-"sample": "Redirecting... Loading . . .",
+"sample": "IIS Windows Server",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -2801,18 +2623,18 @@
 "kind": "guess"
 },
 {
-"url": "http://patnauniversity.org.in/",
+"url": "http://patnauniversity.com/",
 "ok": true,
 "status": 200,
-"final": "http://patnauniversity.org.in/",
+"final": "http://patnauniversity.com/",
 "offsite": false,
-"title": "IIS Windows Server",
-"bytes": 703,
-"nLinks": 1,
-"parked": "IIS Windows Server",
+"title": "Redirecting...",
+"bytes": 5580,
+"nLinks": 0,
+"parked": "",
 "spam": "",
 "soon": "",
-"sample": "IIS Windows Server",
+"sample": "Redirecting... Loading . . .",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -3739,7 +3561,7 @@
 "final": "http://sanskrit.net/",
 "offsite": false,
 "title": "",
-"bytes": 36960,
+"bytes": 37006,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -3758,36 +3580,6 @@
 "inTitle": [],
 "collegeWord": false,
 "looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://sanskrit.org/",
-"ok": true,
-"status": 200,
-"final": "https://sanskrit.org/",
-"offsite": false,
-"title": "Sri Deva Sthanam | Where Faith and Scholarship Meet",
-"bytes": 31157,
-"nLinks": 26,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Sri Deva Sthanam | Where Faith and Scholarship Meet Sri Deva Sthanam Where Faith and Scholarship Meet Sri Deva Sthanam About Us Hindu Primer Biography Translations Books Articles Biographies Sanskrit Astronomy Samskara Vedic Chants Vedic Ch",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"central",
-"sanskrit"
-],
-"coreFound": [
-"sanskrit"
-],
-"inTitle": [],
-"collegeWord": true,
-"looksRight": true,
 "kind": "guess"
 },
 {
@@ -3819,6 +3611,36 @@
 "sanskrit"
 ],
 "collegeWord": false,
+"looksRight": true,
+"kind": "guess"
+},
+{
+"url": "http://sanskrit.org/",
+"ok": true,
+"status": 200,
+"final": "https://sanskrit.org/",
+"offsite": false,
+"title": "Sri Deva Sthanam | Where Faith and Scholarship Meet",
+"bytes": 31157,
+"nLinks": 26,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Sri Deva Sthanam | Where Faith and Scholarship Meet Sri Deva Sthanam Where Faith and Scholarship Meet Sri Deva Sthanam About Us Hindu Primer Biography Translations Books Articles Biographies Sanskrit Astronomy Samskara Vedic Chants Vedic Ch",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"central",
+"sanskrit"
+],
+"coreFound": [
+"sanskrit"
+],
+"inTitle": [],
+"collegeWord": true,
 "looksRight": true,
 "kind": "guess"
 },
@@ -4909,7 +4731,7 @@
 "final": "https://www.nift.com:443/",
 "offsite": false,
 "title": "Nift | Gifts for you to try something new",
-"bytes": 81852,
+"bytes": 81738,
 "nLinks": 66,
 "parked": "",
 "spam": "",
@@ -5035,34 +4857,6 @@
 "kind": "listed"
 },
 {
-"url": "http://spa.org.in/",
-"ok": true,
-"status": 200,
-"final": "http://spa.org.in/",
-"offsite": false,
-"title": "Your domain is expired",
-"bytes": 10881,
-"nLinks": 8,
-"parked": "domain has expired",
-"spam": "",
-"soon": "",
-"sample": "Your domain is expired Hosting Domains Email VPS lock Login Your domain is expired. Renew the domain to activate the website Website content is unavailable due to the fact that domain has expired. Renew your domain in order to see your webs",
-"recruit": [],
-"notices": [],
-"town": "Delhi",
-"townHit": false,
-"otherHits": [],
-"core": [
-"planning",
-"architecture"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://spa.com/",
 "ok": true,
 "status": 200,
@@ -5153,6 +4947,34 @@
 "coreFound": [
 "planning"
 ],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://spa.org.in/",
+"ok": true,
+"status": 200,
+"final": "http://spa.org.in/",
+"offsite": false,
+"title": "Your domain is expired",
+"bytes": 10881,
+"nLinks": 8,
+"parked": "domain has expired",
+"spam": "",
+"soon": "",
+"sample": "Your domain is expired Hosting Domains Email VPS lock Login Your domain is expired. Renew the domain to activate the website Website content is unavailable due to the fact that domain has expired. Renew your domain in order to see your webs",
+"recruit": [],
+"notices": [],
+"town": "Delhi",
+"townHit": false,
+"otherHits": [],
+"core": [
+"planning",
+"architecture"
+],
+"coreFound": [],
 "inTitle": [],
 "collegeWord": false,
 "looksRight": false,
@@ -5499,44 +5321,6 @@
 "kind": "guess"
 },
 {
-"url": "http://dseu.org/",
-"ok": true,
-"status": 200,
-"final": "http://dseu.org/",
-"offsite": false,
-"title": "Home - Diamond Silk Entrepreneur University",
-"bytes": 149588,
-"nLinks": 44,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Home - Diamond Silk Entrepreneur University About Us Founding Story About DSEU Our Vision Talents Join Us Programs SLP Program YLP Program PEP program Admission Faculty Giving General Donation Dragonshead 中文 Menu About Us Founding Story Abo",
-"recruit": [
-[
-"Join Us",
-"https://dseu.org/metform-form/dseu-recruitment-chinese/"
-]
-],
-"notices": [
-[
-"All News",
-"https://dseu.org/latest-news/"
-]
-],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"skill",
-"entrepreneurship"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": true,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://dseu.com/",
 "tried": [
 [
@@ -5618,40 +5402,13 @@
 "kind": "guess"
 },
 {
-"url": "http://dtu.net/",
-"ok": false,
-"status": 200,
-"final": "http://dtu.net/",
-"offsite": false,
-"title": "",
-"bytes": 114,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"technological"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://dtu.org/",
 "ok": true,
 "status": 200,
 "final": "http://dtu.org/",
 "offsite": false,
 "title": "",
-"bytes": 37090,
+"bytes": 37115,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -5678,7 +5435,7 @@
 "final": "http://dtu.com/",
 "offsite": false,
 "title": "dtu.com&nbsp;-&nbsp;dtu Resources and Information.",
-"bytes": 2991,
+"bytes": 2986,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -5711,6 +5468,33 @@
 "spam": "",
 "soon": "",
 "sample": "Just a moment...",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"technological"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://dtu.net/",
+"ok": false,
+"status": 200,
+"final": "http://dtu.net/",
+"offsite": false,
+"title": "",
+"bytes": 114,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -5838,6 +5622,33 @@
 "kind": "guess"
 },
 {
+"url": "http://ipu.com/",
+"ok": true,
+"status": 200,
+"final": "https://ipu.com/startpage",
+"offsite": false,
+"title": "IPU: Startpage",
+"bytes": 25504,
+"nLinks": 48,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "IPU: Startpage Menu About us Products Shower & Commode Chairs Standard – up to 325 lbs Oversize – up to 450 lbs Bariatric Shower Benches - Toilet Safety Frames Recliners-Tilt-Access Chairs Isolation Products Mobile Shower Beds Linen Hampers",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"ggsip"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
 "url": "http://ipu.org/",
 "ok": true,
 "status": 200,
@@ -5890,33 +5701,6 @@
 "https://www.ipu.org/news/news-in-brief/2026-11/record-ipu-gathering-cop31-urges-parliamentary-action-15degc-overshoot-looms"
 ]
 ],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"ggsip"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://ipu.com/",
-"ok": true,
-"status": 200,
-"final": "https://ipu.com/startpage",
-"offsite": false,
-"title": "IPU: Startpage",
-"bytes": 25504,
-"nLinks": 48,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "IPU: Startpage Menu About us Products Shower & Commode Chairs Standard – up to 325 lbs Oversize – up to 450 lbs Bariatric Shower Benches - Toilet Safety Frames Recliners-Tilt-Access Chairs Isolation Products Mobile Shower Beds Linen Hampers",
-"recruit": [],
-"notices": [],
 "town": "",
 "townHit": false,
 "otherHits": [],
@@ -6249,7 +6033,7 @@
 "final": "https://gpsc.goa.gov.in/",
 "offsite": false,
 "title": "Goa Public Service Commission",
-"bytes": 256152,
+"bytes": 256158,
 "nLinks": 84,
 "parked": "",
 "spam": "",
@@ -6631,8 +6415,8 @@
 "final": "https://gpsc.gujarat.gov.in/",
 "offsite": false,
 "title": "Home",
-"bytes": 476302,
-"nLinks": 271,
+"bytes": 479590,
+"nLinks": 273,
 "parked": "",
 "spam": "",
 "soon": "",
@@ -10447,10 +10231,9 @@
 ],
 "collegeWord": true,
 "looksRight": true,
-"kind": "guess"
+"kind": "candidate"
 }
-],
-"guessesTried": 48
+]
 },
 {
 "name": "Govt College, Adampur",
@@ -10599,56 +10382,6 @@
 "spam": "",
 "soon": "",
 "sample": "GCab Car Pool | ABR Systems Register Help & Contact Help (new window) Contact Lost Password Sign in English English Türkçe Deutsch Dansk Français 中国的 Why GCAB Carpool !! To offer or request a lift Login To join and have an account Register ",
-"recruit": [],
-"notices": [],
-"town": "Aharwala",
-"townHit": false,
-"otherHits": [],
-"core": [],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://gcab.co.in/",
-"ok": true,
-"status": 200,
-"final": "http://gcab.co.in/",
-"offsite": false,
-"title": "GCAB | Car Rental Service in Manipur",
-"bytes": 27719,
-"nLinks": 2,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "GCAB | Car Rental Service in Manipur Menu Home About Service Portfolio Contact ABOUT Car Rental Service We provide the best quality car rental service in Imphal, Manipur GCAB At Your Service GCAB is one of the leading Tourist Transport & Tr",
-"recruit": [],
-"notices": [],
-"town": "Aharwala",
-"townHit": false,
-"otherHits": [],
-"core": [],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://gcab.net/",
-"ok": true,
-"status": 200,
-"final": "http://gcab.net/",
-"offsite": false,
-"title": "",
-"bytes": 27174,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Do Not Sell or Share My Personal Information",
 "recruit": [],
 "notices": [],
 "town": "Aharwala",
@@ -11030,6 +10763,22 @@
 "current": "",
 "check": false,
 "tests": [
+{
+"url": "http://gcbaroda.ac.in/",
+"tried": [
+[
+"http://gcbaroda.ac.in/",
+"connection refused"
+],
+[
+"https://gcbaroda.ac.in/",
+"connection refused"
+]
+],
+"ok": false,
+"error": "connection refused",
+"kind": "candidate"
+},
 {
 "url": "http://gcbaroda.ac.in/",
 "tried": [
@@ -12450,6 +12199,12 @@
 "check": false,
 "tests": [
 {
+"url": "http://gcisharwal.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
 "url": "http://gcissarwal.ac.in/",
 "tried": [
 [
@@ -12732,7 +12487,7 @@
 "final": "http://govtcollegejind.ac.in/",
 "offsite": false,
 "title": "GC Jind",
-"bytes": 123697,
+"bytes": 123699,
 "nLinks": 119,
 "parked": "",
 "spam": "",
@@ -15809,6 +15564,94 @@
 "kind": "listed"
 },
 {
+"url": "https://aggarwalcollegeballabgarh.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://aggarwalcollegeballabgarh.ac.in/",
+"offsite": false,
+"title": "Top Private College in Faridabad - Aggarwal College Ballabgarh",
+"bytes": 241396,
+"nLinks": 262,
+"parked": "",
+"spam": "cialis",
+"soon": "",
+"sample": "Top Private College in Faridabad - Aggarwal College Ballabgarh 🔍 Search Website ✕ Search Type something to search... Quick Access Menu Students Corner Contact Us Academic Admissions Placement Resources LMS Learning Resources eBooks Newslett",
+"recruit": [
+[
+"Job Fair",
+"https://aggarwalcollegeballabgarh.ac.in/jobfair/"
+]
+],
+"notices": [
+[
+"Institution News",
+"https://aggarwalcollegeballabgarh.ac.in/institution-news/"
+]
+],
+"town": "Ballabgarh",
+"townHit": true,
+"otherHits": [
+"Faridabad"
+],
+"core": [
+"aggarwal"
+],
+"coreFound": [
+"aggarwal"
+],
+"inTitle": [
+"aggarwal",
+"ballabgarh"
+],
+"collegeWord": true,
+"looksRight": false,
+"kind": "candidate"
+},
+{
+"url": "https://www.aggarwalcollege.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://aggarwalcollegeballabgarh.ac.in/",
+"offsite": true,
+"title": "Top Private College in Faridabad - Aggarwal College Ballabgarh",
+"bytes": 241396,
+"nLinks": 262,
+"parked": "",
+"spam": "cialis",
+"soon": "",
+"sample": "Top Private College in Faridabad - Aggarwal College Ballabgarh 🔍 Search Website ✕ Search Type something to search... Quick Access Menu Students Corner Contact Us Academic Admissions Placement Resources LMS Learning Resources eBooks Newslett",
+"recruit": [
+[
+"Job Fair",
+"https://aggarwalcollegeballabgarh.ac.in/jobfair/"
+]
+],
+"notices": [
+[
+"Institution News",
+"https://aggarwalcollegeballabgarh.ac.in/institution-news/"
+]
+],
+"town": "Ballabgarh",
+"townHit": true,
+"otherHits": [
+"Faridabad"
+],
+"core": [
+"aggarwal"
+],
+"coreFound": [
+"aggarwal"
+],
+"inTitle": [
+"aggarwal",
+"ballabgarh"
+],
+"collegeWord": true,
+"looksRight": false,
+"kind": "candidate"
+},
+{
 "url": "http://aggarwalcollege.ac.in/",
 "ok": true,
 "status": 200,
@@ -15927,10 +15770,10 @@
 "kind": "listed"
 },
 {
-"url": "https://www.apeejay.edu/",
+"url": "https://www.apeejay.edu/saraswati/",
 "ok": false,
 "status": 520,
-"final": "https://www.apeejay.edu/",
+"final": "https://www.apeejay.edu/saraswati/",
 "offsite": false,
 "title": "apeejay.edu | 520: Web server is returning an unknown error",
 "bytes": 7370,
@@ -15938,39 +15781,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "apeejay.edu | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:32:11 UTC You Browser Working Marseille Cloudflare Working www.apee",
-"recruit": [],
-"notices": [],
-"town": "Bhiwani",
-"townHit": false,
-"otherHits": [],
-"core": [
-"apeejay",
-"saraswati"
-],
-"coreFound": [
-"apeejay"
-],
-"inTitle": [
-"apeejay"
-],
-"collegeWord": false,
-"looksRight": false,
-"kind": "candidate"
-},
-{
-"url": "https://apeejay.edu/saraswati/",
-"ok": false,
-"status": 520,
-"final": "https://apeejay.edu/saraswati/",
-"offsite": false,
-"title": "apeejay.edu | 520: Web server is returning an unknown error",
-"bytes": 7350,
-"nLinks": 5,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "apeejay.edu | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:32:12 UTC You Browser Working Marseille Cloudflare Working apeejay.",
+"sample": "apeejay.edu | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:46:40 UTC You Browser Working Marseille Cloudflare Working www.apee",
 "recruit": [],
 "notices": [],
 "town": "Bhiwani",
@@ -16007,29 +15818,13 @@
 "kind": "guess"
 },
 {
-"url": "http://apeejay.net/",
-"tried": [
-[
-"http://apeejay.net/",
-"connection refused"
-],
-[
-"https://apeejay.net/",
-"connection refused"
-]
-],
-"ok": false,
-"error": "connection refused",
-"kind": "guess"
-},
-{
 "url": "http://apeejay.in/",
 "ok": true,
 "status": 200,
 "final": "https://www.google.com",
 "offsite": true,
 "title": "Google",
-"bytes": 216018,
+"bytes": 214395,
 "nLinks": 25,
 "parked": "",
 "spam": "",
@@ -16056,6 +15851,22 @@
 "kind": "guess"
 },
 {
+"url": "http://apeejay.net/",
+"tried": [
+[
+"http://apeejay.net/",
+"connection refused"
+],
+[
+"https://apeejay.net/",
+"connection refused"
+]
+],
+"ok": false,
+"error": "connection refused",
+"kind": "guess"
+},
+{
 "url": "http://apeejay.com/",
 "ok": false,
 "status": 520,
@@ -16067,7 +15878,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "apeejay.com | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:33:20 UTC You Browser Working Marseille Cloudflare Working apeejay.",
+"sample": "apeejay.com | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:48:21 UTC You Browser Working Marseille Cloudflare Working apeejay.",
 "recruit": [],
 "notices": [],
 "town": "Bhiwani",
@@ -16274,34 +16085,6 @@
 "kind": "guess"
 },
 {
-"url": "http://aryapgcollege.com/",
-"ok": false,
-"status": 521,
-"final": "http://aryapgcollege.com/",
-"offsite": false,
-"title": "aryapgcollege.com | 521: Web server is down",
-"bytes": 7031,
-"nLinks": 5,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "aryapgcollege.com | 521: Web server is down Web server is down Error code 521 Visit cloudflare.com for more information. 2026-11-28 11:33:23 UTC You Browser Working Marseille Cloudflare Working aryapgcollege.com Host Error What happened? Th",
-"recruit": [],
-"notices": [],
-"town": "Panipat",
-"townHit": false,
-"otherHits": [],
-"core": [
-"arya",
-"pgcollege"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": true,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://aryapgcollege.co.in/",
 "ok": true,
 "status": 200,
@@ -16331,6 +16114,34 @@
 ],
 "collegeWord": true,
 "looksRight": true,
+"kind": "guess"
+},
+{
+"url": "http://aryapgcollege.com/",
+"ok": false,
+"status": 521,
+"final": "http://aryapgcollege.com/",
+"offsite": false,
+"title": "aryapgcollege.com | 521: Web server is down",
+"bytes": 7031,
+"nLinks": 5,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "aryapgcollege.com | 521: Web server is down Web server is down Error code 521 Visit cloudflare.com for more information. 2026-11-28 11:48:24 UTC You Browser Working Marseille Cloudflare Working aryapgcollege.com Host Error What happened? Th",
+"recruit": [],
+"notices": [],
+"town": "Panipat",
+"townHit": false,
+"otherHits": [],
+"core": [
+"arya",
+"pgcollege"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": true,
+"looksRight": false,
 "kind": "guess"
 },
 {
@@ -17144,6 +16955,40 @@
 "kind": "listed"
 },
 {
+"url": "https://www.davccfbd.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://www.davccfbd.ac.in/",
+"offsite": false,
+"title": "DAV Centenary Digital Campus",
+"bytes": 1357,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "DAV Centenary Digital Campus",
+"recruit": [],
+"notices": [],
+"town": "Faridabad",
+"townHit": false,
+"otherHits": [],
+"core": [
+"dav",
+"centenary"
+],
+"coreFound": [
+"dav",
+"centenary"
+],
+"inTitle": [
+"dav",
+"centenary"
+],
+"collegeWord": false,
+"looksRight": false,
+"kind": "candidate"
+},
+{
 "url": "http://davccfbd.ac.in/",
 "ok": true,
 "status": 200,
@@ -17458,39 +17303,91 @@
 "tests": [
 {
 "url": "http://davcpehowa.org",
-"ok": false,
-"error": "no such domain",
-"kind": "listed"
-},
-{
-"url": "http://davcpehowa.in/",
 "ok": true,
 "status": 200,
-"final": "https://davcpehowa.in/",
+"final": "http://davcpehowa.org/",
 "offsite": false,
-"title": "Default page",
-"bytes": 16369,
-"nLinks": 3,
+"title": "DAV College Pehowa &#8211; Affilated to Kurukshetra University, Kurukshetra",
+"bytes": 130927,
+"nLinks": 100,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Default page You Are All Set to Go! All you have to do now is upload your website files and start your journey. Check out how to do that below: How can I migrate a website to Hostinger? How to install WordPress using Auto Installer?",
+"sample": "DAV College Pehowa – Affilated to Kurukshetra University, Kurukshetra DAV College Pehowa Location Ambala Road, Pehowa (Kurukshetra) Call Us 01741-220282 Email davcpehowa@gmail.com DAV College Pehowa Affiliated to Kurukshetra University, Kur",
 "recruit": [],
-"notices": [],
+"notices": [
+[
+"Latest News",
+"https://davcpehowa.org/blog"
+],
+[
+"News in Media",
+"https://davcpehowa.org/news-in-media/"
+]
+],
 "town": "Pehowa",
-"townHit": false,
-"otherHits": [],
+"townHit": true,
+"otherHits": [
+"Kurukshetra"
+],
 "core": [
 "dav"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-}
+"coreFound": [
+"dav"
 ],
-"guessesTried": 7
+"inTitle": [
+"dav",
+"pehowa"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "listed"
+},
+{
+"url": "https://davcpehowa.org/",
+"ok": true,
+"status": 200,
+"final": "https://davcpehowa.org/",
+"offsite": false,
+"title": "DAV College Pehowa &#8211; Affilated to Kurukshetra University, Kurukshetra",
+"bytes": 130978,
+"nLinks": 100,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "DAV College Pehowa – Affilated to Kurukshetra University, Kurukshetra DAV College Pehowa Location Ambala Road, Pehowa (Kurukshetra) Call Us 01741-220282 Email davcpehowa@gmail.com DAV College Pehowa Affiliated to Kurukshetra University, Kur",
+"recruit": [],
+"notices": [
+[
+"Latest News",
+"https://davcpehowa.org/blog"
+],
+[
+"News in Media",
+"https://davcpehowa.org/news-in-media/"
+]
+],
+"town": "Pehowa",
+"townHit": true,
+"otherHits": [
+"Kurukshetra"
+],
+"core": [
+"dav"
+],
+"coreFound": [
+"dav"
+],
+"inTitle": [
+"dav",
+"pehowa"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "DAV College, Pundri",
@@ -18424,7 +18321,7 @@
 "final": "https://www.gnkckarnal.ac.in/",
 "offsite": false,
 "title": "GNKCKARNAL &#8211; KARNAL",
-"bytes": 219708,
+"bytes": 219683,
 "nLinks": 237,
 "parked": "",
 "spam": "",
@@ -18567,18 +18464,18 @@
 "kind": "guess"
 },
 {
-"url": "http://gnkc.com/",
+"url": "http://gnkc.in/",
 "ok": true,
 "status": 200,
-"final": "http://gnkc.com/",
+"final": "https://gnkc.in/",
 "offsite": false,
-"title": "gnkc.com for sale | Spaceship.com",
-"bytes": 19643,
-"nLinks": 3,
-"parked": "Domain for sale",
-"spam": "",
+"title": "Play Andar Bahar Live Game Online in India 2026 – Top Casinos",
+"bytes": 57003,
+"nLinks": 13,
+"parked": "",
+"spam": "casino",
 "soon": "",
-"sample": "gnkc.com for sale | Spaceship.com Domain for sale gnkc.com Free transaction support Secure payments Spaceship reliability Listed with spaceship.com get this domain Make offer Your offer must be higher than the seller’s minimum price. $ Plea",
+"sample": "Play Andar Bahar Live Game Online in India 2026 – Top Casinos 🃏 AndarBahar Live Top Casinos How to Play Overview Mobile Versions FAQ ♠ ♦ ♣ ♥ ♠ ♦ ♣ 🇮🇳 India's Premier Live Card Game Guide 2026 Play Andar Bahar Live Game Online in India 2026 ",
 "recruit": [],
 "notices": [],
 "town": "YamunaNagar",
@@ -18596,18 +18493,18 @@
 "kind": "guess"
 },
 {
-"url": "http://gnkc.in/",
+"url": "http://gnkc.com/",
 "ok": true,
 "status": 200,
-"final": "https://gnkc.in/",
+"final": "http://gnkc.com/",
 "offsite": false,
-"title": "Play Andar Bahar Live Game Online in India 2026 – Top Casinos",
-"bytes": 57003,
-"nLinks": 13,
-"parked": "",
-"spam": "casino",
+"title": "gnkc.com for sale | Spaceship.com",
+"bytes": 19643,
+"nLinks": 3,
+"parked": "Domain for sale",
+"spam": "",
 "soon": "",
-"sample": "Play Andar Bahar Live Game Online in India 2026 – Top Casinos 🃏 AndarBahar Live Top Casinos How to Play Overview Mobile Versions FAQ ♠ ♦ ♣ ♥ ♠ ♦ ♣ 🇮🇳 India's Premier Live Card Game Guide 2026 Play Andar Bahar Live Game Online in India 2026 ",
+"sample": "gnkc.com for sale | Spaceship.com Domain for sale gnkc.com Free transaction support Secure payments Spaceship reliability Listed with spaceship.com get this domain Make offer Your offer must be higher than the seller’s minimum price. $ Plea",
 "recruit": [],
 "notices": [],
 "town": "YamunaNagar",
@@ -18658,7 +18555,7 @@
 "kind": "listed"
 },
 {
-"url": "http://hcoesonepat.org/",
+"url": "https://hcoesonepat.org/",
 "ok": true,
 "status": 200,
 "final": "https://hcoesonepat.org/",
@@ -18967,7 +18864,7 @@
 "final": "http://ibpgcollegepanipat.ac.in/",
 "offsite": false,
 "title": "I.B. (PG) COLLEGE",
-"bytes": 132371,
+"bytes": 132351,
 "nLinks": 234,
 "parked": "",
 "spam": "",
@@ -19001,7 +18898,7 @@
 "final": "http://ibpgcollegepanipat.ac.in",
 "offsite": true,
 "title": "I.B. (PG) COLLEGE",
-"bytes": 132359,
+"bytes": 132364,
 "nLinks": 234,
 "parked": "",
 "spam": "",
@@ -19046,7 +18943,7 @@
 "final": "http://www.igmmvkaithal.com/",
 "offsite": false,
 "title": "Affiliated to Kurukshetra University,kurukshetra &#8211; Affiliated to Kurukshetra University,kurukshetra",
-"bytes": 161296,
+"bytes": 161304,
 "nLinks": 228,
 "parked": "",
 "spam": "",
@@ -19331,6 +19228,31 @@
 "collegeWord": true,
 "looksRight": true,
 "kind": "listed"
+},
+{
+"url": "https://kmcollegeofeducation.org/",
+"ok": false,
+"status": 200,
+"final": "https://kmcollegeofeducation.org/",
+"offsite": false,
+"title": "",
+"bytes": 194,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Redirecting...",
+"recruit": [],
+"notices": [],
+"town": "Bhiwani",
+"townHit": false,
+"otherHits": [],
+"core": [],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "candidate"
 }
 ]
 },
@@ -19439,7 +19361,7 @@
 "final": "https://www.kvadav.ac.in/",
 "offsite": false,
 "title": "KVA DAV College for Women",
-"bytes": 251470,
+"bytes": 251471,
 "nLinks": 226,
 "parked": "",
 "spam": "",
@@ -19766,41 +19688,13 @@
 "kind": "guess"
 },
 {
-"url": "http://macw.net/",
-"ok": true,
-"status": 200,
-"final": "http://macw.net/",
-"offsite": false,
-"title": "",
-"bytes": 27260,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Do Not Sell or Share My Personal Information",
-"recruit": [],
-"notices": [],
-"town": "Jhajjar",
-"townHit": false,
-"otherHits": [],
-"core": [
-"maharaja",
-"agrrasen"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://macw.com/",
 "ok": true,
 "status": 200,
 "final": "https://www.macw.com/",
 "offsite": false,
 "title": "Mac软件下载-Mac软件-Mac软件大全-Mac视频素材下载-macw下载站",
-"bytes": 72801,
+"bytes": 72531,
 "nLinks": 149,
 "parked": "",
 "spam": "",
@@ -19852,6 +19746,22 @@
 "inTitle": [],
 "collegeWord": false,
 "looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://macw.net/",
+"tried": [
+[
+"http://macw.net/",
+"no answer (timeout)"
+],
+[
+"https://macw.net/",
+"no answer (timeout)"
+]
+],
+"ok": false,
+"error": "no answer (timeout)",
 "kind": "guess"
 }
 ],
@@ -20032,7 +19942,7 @@
 "final": "https://mmcollege.ac.in/",
 "offsite": true,
 "title": "MANOHAR MEMORIAL COLLEGE",
-"bytes": 332630,
+"bytes": 332615,
 "nLinks": 203,
 "parked": "",
 "spam": "",
@@ -20117,9 +20027,76 @@
 "ok": false,
 "error": "no such domain",
 "kind": "listed"
-}
+},
+{
+"url": "http://www.mncs.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://mncs.ac.in/",
+"offsite": false,
+"title": "Markanda National College &#8211; Shahabad Markanda",
+"bytes": 145661,
+"nLinks": 300,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Markanda National College – Shahabad Markanda MARKANDA NATIONAL COLLEGE, Shahabad Markanda Affiliated to Kurukshetra University, Kurukshetra (A NAAC Re-Accredited Institute with Grade- B++) MARKANDA NATIONAL COLLEGE Shahabad Markanda Affili",
+"recruit": [
+[
+"Career Guidance and Placement",
+"https://mncs.ac.in/career-guidance/"
+]
 ],
-"guessesTried": 7
+"notices": [
+[
+"Public Notices",
+"https://mncs.ac.in/mnc-public-notices/"
+],
+[
+"Student Notices",
+"https://mncs.ac.in/mnc-student-notices/"
+],
+[
+"Faculty Notices",
+"https://mncs.ac.in/faculty-notices/"
+],
+[
+"Staff Notices",
+"https://mncs.ac.in/admin-staff-notices/"
+],
+[
+"Notice Archives",
+"https://mncs.ac.in/mnc-notice-archives/"
+],
+[
+"Notice Workspace",
+"https://mncs.ac.in/mnc-notice-workspace/"
+],
+[
+"Markanda National College in News",
+"https://mncs.ac.in/mnc-in-news/"
+],
+[
+"News Letters",
+"https://mncs.ac.in/news-letters/"
+]
+],
+"town": "Shahabad Markanda",
+"townHit": true,
+"otherHits": [
+"Kurukshetra"
+],
+"core": [],
+"coreFound": [],
+"inTitle": [
+"markanda",
+"shahabad"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "Mdsd College",
@@ -20136,7 +20113,7 @@
 "final": "https://mdsdcollege.ac.in/",
 "offsite": false,
 "title": "MDSD College &#8211; Ambala City",
-"bytes": 63114,
+"bytes": 63119,
 "nLinks": 84,
 "parked": "",
 "spam": "",
@@ -20828,9 +20805,53 @@
 "ok": false,
 "error": "no such domain",
 "kind": "listed"
-}
+},
+{
+"url": "http://www.sdwomencollege.com/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
+"url": "http://sdmahilamahavidyalya.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://sdmahilamahavidyalya.ac.in/",
+"offsite": false,
+"title": "Sanatan Dharam Mahila Mahavidyalya Hansi |",
+"bytes": 158949,
+"nLinks": 159,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Sanatan Dharam Mahila Mahavidyalya Hansi |  [email protected]  +91-8684805192, +91-9896324110 Home About us Affiliating University Committee Academic AICTE Approval Prospectus Schemes UG Admission Admission 2022-23 Admission 2023-24 Admis",
+"recruit": [
+[
+"Career",
+"https://sdmahilamahavidyalya.ac.in/?page_id=27776"
+]
 ],
-"guessesTried": 7
+"notices": [
+[
+"News & Updates",
+"https://sdmahilamahavidyalya.ac.in/?page_id=26151"
+]
+],
+"town": "Hansi",
+"townHit": true,
+"otherHits": [
+"Hisar"
+],
+"core": [],
+"coreFound": [],
+"inTitle": [
+"hansi"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "SGHS College, Sri Jiwan Nagar, Sirsa",
@@ -20970,9 +20991,39 @@
 "collegeWord": false,
 "looksRight": false,
 "kind": "listed"
-}
+},
+{
+"url": "http://sjkc.ac.in/",
+"ok": true,
+"status": 200,
+"final": "http://sjkc.ac.in/",
+"offsite": false,
+"title": "Sat Jinda Kalyana College",
+"bytes": 215201,
+"nLinks": 325,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Sat Jinda Kalyana College Sat Jinda Kalyana PG College, Kalanaur (Rohtak) Re-accredited 'A' Grade by NAAC (Affiliated to M.D. University, Rohtak) Alumni Events Gallery Contact Us HOME (current) ABOUT US GOVERNING BODY ACADEMICS Admission Ac",
+"recruit": [],
+"notices": [],
+"town": "Kalanaur",
+"townHit": true,
+"otherHits": [
+"Rohtak"
 ],
-"guessesTried": 7
+"core": [
+"sjk"
+],
+"coreFound": [
+"sjk"
+],
+"inTitle": [],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "SNRL Jairam Girls College",
@@ -21042,7 +21093,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "sdcollegeambala.org | 522: Connection timed out Connection timed out Error code 522 Visit cloudflare.com for more information. 2026-11-28 11:31:24 UTC You Browser Working Marseille Cloudflare Working sdcollegeambala.org Host Error What happ",
+"sample": "sdcollegeambala.org | 522: Connection timed out Connection timed out Error code 522 Visit cloudflare.com for more information. 2026-11-28 11:46:02 UTC You Browser Working Marseille Cloudflare Working sdcollegeambala.org Host Error What happ",
 "recruit": [],
 "notices": [],
 "town": "Ambala",
@@ -21057,6 +21108,66 @@
 "collegeWord": true,
 "looksRight": false,
 "kind": "listed"
+},
+{
+"url": "https://www.sdcollegeambala.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://www.sdcollegeambala.ac.in/",
+"offsite": false,
+"title": "Sanatan Dharma College &#8211; College With Potential for Excellence",
+"bytes": 258056,
+"nLinks": 300,
+"parked": "",
+"spam": "cialis",
+"soon": "",
+"sample": "Sanatan Dharma College – College With Potential for Excellence Journal (Purva Mimaansa) LMS (ERP Login) Enquiry Form Click here to know about admissions. A- A A+ A- A A+ IQAC LMS Login Staff ERP Login Staff Wifi Form Leave Form Association ",
+"recruit": [
+[
+"Guest Lectures and Workshops",
+"https://www.sdcollegeambala.ac.in/guest-extension-lectures-workshops/"
+],
+[
+"Career Guidance & Placement Cell",
+"https://www.sdcollegeambala.ac.in/career-guidance-cell/"
+],
+[
+"Vacancies/Openings",
+"https://www.sdcollegeambala.ac.in/vacancies-openings/"
+],
+[
+"Vacancies 2025-26",
+"https://www.sdcollegeambala.ac.in/vacancies-2025/"
+]
+],
+"notices": [
+[
+"",
+"https://www.sdcollegeambala.ac.in/latest-in-college/"
+],
+[
+"",
+"https://www.sdcollegeambala.ac.in/college-in-news/"
+]
+],
+"town": "Ambala",
+"townHit": true,
+"otherHits": [],
+"core": [
+"sanatan",
+"dharma"
+],
+"coreFound": [
+"sanatan",
+"dharma"
+],
+"inTitle": [
+"sanatan",
+"dharma"
+],
+"collegeWord": true,
+"looksRight": false,
+"kind": "candidate"
 },
 {
 "url": "http://sdcollegeambala.in/",
@@ -21093,7 +21204,7 @@
 "final": "https://www.sdcollegeambala.ac.in/",
 "offsite": false,
 "title": "Sanatan Dharma College &#8211; College With Potential for Excellence",
-"bytes": 258042,
+"bytes": 258021,
 "nLinks": 300,
 "parked": "",
 "spam": "cialis",
@@ -21336,18 +21447,18 @@
 "kind": "listed"
 },
 {
-"url": "http://smmpalwal.org/",
+"url": "http://smmpalwal.co.in/",
 "ok": false,
 "status": 523,
-"final": "http://smmpalwal.org/",
+"final": "http://smmpalwal.co.in/",
 "offsite": false,
-"title": "smmpalwal.org | 523: Origin is unreachable",
-"bytes": 7208,
+"title": "smmpalwal.co.in | 523: Origin is unreachable",
+"bytes": 7220,
 "nLinks": 5,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "smmpalwal.org | 523: Origin is unreachable Origin is unreachable Error code 523 Visit cloudflare.com for more information. 2026-11-28 11:33:26 UTC You Browser Working Marseille Cloudflare Working smmpalwal.org Host Error What happened? The ",
+"sample": "smmpalwal.co.in | 523: Origin is unreachable Origin is unreachable Error code 523 Visit cloudflare.com for more information. 2026-11-28 11:48:24 UTC You Browser Working Marseille Cloudflare Working smmpalwal.co.in Host Error What happened? ",
 "recruit": [],
 "notices": [],
 "town": "Palwal",
@@ -21365,16 +21476,16 @@
 {
 "url": "http://smmpalwal.in/",
 "ok": false,
-"status": 522,
+"status": 523,
 "final": "http://smmpalwal.in/",
 "offsite": false,
-"title": "smmpalwal.in | 522: Connection timed out",
-"bytes": 7252,
+"title": "smmpalwal.in | 523: Origin is unreachable",
+"bytes": 7202,
 "nLinks": 5,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "smmpalwal.in | 522: Connection timed out Connection timed out Error code 522 Visit cloudflare.com for more information. 2026-11-28 11:33:42 UTC You Browser Working Marseille Cloudflare Working smmpalwal.in Host Error What happened? The init",
+"sample": "smmpalwal.in | 523: Origin is unreachable Origin is unreachable Error code 523 Visit cloudflare.com for more information. 2026-11-28 11:48:24 UTC You Browser Working Marseille Cloudflare Working smmpalwal.in Host Error What happened? The or",
 "recruit": [],
 "notices": [],
 "town": "Palwal",
@@ -21390,18 +21501,18 @@
 "kind": "guess"
 },
 {
-"url": "http://smmpalwal.co.in/",
+"url": "http://smmpalwal.org/",
 "ok": false,
-"status": 522,
-"final": "http://smmpalwal.co.in/",
+"status": 523,
+"final": "http://smmpalwal.org/",
 "offsite": false,
-"title": "smmpalwal.co.in | 522: Connection timed out",
-"bytes": 7270,
+"title": "smmpalwal.org | 523: Origin is unreachable",
+"bytes": 7208,
 "nLinks": 5,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "smmpalwal.co.in | 522: Connection timed out Connection timed out Error code 522 Visit cloudflare.com for more information. 2026-11-28 11:33:42 UTC You Browser Working Marseille Cloudflare Working smmpalwal.co.in Host Error What happened? Th",
+"sample": "smmpalwal.org | 523: Origin is unreachable Origin is unreachable Error code 523 Visit cloudflare.com for more information. 2026-11-28 11:48:24 UTC You Browser Working Marseille Cloudflare Working smmpalwal.org Host Error What happened? The ",
 "recruit": [],
 "notices": [],
 "town": "Palwal",
@@ -21756,11 +21867,11 @@
 "kind": "listed"
 },
 {
-"url": "http://vakmbahadurgarh.org/",
+"url": "https://www.vakmbahadurgarh.ac.in/",
 "ok": true,
 "status": 200,
 "final": "https://www.vakmbahadurgarh.ac.in/",
-"offsite": true,
+"offsite": false,
 "title": "Vaish Arya Kanya Mahavidyala Bahadurgarh(Haryana)",
 "bytes": 127765,
 "nLinks": 78,
@@ -21991,8 +22102,42 @@
 "district": "Panipat",
 "current": "",
 "check": false,
-"tests": [],
-"guessesTried": 0
+"tests": [
+{
+"url": "http://www.vgcsmk.in/",
+"ok": true,
+"status": 200,
+"final": "https://www.vgcsmk.in/",
+"offsite": false,
+"title": "Vaish Girls College - Best P.G. education college in Samalkha, Panipat, Haryana",
+"bytes": 1135,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Vaish Girls College - Best P.G. education college in Samalkha, Panipat, Haryana",
+"recruit": [],
+"notices": [],
+"town": "Samalkha",
+"townHit": true,
+"otherHits": [
+"Panipat"
+],
+"core": [
+"vaish"
+],
+"coreFound": [
+"vaish"
+],
+"inTitle": [
+"vaish",
+"samalkha"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "Vaish Mahila Mahavidyalya, Rohtak",
@@ -22527,7 +22672,7 @@
 "final": "https://bpsmv.ac.in/",
 "offsite": false,
 "title": "Home Page BPSMV",
-"bytes": 399379,
+"bytes": 400235,
 "nLinks": 381,
 "parked": "",
 "spam": "",
@@ -22804,6 +22949,22 @@
 "inTitle": [],
 "collegeWord": true,
 "looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://cdlu.com/",
+"tried": [
+[
+"http://cdlu.com/",
+"no answer (timeout)"
+],
+[
+"https://cdlu.com/",
+"no answer (timeout)"
+]
+],
+"ok": false,
+"error": "no answer (timeout)",
 "kind": "guess"
 }
 ],
@@ -23108,6 +23269,33 @@
 "kind": "listed"
 },
 {
+"url": "http://gjust.co.in/",
+"ok": true,
+"status": 200,
+"final": "http://gjust.co.in/",
+"offsite": false,
+"title": "Parked Domain name on Hostinger DNS system",
+"bytes": 31493,
+"nLinks": 5,
+"parked": "Parked Domain",
+"spam": "",
+"soon": "",
+"sample": "Parked Domain name on Hostinger DNS system Registered at If this is your domain, you can manage it in your Hostinger account. Manage domain Start your online journey Build your website today Launch your business with WordPress or Website Bu",
+"recruit": [],
+"notices": [],
+"town": "Hisar",
+"townHit": false,
+"otherHits": [],
+"core": [
+"gju"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
 "url": "http://gjust.in/",
 "ok": true,
 "status": 200,
@@ -23141,7 +23329,7 @@
 "final": "https://www.hugedomains.com/domain_profile.cfm?d=gjust.com",
 "offsite": true,
 "title": "Just a moment...",
-"bytes": 5824,
+"bytes": 5845,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -23216,39 +23404,6 @@
 ],
 "collegeWord": true,
 "looksRight": true,
-"kind": "guess"
-},
-{
-"url": "http://gjust.co.in/",
-"tried": [
-[
-"http://gjust.co.in/",
-"no answer (timeout)"
-]
-],
-"ok": true,
-"status": 200,
-"final": "https://gjust.co.in/",
-"offsite": false,
-"title": "Parked Domain name on Hostinger DNS system",
-"bytes": 31493,
-"nLinks": 5,
-"parked": "Parked Domain",
-"spam": "",
-"soon": "",
-"sample": "Parked Domain name on Hostinger DNS system Registered at If this is your domain, you can manage it in your Hostinger account. Manage domain Start your online journey Build your website today Launch your business with WordPress or Website Bu",
-"recruit": [],
-"notices": [],
-"town": "Hisar",
-"townHit": false,
-"otherHits": [],
-"core": [
-"gju"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
 "kind": "guess"
 },
 {
@@ -23684,7 +23839,7 @@
 "final": "https://mdu.ac.in/admin/EventPage.aspx?id=1007",
 "offsite": false,
 "title": "M.D University",
-"bytes": 433291,
+"bytes": 433292,
 "nLinks": 665,
 "parked": "",
 "spam": "",
@@ -24985,7 +25140,7 @@
 "final": "https://ww38.iitjammu.net/",
 "offsite": false,
 "title": "iitjammu.net",
-"bytes": 43729,
+"bytes": 43728,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -25429,43 +25584,9 @@
 [
 "http://jpsc.in/",
 "no answer (timeout)"
-]
-],
-"ok": false,
-"status": 403,
-"final": "https://easyee.com/",
-"offsite": true,
-"title": "403 Forbidden",
-"bytes": 787,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "403 Forbidden 403 Forbidden Access to this resource on the server is denied!",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"jharkhand",
-"psc"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://jpsc.com/",
-"tried": [
-[
-"http://jpsc.com/",
-"no answer (timeout)"
 ],
 [
-"https://jpsc.com/",
+"https://jpsc.in/",
 "no answer (timeout)"
 ]
 ],
@@ -25482,6 +25603,22 @@
 ],
 [
 "https://jpsc.org/",
+"no answer (timeout)"
+]
+],
+"ok": false,
+"error": "no answer (timeout)",
+"kind": "guess"
+},
+{
+"url": "http://jpsc.com/",
+"tried": [
+[
+"http://jpsc.com/",
+"no answer (timeout)"
+],
+[
+"https://jpsc.com/",
 "no answer (timeout)"
 ]
 ],
@@ -25691,6 +25828,34 @@
 "kind": "listed"
 },
 {
+"url": "http://vbu.com/",
+"ok": false,
+"status": 403,
+"final": "http://vbu.com/",
+"offsite": false,
+"title": "DNS points to prohibited IP | vbu.com | Cloudflare",
+"bytes": 8005,
+"nLinks": 4,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "DNS points to prohibited IP | vbu.com | Cloudflare Please enable cookies. Error 1000 Ray ID: a619241e8d52cc66 • 2026-11-28 11:48:00 UTC DNS points to prohibited IP What happened? You've requested a page on a website (vbu.com) that is on the",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"vinoba",
+"bhave"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
 "url": "http://vbu.co.in/",
 "ok": true,
 "status": 200,
@@ -25719,41 +25884,13 @@
 "kind": "guess"
 },
 {
-"url": "http://vbu.com/",
-"ok": false,
-"status": 403,
-"final": "http://vbu.com/",
-"offsite": false,
-"title": "DNS points to prohibited IP | vbu.com | Cloudflare",
-"bytes": 8005,
-"nLinks": 4,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "DNS points to prohibited IP | vbu.com | Cloudflare Please enable cookies. Error 1000 Ray ID: a6190e254ba5266e • 2026-11-28 11:33:00 UTC DNS points to prohibited IP What happened? You've requested a page on a website (vbu.com) that is on the",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"vinoba",
-"bhave"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://vbu.in/",
 "ok": true,
 "status": 200,
 "final": "https://daaz.com/lander/?name=vbu.in",
 "offsite": true,
 "title": "Buy vbu.in – Premium Domain Name for Sale | DaaZ | DaaZ",
-"bytes": 19324,
+"bytes": 18182,
 "nLinks": 0,
 "parked": "Domain Name for Sale",
 "spam": "",
@@ -25991,7 +26128,7 @@
 "final": "https://www.iisc.ac.in/",
 "offsite": false,
 "title": "Indian Institute of Science",
-"bytes": 127379,
+"bytes": 127373,
 "nLinks": 316,
 "parked": "",
 "spam": "",
@@ -26139,17 +26276,17 @@
 },
 {
 "url": "http://iisc.net/",
-"ok": false,
-"status": 403,
+"ok": true,
+"status": 200,
 "final": "https://www.buydomains.com/lander/iisc.net?domain=iisc.net&utm_source=iisc.net&utm_medium=click&utm_campaign=tdfs-AprTest&traffic_id=AprTest&traffic_type=tdfs&redirect=ono-redirect",
 "offsite": true,
-"title": "Just a moment...",
-"bytes": 6410,
+"title": "",
+"bytes": 30268,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Just a moment...",
+"sample": "",
 "recruit": [],
 "notices": [],
 "town": "Bangalore",
@@ -26395,66 +26532,22 @@
 "tests": [
 {
 "url": "https://bangaloreuniversity.karnataka.gov.in/",
-"ok": true,
-"status": 200,
-"final": "https://bangaloreuniversity.karnataka.gov.in/",
-"offsite": false,
-"title": "BANGALORE UNIVERSITY, BENGALURU - Index",
-"bytes": 160643,
-"nLinks": 415,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "BANGALORE UNIVERSITY, BENGALURU - Index LOGIN English Official Website of GoK Corona Related Information A A A- A A+ × Screen Reader Access The website complies with World Wide Web Consortium (W3C) Web Content Accessibility Guidelines (WCAG",
-"recruit": [
+"tried": [
 [
-"Press note BCA applications for fulltime guest lectures",
-"https://bangaloreuniversity.karnataka.gov.in/692/press-note-bca-applications-for-fulltime-guest-lectures/en"
+"https://bangaloreuniversity.karnataka.gov.in/",
+"ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
 ],
 [
-"Campus to Career Summit 2026",
-"https://bangaloreuniversity.karnataka.gov.in/35/_gallery_/en"
+"http://bangaloreuniversity.karnataka.gov.in/",
+"no answer (timeout)"
 ]
 ],
-"notices": [
-[
-"CIRCULARS AND NOTIFICATIONS",
-"https://bangaloreuniversity.karnataka.gov.in/330/administration/en"
-],
-[
-"ANNOUNCEMENTS",
-"https://bangaloreuniversity.karnataka.gov.in/notifications/en"
-],
-[
-"NEWS, EVENTS & ACHIEVEMENTS",
-"https://bangaloreuniversity.karnataka.gov.in/events/en"
-],
-[
-"NOTIFICATIONS AND CIRCULARS",
-"https://bangaloreuniversity.karnataka.gov.in/34/notifications-&-circulars/en"
-],
-[
-"UNIVERSITY CIRCULARS",
-"https://bangaloreuniversity.karnataka.gov.in/358/university-circulars/en"
-]
-],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"bangalore"
-],
-"coreFound": [
-"bangalore"
-],
-"inTitle": [
-"bangalore"
-],
-"collegeWord": true,
-"looksRight": true,
+"ok": false,
+"error": "no answer (timeout)",
 "kind": "listed"
 }
-]
+],
+"guessesTried": 0
 },
 {
 "name": "Karnatak University Dharwad",
@@ -28483,7 +28576,7 @@
 "final": "http://mpsc.com/",
 "offsite": false,
 "title": "mpsc.com&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;mpsc Resources and Information.",
-"bytes": 3052,
+"bytes": 2997,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -28508,15 +28601,15 @@
 "url": "http://mpsc.in/",
 "ok": true,
 "status": 200,
-"final": "https://zairuc.com/fk?dat=EuIs8EKfmUG27lF2C7FPSX49fnpuSW9JeXFia3E4NHJxR0hRdzlpNVMreWlZcDVuQXJDL1k3ME9nTGRvK2NJTUpyMUpOVHhoMmtkbmJqRFNyNDF2bDFWS0tKaytFdHRFV0R5cnEyNWxjWHBmZjhLTFMvLzJYRWtNUjNzdWZPL1FoeEkrd1RiclVma081ZmxCa25QdGw2YlFtY2QzQkJnU29kQjJJd1V6d1hYQStrdWNHZXUwcUQ2Um1oRlJGOHdOVVpyempXc3Ric2dNZDluc3h1ZHhydURtOUN6RmU3MnErNVFFN1paSkw5TmVvaUwwUkFJUmhOMGZLNTc1LzVhMXhPdmlJYlNJK3pURVRkYXpWMFJZNHNyM0w0NjdxYTlaUHdWVmpDUmdsR2NQd1RicHFXenlLZE13TzVuYWI1QkFKd054UGFvcklUYzMzaWtSeStvU1ZGUlk4eDN5S1gvUlBxd0R4bTRycUR5M0cvd2UwNlRSL1c1UENwRmNCS2FpOUtyRFlxeHU1cW51TStOT3NJd3gyLy92am1IZ2s3dUF2RitMckJVL295dDUwSFpMamlnamJLSk5iOWRlTzlYSGdtN3EyTWV4MS9yOXFacmRtdERmckhnT0QrdWNXKytHL29WdWUwd0FuaTA2RGdtdTFYM0pCazdVSXIxRy9ycHE4bW1WQzcvRW5HakY0OGFicnE5TVRLTGw0NGtMd28vZU9qbE9TN2c0bU02UFh4SE9xcnZ2dGh0ZVptQWFaNUhrQjN0SWwyNFBJcWZ0VVpQbWhnVU0reGxJa0VCOWJ3RFRKdnI4c3RJNlVDZWZtMWQ5ZUpLbVFjNjBYNDJYK1JMcmhVcnZUaldJa2xCQU9pWkNYNEhYRWNDU0RYc1hOcS96ZFNuOGtnR3hvNGpFN3hpY2EyY1grY1p5SjdwTkV0VUppT0VwbFdkKzZ2aUJpSDZGejcyZnhZTmt3MUliTmg1cDhpalZiSzBnY2QwaDhLZU5WOGNZZDhSa1lSWElJZ1NEUDNETGdRNmRmQTdIV1U0RXB4TGxZR2NxZ1M0SjYxYzhRVzlCNzZwSWluUjcydFVoZVVNcldUdVV4S0xaTlBTaGVRcGFqWDVyRklZNTl6dlNIMzU4N01IRzRldU42NE03UTRHZTBja25oK1FWNzA0RjR3VkJFbFd3M2ZqWG40cENUL1hyVzVWNjNySkRGRXlOT1VvT0JwVXp5NmZGSllGUDQyMVlBc2gzOHFGQ1JVN1N6bTJsZGp5OHlkbWhYQ3NoZGNTMTgrekF4M2R5Q2VCbTgvK3A0dFZYMXhCdGpBZ0ViNm0yNVlRZ3l1eWthTmtuTXVWWnF1UDdjUzFhbVAzcHg5S25qSUV3Tzc0ZjFpMTIwVG1IR05FRG1mZ3BLdkdFSEZ4bTZzZVF1WUl4dmhCUDJZNWQxY0V5a0lRbGdpRzV4MnFrQU9RTkNQZ0cwSEJHb2E1OFdqc1R2NFRJSDNOR1FaUU83a05DYWdESVNBNER6a1dGenh3Z2hkd0MwT1NGZUFmN3V3c1Z3cjJMM1pRaml5TEpBbVFTWStNNHpCd2dLNVlHN09lbG1iZ0wrZWszclI4M0ZLYlZkWjlIVkgxUlBDWEhlSWJDZ2JtTlBuM0liWjdrQ2phNUx5dHJwdVA4OXEwRitWNlJLSVdpQVdmN2JBeDZKVE9abGkweU00PQ%3D%3D",
+"final": "https://922548.laptrackit.com/?mlk=T8KYE7GbTrnd32U3say3A62euo7%2Bda1GnEw2ufkRou6c9khL8L2XvJJY%2FPtzZpfVLMBSThl%2F8Z03zqQlQbK2%2BwzD3dMaDPP1LShImBfzpPeJgcwgEjviCmTjixZYZMcvy5TaB6CvUdZwQaP16iH4pAj0tpYQ6aDwoc3PNNxFt%2BM5Ts%2FwcQ%2BIzI7cEAwKcqDgtzDDqvV1%2FYq8zbO9qrnimfUAyndkR9jZX2Rb31ZLwuIkBQ55jpQOMUuP4%2BxnR5Hc4Yb%2FW8nnZMnrytfzoLNV4qroGEcOKak24bNso8SiN7qff0aEPlwMul4pFVoruZTQgaY7PVrSmXIbfeswpew7%2BRGA31CZJDw10v8F52vWEBTonjSGjCiXW3e1rXAXv22KZZ4qXOlkZhnq9VSFk4gEzE0tHluMPL3YL%2F6DkMzQTIH3xgo5SGhaEBYvFvi8eZXUY%2FdJFJ5GpLViel40OFzLqJnfxTV3pkn6pqTz3RDwQTf5077Ap99Dd69h4SC40ZkOy56a6gLBIfbjHFAZOCEBlMM2U36eN9qTaq0me0bq9%2Btqo5Y7Ohfv7ycO1QC%2FDd5aK1OSPJaCcaWomMg7jxjHcHtrOjWGPjz10W%2FLEp8moorwh3rso%2BuRN3xW%2BzDDgkvhYvttxVMnZ8ZNpmuOfrJKnqKZxfSYB%2BvOYUff8WkzJEPvJPgaVooypKRzR1amnvBRsURvbNcxLKN8oogktGGD06%2FurabA6q8tBmLEACxZzkLmvG1ls4oYY%2BmQY8vIAxt9OtQrw7Tl137hqJZ6WRZKJ0t8m9tfdlR8Po78fQGBtWTLZGOG3NYfM4Iir62mSo%2FdKMBg5c7%2FBhZyn4ofinADyykH",
 "offsite": true,
-"title": "Verification",
-"bytes": 2885,
+"title": "..Loading..",
+"bytes": 32102,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Verification Verification Required Checking if you're a real user... Verifying JavaScript... JavaScript is disabled. Please enable it to continue.",
+"sample": "..Loading.. Loading your page… Please wait a moment.",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -28704,6 +28797,33 @@
 "kind": "listed"
 },
 {
+"url": "http://iitb.co.in/",
+"ok": true,
+"status": 200,
+"final": "https://iitb.co.in/",
+"offsite": false,
+"title": "iitb.co.in",
+"bytes": 77174,
+"nLinks": 3,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "iitb.co.in IITB IITB IITB IITB IITB IITB IITB IITB More Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Contact Us Copyright © 2025 IITB - All Rights Reserved. Powered ",
+"recruit": [],
+"notices": [],
+"town": "Bombay",
+"townHit": false,
+"otherHits": [],
+"core": [
+"iit"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
 "url": "http://iitb.org/",
 "ok": false,
 "status": 200,
@@ -28743,33 +28863,6 @@
 "spam": "",
 "soon": "",
 "sample": "info@iitb.in",
-"recruit": [],
-"notices": [],
-"town": "Bombay",
-"townHit": false,
-"otherHits": [],
-"core": [
-"iit"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://iitb.co.in/",
-"ok": true,
-"status": 200,
-"final": "https://iitb.co.in/",
-"offsite": false,
-"title": "iitb.co.in",
-"bytes": 77174,
-"nLinks": 3,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "iitb.co.in IITB IITB IITB IITB IITB IITB IITB IITB More Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Contact Us Copyright © 2025 IITB - All Rights Reserved. Powered ",
 "recruit": [],
 "notices": [],
 "town": "Bombay",
@@ -29274,7 +29367,7 @@
 "final": "https://cau.ac.in/",
 "offsite": false,
 "title": "Official Website &#8211; &#8211; CAU Lamphelpat, Manipur",
-"bytes": 194166,
+"bytes": 193966,
 "nLinks": 170,
 "parked": "",
 "spam": "",
@@ -29471,7 +29564,7 @@
 "final": "https://nitmanipur.ac.in/",
 "offsite": false,
 "title": "Welcome to NIT Manipur",
-"bytes": 514181,
+"bytes": 514117,
 "nLinks": 447,
 "parked": "",
 "spam": "",
@@ -29644,96 +29737,36 @@
 "kind": "listed"
 },
 {
-"url": "http://mpsc.net/",
-"ok": false,
-"status": 200,
-"final": "http://mpsc.net/",
-"offsite": false,
-"title": "",
-"bytes": 114,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"meghalaya",
-"psc"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://mpsc.org/",
-"ok": false,
-"status": 200,
-"final": "http://mpsc.org/",
-"offsite": false,
-"title": "",
-"bytes": 114,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"meghalaya",
-"psc"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://mpsc.org.in/",
+"url": "https://mpsc.meghalaya.gov.in/",
 "ok": true,
 "status": 200,
-"final": "https://mpsc.org.in/",
+"final": "https://mpsc.meghalaya.gov.in/",
 "offsite": false,
-"title": "Home - mpsc.org.in",
-"bytes": 56457,
-"nLinks": 59,
+"title": "Home | Meghalaya Public Service Commission",
+"bytes": 493590,
+"nLinks": 687,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Home - mpsc.org.in Skip to Main Content Skip to Main Content | Screen Reader Access | A+ | A | A- | मराठी f 𝕏 ▶ MPSC mpsc.org.in Search for: ⌕ Towards Merit, Transparency and Public Service गुणवत्तेकडे, पारदर्शकतेकडे, लोकसेवेकडे Menu Home A",
+"sample": "Home | Meghalaya Public Service Commission Skip to main content Search A + A A - A A Back to Top Candidates are hereby advised to refer to the official website of the Meghalaya Public Service Commission (MPSC) only, for any information pert",
 "recruit": [
 [
-"Recruitment",
-"https://mpsc.org.in/recruitment/"
+"Stages of Recruitment",
+"https://mpsc.meghalaya.gov.in/stages_of_recruitment.html"
+],
+[
+"Advertisements",
+"https://mpsc.meghalaya.gov.in/advertisements.html"
 ]
 ],
 "notices": [
 [
-"View All",
-"https://mpsc.org.in/notices-announcements/"
+"Circulars/Office Orders",
+"https://mpsc.meghalaya.gov.in/circulars.html"
 ],
 [
-"15 MAY 2025 Important Instructions for Candidates – Upcoming Examinations NOTICE",
-"https://mpsc.org.in/important-instructions-for-candidates-upcoming-examinations/"
-],
-[
-"14 MAY 2025 Assistant Professor – Subject List Updated UPDATE ›",
-"https://mpsc.org.in/assistant-professor-subject-list-updated/"
-],
-[
-"NOTICE Press Note Regarding Online Application Process 13 May 2025",
-"https://mpsc.org.in/press-note-regarding-online-application-process/"
+"Notice",
+"https://mpsc.meghalaya.gov.in/notifications.html"
 ]
 ],
 "town": "",
@@ -29743,70 +29776,17 @@
 "meghalaya",
 "psc"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://mpsc.in/",
-"ok": true,
-"status": 200,
-"final": "http://mpsc.in/",
-"offsite": false,
-"title": "Loading...",
-"bytes": 468,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Loading...",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"meghalaya",
-"psc"
+"coreFound": [
+"meghalaya"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://mpsc.com/",
-"ok": true,
-"status": 200,
-"final": "http://mpsc.com/",
-"offsite": false,
-"title": "mpsc.com&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;mpsc Resources and Information.",
-"bytes": 3032,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "mpsc.com - This website is for sale! - mpsc Resources and Information.",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"meghalaya",
-"psc"
+"inTitle": [
+"meghalaya"
 ],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
 }
-],
-"guessesTried": 8
+]
 },
 {
 "name": "NIT Meghalaya",
@@ -29854,27 +29834,68 @@
 "kind": "listed"
 },
 {
-"url": "http://nitmeghalaya.org/",
+"url": "https://www.nitm.ac.in/",
 "ok": true,
 "status": 200,
-"final": "http://nitmeghalaya.org/",
+"final": "https://www.nitm.ac.in/",
 "offsite": false,
-"title": "NIT Meghalaya – Latest Tech, AI, Science &amp; News",
-"bytes": 144753,
-"nLinks": 90,
+"title": "National Institute of Technology Meghalaya",
+"bytes": 164378,
+"nLinks": 296,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "NIT Meghalaya – Latest Tech, AI, Science & News Skip to content Saturday, November 28, 2026 Nit Meghalaya . Home About Us Contact Us Privacy Policy Terms & Conditions Subscribe Nit Meghalaya . Home About Us Contact Us Privacy Policy Terms &",
-"recruit": [],
+"sample": "National Institute of Technology Meghalaya A- A A+ Webmail Screen Reader Intranet CIF Convocation 2026 ERP TEQIP Placements NIRF English हिन्दी DASA | ICCR | Study in India | QIP | Student-E-Notice | Admission 2026 About Us About NIT Missio",
+"recruit": [
+[
+"Placements",
+"https://nitm.ac.in/Career/"
+],
+[
+"Recruitment Rules",
+"https://www.nitm.ac.in/page_details.php?page=recruitment-rules"
+],
+[
+"Recruitment",
+"https://www.nitm.ac.in/news.php?n=recruitment"
+],
+[
+"Heartiest Congratulations to the NIT Meghalaya Football Team for securing the Ru",
+"https://www.nitm.ac.in/achievements.php?view=dGNsR0x4c3BGVGhJK2VIUXZhMUJvUT09"
+],
+[
+"Non-Faculty / Staff Recruitment Portal",
+"https://recruitment.nitm.ac.in"
+],
+[
+"Faculty Recruitment Portal",
+"https://faculty.recruitment.nitm.ac.in"
+]
+],
 "notices": [
 [
-"Daman Game Withdrawal Status: Understanding Different Transaction Updates",
-"http://nitmeghalaya.org/daman-game-withdrawal-status/"
+"Student-E-Notice",
+"https://www.nitm.ac.in/news.php?n=student-e-notice"
 ],
 [
 "News",
-"http://nitmeghalaya.org/category/news/"
+"https://www.nitm.ac.in/news.php?n=News"
+],
+[
+"Events",
+"https://www.nitm.ac.in/news.php?n=events"
+],
+[
+"Tenders",
+"https://www.nitm.ac.in/news.php?n=tenders"
+],
+[
+"Latest News",
+"https://www.nitm.ac.in/latest_news.php"
+],
+[
+"Student-E-Notice",
+"https://nitm.ac.in/news.php?n=student-e-notice"
 ]
 ],
 "town": "Meghalaya",
@@ -29887,15 +29908,13 @@
 "nit"
 ],
 "inTitle": [
-"nit",
 "meghalaya"
 ],
-"collegeWord": false,
+"collegeWord": true,
 "looksRight": true,
-"kind": "guess"
+"kind": "candidate"
 }
-],
-"guessesTried": 7
+]
 },
 {
 "name": "Mizoram University",
@@ -30907,7 +30926,7 @@
 "final": "https://www.suniv.ac.in/",
 "offsite": false,
 "title": "Sambalpur University, Jyoti Vihar, Burla, Sambalpur, Odisha",
-"bytes": 76424,
+"bytes": 76428,
 "nLinks": 189,
 "parked": "",
 "spam": "",
@@ -31626,7 +31645,7 @@
 "final": "http://ppsc.net/",
 "offsite": false,
 "title": "",
-"bytes": 27286,
+"bytes": 27236,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -31643,33 +31662,6 @@
 "coreFound": [],
 "inTitle": [],
 "collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://ppsc.org/",
-"ok": true,
-"status": 200,
-"final": "https://www.ppsc.org/",
-"offsite": false,
-"title": "PPSC",
-"bytes": 1500000,
-"nLinks": 116,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "PPSC 0 Skip to Content About PPSC History & Mission Diversity, Inclusion, & Belonging Administration Faculty Member Accolades Training Programs Programs Overview License-Qualifying Program in Psychoanalysis Psychoanalysis - 4 YR Psychoanaly",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"psc"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": true,
 "looksRight": false,
 "kind": "guess"
 },
@@ -31731,6 +31723,33 @@
 "coreFound": [],
 "inTitle": [],
 "collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://ppsc.org/",
+"ok": true,
+"status": 200,
+"final": "https://www.ppsc.org/",
+"offsite": false,
+"title": "PPSC",
+"bytes": 1500000,
+"nLinks": 116,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "PPSC 0 Skip to Content About PPSC History & Mission Diversity, Inclusion, & Belonging Administration Faculty Member Accolades Training Programs Programs Overview License-Qualifying Program in Psychoanalysis Psychoanalysis - 4 YR Psychoanaly",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"psc"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": true,
 "looksRight": false,
 "kind": "guess"
 },
@@ -32098,23 +32117,23 @@
 ],
 [
 "Student Notice - Various student grievance resolvered",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-10-12 Student Notice - Various  student grievance resolvered &year=2026&ID=MDQxM2VjYmYzYjYyNzRkM2MxN2IyYzU5YTU3NDg5OTR8Tm90aWNlcy8yMDI2LzIwMjYtMTAtMTIgU3R1ZGVudCBOb3RpY2UgLSBWYXJpb3VzICBzdHVkZW50IGdyaWV2YW5jZSByZXNvbHZlcmVkIC5qcGd8LV9XQA&issueDate=2026-10-12"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-10-12 Student Notice - Various  student grievance resolvered &year=2026&ID=MTA4YTA1ZjI1YWRkZmY3ZWY0YmRiZTMzMWJiNjBiNDd8Tm90aWNlcy8yMDI2LzIwMjYtMTAtMTIgU3R1ZGVudCBOb3RpY2UgLSBWYXJpb3VzICBzdHVkZW50IGdyaWV2YW5jZSByZXNvbHZlcmVkIC5qcGd8ZEZOcA&issueDate=2026-10-12"
 ],
 [
 "Scholarship Notice PMS 25-26 Date Extension for document submission",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-09-11 Scholarship Notice PMS 25-26 Date Extension for document submission..pdf&year=2026&ID=ZGFlMGRkNzRkYjc5YmIzMDY2NTRmMzRiZDg0MDlhZmZ8Tm90aWNlcy8yMDI2LzIwMjYtMDktMTEgU2Nob2xhcnNoaXAgTm90aWNlIFBNUyAyNS0yNiBEYXRlIEV4dGVuc2lvbiBmb3IgZG9jdW1lbnQgc3VibWlzc2lvbi4ucGRmfHpaNUA&issueDate=2026-09-11"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-09-11 Scholarship Notice PMS 25-26 Date Extension for document submission..pdf&year=2026&ID=NmI0ZmExM2U0NzIxNzVkYWQwMGU4OTFkMGE4MDFlMTh8Tm90aWNlcy8yMDI2LzIwMjYtMDktMTEgU2Nob2xhcnNoaXAgTm90aWNlIFBNUyAyNS0yNiBEYXRlIEV4dGVuc2lvbiBmb3IgZG9jdW1lbnQgc3VibWlzc2lvbi4ucGRmfE54b3Y&issueDate=2026-09-11"
 ],
 [
 "Student Notice - Khelo India",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-08-26 Student Notice - Khelo India&year=2026&ID=Y2MzNTNlNmQwYWVkY2M0NDFlNzQxMzkyMmE3NDNhMTF8Tm90aWNlcy8yMDI2LzIwMjYtMDgtMjYgU3R1ZGVudCBOb3RpY2UgLSBLaGVsbyBJbmRpYS5qcGd8S3llag&issueDate=2026-08-26"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-08-26 Student Notice - Khelo India&year=2026&ID=ZjM2NjUwOWE0NzMwODA5N2Y1NjBkMTc5OTkyZWYwNTl8Tm90aWNlcy8yMDI2LzIwMjYtMDgtMjYgU3R1ZGVudCBOb3RpY2UgLSBLaGVsbyBJbmRpYS5qcGd8dHVTJg&issueDate=2026-08-26"
 ],
 [
 "PMS-SC Scholarship Notice",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Notice&year=2026&ID=NDI5YWNhN2RhYTA2YTljMDIyN2JlM2NlZjliYzQxOWZ8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIE5vdGljZS5qcGd8dzdebg&issueDate=2026-07-22"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Notice&year=2026&ID=NTIyZTBhY2MzZmZkZjcwZTc4ZjhmMGJiMjdlZGQ5NzR8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIE5vdGljZS5qcGd8RCQ2PQ&issueDate=2026-07-22"
 ],
 [
 "PMS-SC Scholarship Bank-Aadhar Seeding Notice",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Bank-Aadhar Seeding Notice &year=2026&ID=YmI0YjE4ZDg0MzQxZDE0MmZjNTM0NjM4NjA2M2I5NGJ8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIEJhbmstQWFkaGFyIFNlZWRpbmcgTm90aWNlIC5qcGd8eVBZOQ&issueDate=2026-07-22"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Bank-Aadhar Seeding Notice &year=2026&ID=M2JlNjc5YjdiYTQzYmRmYzg2NTlmMmMwNjEwZWM5MGZ8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIEJhbmstQWFkaGFyIFNlZWRpbmcgTm90aWNlIC5qcGd8KSQ0dA&issueDate=2026-07-22"
 ]
 ],
 "town": "Ropar",
@@ -32931,23 +32950,23 @@
 ],
 [
 "Student Notice - Various student grievance resolvered",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-10-12 Student Notice - Various  student grievance resolvered &year=2026&ID=YTllNGZjMDEzYTQyNDBmNGI5ZDhlZTI1NzRiZGE5NTR8Tm90aWNlcy8yMDI2LzIwMjYtMTAtMTIgU3R1ZGVudCBOb3RpY2UgLSBWYXJpb3VzICBzdHVkZW50IGdyaWV2YW5jZSByZXNvbHZlcmVkIC5qcGd8IyV3dA&issueDate=2026-10-12"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-10-12 Student Notice - Various  student grievance resolvered &year=2026&ID=MWQxY2MyODE2NDVkNzE1ZDEyMWRkMzYwNzUwMDBlZjZ8Tm90aWNlcy8yMDI2LzIwMjYtMTAtMTIgU3R1ZGVudCBOb3RpY2UgLSBWYXJpb3VzICBzdHVkZW50IGdyaWV2YW5jZSByZXNvbHZlcmVkIC5qcGd8MTkodg&issueDate=2026-10-12"
 ],
 [
 "Scholarship Notice PMS 25-26 Date Extension for document submission",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-09-11 Scholarship Notice PMS 25-26 Date Extension for document submission..pdf&year=2026&ID=NDU5N2ZjMGEwNWZhYjcxY2M4YjBiYWQxYWQ1MGQwMGN8Tm90aWNlcy8yMDI2LzIwMjYtMDktMTEgU2Nob2xhcnNoaXAgTm90aWNlIFBNUyAyNS0yNiBEYXRlIEV4dGVuc2lvbiBmb3IgZG9jdW1lbnQgc3VibWlzc2lvbi4ucGRmfHZpZGU&issueDate=2026-09-11"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-09-11 Scholarship Notice PMS 25-26 Date Extension for document submission..pdf&year=2026&ID=NmNiMGZlNTRjYjg0MmVlZjc4ZWFiZjVkZWQ2NmYzMjZ8Tm90aWNlcy8yMDI2LzIwMjYtMDktMTEgU2Nob2xhcnNoaXAgTm90aWNlIFBNUyAyNS0yNiBEYXRlIEV4dGVuc2lvbiBmb3IgZG9jdW1lbnQgc3VibWlzc2lvbi4ucGRmfHdvSDE&issueDate=2026-09-11"
 ],
 [
 "Student Notice - Khelo India",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-08-26 Student Notice - Khelo India&year=2026&ID=ZDBkZmJkZWIyODljYmQ2NGI5ZmFjNWZlMzNmYzgyM2R8Tm90aWNlcy8yMDI2LzIwMjYtMDgtMjYgU3R1ZGVudCBOb3RpY2UgLSBLaGVsbyBJbmRpYS5qcGd8Wl8lZg&issueDate=2026-08-26"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-08-26 Student Notice - Khelo India&year=2026&ID=Y2E2MTc4MzhkZDYyYjZhMGI1YjcyYjM5ZmYzNDVlZjR8Tm90aWNlcy8yMDI2LzIwMjYtMDgtMjYgU3R1ZGVudCBOb3RpY2UgLSBLaGVsbyBJbmRpYS5qcGd8Rj1MXg&issueDate=2026-08-26"
 ],
 [
 "PMS-SC Scholarship Notice",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Notice&year=2026&ID=NWM3M2EzNWVlOTExM2NiNzdhZmQ1NWY2MmUzY2YxMTV8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIE5vdGljZS5qcGd8YTNHVg&issueDate=2026-07-22"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Notice&year=2026&ID=NjlmOTk3ZWFiYjY5MDZjYTkxNDAyMWE4M2U0NmVkZDV8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIE5vdGljZS5qcGd8X1VIYw&issueDate=2026-07-22"
 ],
 [
 "PMS-SC Scholarship Bank-Aadhar Seeding Notice",
-"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Bank-Aadhar Seeding Notice &year=2026&ID=ZjdkY2JmMTNhYzIyMzE2NjEzZjIxZDlhYTY0MmQxZDV8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIEJhbmstQWFkaGFyIFNlZWRpbmcgTm90aWNlIC5qcGd8THFSSg&issueDate=2026-07-22"
+"https://govtcollegeropar.org/StudentNoticeFile?file=2026-07-22 PMS-SC Scholarship Bank-Aadhar Seeding Notice &year=2026&ID=MTVlNmRkY2MyZWZkYjBhOGZhODE3ZWM2ZTBhZDU0MjN8Tm90aWNlcy8yMDI2LzIwMjYtMDctMjIgUE1TLVNDIFNjaG9sYXJzaGlwIEJhbmstQWFkaGFyIFNlZWRpbmcgTm90aWNlIC5qcGd8REYyVQ&issueDate=2026-07-22"
 ]
 ],
 "town": "Ropar",
@@ -32994,45 +33013,13 @@
 "check": false,
 "tests": [
 {
-"url": "http://gczira.com/",
-"ok": true,
-"status": 200,
-"final": "https://gczira.com/",
-"offsite": false,
-"title": "Government College Zira - Online Registration",
-"bytes": 35585,
-"nLinks": 33,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Government College Zira - Online Registration Government College Zira ਸਰਕਾਰੀ ਕਾਲਜ [email protected] Affiliated to: Panjab University, Chandigarh E-mail: [email protected] Tel: 00000-000000, Fax: 0000-000000 GC Zira Apply Online ਪੰਜਾਬੀ ਪੰਜਾਬ",
-"recruit": [],
-"notices": [
-[
-"Notices",
-"https://gczira.com/Article/noticeboard"
-]
-],
-"town": "Zira",
-"townHit": true,
-"otherHits": [],
-"core": [],
-"coreFound": [],
-"inTitle": [
-"zira"
-],
-"collegeWord": true,
-"looksRight": true,
-"kind": "guess"
-},
-{
 "url": "http://gczira.org/",
 "ok": true,
 "status": 200,
 "final": "https://gczira.org/",
 "offsite": false,
 "title": "Home | Government College, Zira",
-"bytes": 334559,
+"bytes": 335671,
 "nLinks": 113,
 "parked": "",
 "spam": "",
@@ -33067,6 +33054,38 @@
 [
 "COMPUTER PRACTICAL EXAMINATION DATESHEET 6w ਬੀ.ਏ. ਸਮੈਸਟਰ 1, 3, 5 (DSC) ਅਤੇ SEC ਦ",
 "https://gczira.org/notices.php"
+]
+],
+"town": "Zira",
+"townHit": true,
+"otherHits": [],
+"core": [],
+"coreFound": [],
+"inTitle": [
+"zira"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "guess"
+},
+{
+"url": "http://gczira.com/",
+"ok": true,
+"status": 200,
+"final": "https://gczira.com/",
+"offsite": false,
+"title": "Government College Zira - Online Registration",
+"bytes": 35585,
+"nLinks": 33,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Government College Zira - Online Registration Government College Zira ਸਰਕਾਰੀ ਕਾਲਜ [email protected] Affiliated to: Panjab University, Chandigarh E-mail: [email protected] Tel: 00000-000000, Fax: 0000-000000 GC Zira Apply Online ਪੰਜਾਬੀ ਪੰਜਾਬ",
+"recruit": [],
+"notices": [
+[
+"Notices",
+"https://gczira.com/Article/noticeboard"
 ]
 ],
 "town": "Zira",
@@ -33378,7 +33397,35 @@
 "district": "Faridkot",
 "current": "",
 "check": false,
-"tests": [],
+"tests": [
+{
+"url": "http://gckotkapura.org/",
+"ok": true,
+"status": 200,
+"final": "https://gckotkapura.org/",
+"offsite": false,
+"title": "gckotkapura.org",
+"bytes": 76065,
+"nLinks": 3,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "gckotkapura.org gckotkapura.org gckotkapura.org gckotkapura.org gckotkapura.org gckotkapura.org gckotkapura.org gckotkapura.org gckotkapura.org Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launching Soon Launch",
+"recruit": [],
+"notices": [],
+"town": "Kotkapura",
+"townHit": true,
+"otherHits": [],
+"core": [
+"sbs"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+}
+],
 "guessesTried": 24
 },
 {
@@ -33709,6 +33756,62 @@
 "kind": "listed"
 },
 {
+"url": "http://adcollege.com/",
+"ok": false,
+"status": 403,
+"final": "https://www.atom.com/name/adcollege.com",
+"offsite": true,
+"title": "Just a moment...",
+"bytes": 5766,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Just a moment...",
+"recruit": [],
+"notices": [],
+"town": "Dharmkot",
+"townHit": false,
+"otherHits": [],
+"core": [
+"arjan",
+"das"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://adcollege.org/",
+"ok": true,
+"status": 200,
+"final": "http://www.adcollege.org/",
+"offsite": false,
+"title": "",
+"bytes": 2963,
+"nLinks": 4,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "has been recently registered with namecheap.com Want a domain name like this? Discover domains on auction now See all auctions Download the Namecheap Auctions app Take auctions with you wherever you go",
+"recruit": [],
+"notices": [],
+"town": "Dharmkot",
+"townHit": false,
+"otherHits": [],
+"core": [
+"arjan",
+"das"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
 "url": "http://adcollege.org.in/",
 "ok": true,
 "status": 200,
@@ -33733,34 +33836,6 @@
 "coreFound": [],
 "inTitle": [],
 "collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://adcollege.com/",
-"ok": true,
-"status": 200,
-"final": "https://www.atom.com/name/AdCollege",
-"offsite": true,
-"title": "AdCollege.com — Domain For Sale | Atom",
-"bytes": 351436,
-"nLinks": 76,
-"parked": "Domain For Sale",
-"spam": "",
-"soon": "",
-"sample": "AdCollege.com — Domain For Sale | Atom 4.7 on Trustpilot My Dashboard My Account Logout Login Signup (847) 597-0044 Chat Email Help Desk 0 0 Premium Domains Premium Domain Marketplace Ultra Premium Marketplace Sapphire Marketplace Top Domai",
-"recruit": [],
-"notices": [],
-"town": "Dharmkot",
-"townHit": false,
-"otherHits": [],
-"core": [
-"arjan",
-"das"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": true,
 "looksRight": false,
 "kind": "guess"
 }
@@ -34174,7 +34249,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "dmcedumoga.com | 522: Connection timed out Connection timed out Error code 522 Visit cloudflare.com for more information. 2026-11-28 11:31:43 UTC You Browser Working Marseille Cloudflare Working dmcedumoga.com Host Error What happened? The ",
+"sample": "dmcedumoga.com | 522: Connection timed out Connection timed out Error code 522 Visit cloudflare.com for more information. 2026-11-28 11:46:20 UTC You Browser Working Marseille Cloudflare Working dmcedumoga.com Host Error What happened? The ",
 "recruit": [],
 "notices": [],
 "town": "Moga",
@@ -35458,7 +35533,7 @@
 "final": "https://www.gnwldh.com/",
 "offsite": false,
 "title": "Guru Nanak Khalsa College for Women",
-"bytes": 147981,
+"bytes": 147991,
 "nLinks": 380,
 "parked": "",
 "spam": "",
@@ -36672,9 +36747,50 @@
 "collegeWord": false,
 "looksRight": false,
 "kind": "listed"
-}
+},
+{
+"url": "https://www.mtsmludhiana.com/",
+"ok": true,
+"status": 200,
+"final": "https://www.mtsmludhiana.com/",
+"offsite": false,
+"title": "Master Tara Singh Memorial College for Women",
+"bytes": 39379,
+"nLinks": 36,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Master Tara Singh Memorial College for Women Screen Reader Access Skip to main content A + | A | A - Master Tara Singh Memorial College for Women ( Affilated to Panjab University Chandigarh) Home Managing-Committee About Us Courses-Offered ",
+"recruit": [],
+"notices": [
+[
+"News",
+"https://mtsmludhiana.com/pages/page/News"
+]
 ],
-"guessesTried": 7
+"town": "Ludhiana",
+"townHit": true,
+"otherHits": [],
+"core": [
+"master",
+"tara",
+"singh"
+],
+"coreFound": [
+"master",
+"tara",
+"singh"
+],
+"inTitle": [
+"master",
+"tara",
+"singh"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "Mata Ganga Girls College, Tarn Taran",
@@ -37084,9 +37200,58 @@
 "collegeWord": false,
 "looksRight": false,
 "kind": "listed"
-}
+},
+{
+"url": "http://www.ramgarhiacollege.com/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
+"url": "http://www.ramgarhiagirlscollegeldh.com/",
+"ok": true,
+"status": 200,
+"final": "http://www.ramgarhiagirlscollegeldh.com/",
+"offsite": false,
+"title": "Ramgarhia Girls College - Ludhiana",
+"bytes": 29053,
+"nLinks": 44,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Ramgarhia Girls College - Ludhiana Ramgarhia Girls College, Miller Ganj, Ludhiana Mail Us ldh.rgc1@gmail.com Call Us Phone : 0161-2543516, 2546228 NoticeBoard Home About Us College Profile Why RGC Vision & Mission Staff Campus Message From ",
+"recruit": [
+[
+"Advertisement/Pamphlet",
+"http://www.ramgarhiagirlscollegeldh.com/index.php"
+]
 ],
-"guessesTried": 7
+"notices": [
+[
+"NoticeBoard",
+"http://www.ramgarhiagirlscollegeldh.com/index.php?page=noticeboard"
+]
+],
+"town": "Miller Ganj",
+"townHit": true,
+"otherHits": [
+"Ludhiana"
+],
+"core": [
+"ramgarhia"
+],
+"coreFound": [
+"ramgarhia"
+],
+"inTitle": [
+"ramgarhia",
+"ludhiana"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "S.D. College, Hoshiarpur",
@@ -37695,8 +37860,8 @@
 "final": "https://spncollegemukerian.com/",
 "offsite": false,
 "title": "Swami Premanand Mahavidyalaya &#8211; A Multifaculty Post Graduate Institution, Affiliated to Panjab University",
-"bytes": 373331,
-"nLinks": 268,
+"bytes": 373830,
+"nLinks": 272,
 "parked": "",
 "spam": "",
 "soon": "",
@@ -37888,7 +38053,7 @@
 "final": "http://nitj.com/",
 "offsite": false,
 "title": "",
-"bytes": 36927,
+"bytes": 36979,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -38480,6 +38645,33 @@
 "kind": "guess"
 },
 {
+"url": "http://ptu.net/",
+"ok": true,
+"status": 200,
+"final": "http://ptu.net/",
+"offsite": false,
+"title": "PTU.NET - This premium domain name ptu.net is for&nbsp;sale",
+"bytes": 18540,
+"nLinks": 24,
+"parked": "",
+"spam": "cialis",
+"soon": "",
+"sample": "PTU.NET - This premium domain name ptu.net is for sale PTU.NET 🌙 Dark mode Branding Search Engines 域名 Email Ptu.net is for sale Contact us for details Digital Business Solutions Company Motto: Simplify ! Intereliant is a high tech consultan",
+"recruit": [],
+"notices": [],
+"town": "Kapurthala",
+"townHit": false,
+"otherHits": [],
+"core": [
+"ikgptu"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
 "url": "http://ptu.in/",
 "ok": true,
 "status": 200,
@@ -38618,7 +38810,7 @@
 "final": "https://mbspsu.ac.in/",
 "offsite": false,
 "title": "MBSPSU | The Maharaja Bhupinder Singh Punjab Sports University",
-"bytes": 711897,
+"bytes": 712075,
 "nLinks": 185,
 "parked": "",
 "spam": "",
@@ -38991,6 +39183,35 @@
 "collegeWord": true,
 "looksRight": false,
 "kind": "listed"
+},
+{
+"url": "https://sbssugsp.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://sbssugsp.ac.in/",
+"offsite": false,
+"title": "Region's Best State University for Engineering, Research, Agriculture,Graduate & Post Graduate Courses",
+"bytes": 9059,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Region's Best State University for Engineering, Research, Agriculture,Graduate & Post Graduate Courses",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"sardar",
+"beant",
+"singh"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": true,
+"looksRight": false,
+"kind": "candidate"
 }
 ],
 "guessesTried": 7
@@ -39766,8 +39987,49 @@
 "district": "Moga",
 "current": "",
 "check": false,
-"tests": [],
-"guessesTried": 0
+"tests": [
+{
+"url": "https://puccd.puchd.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://puccd.puchd.ac.in/",
+"offsite": false,
+"title": "Panjab University Constituent College (Dharamkot) Panjab University Chandigarh ਪੰਜਾਬ ਯੂਨੀਵਰਸਿਟੀ ਚੰਡੀਗੜ੍ਹ पंजाब विश्वविद्यालय चंडीगढ़ पंजाब यूनिवर्सिटी चंडीगढ़ C",
+"bytes": 22367,
+"nLinks": 82,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Panjab University Constituent College (Dharamkot) Panjab University Chandigarh ਪੰਜਾਬ ਯੂਨੀਵਰਸਿਟੀ ਚੰਡੀਗੜ੍ਹ पंजाब विश्वविद्यालय चंडीगढ़ पंजाब यूनिवर्सिटी चंडीगढ़ Chandigarh India Service Home PU@Mail Contact PU Menu About Us Faculty & Staff Co",
+"recruit": [
+[
+"Employment / Jobs",
+"https://jobs.puchd.ac.in"
+]
+],
+"notices": [
+[
+"Notice Board",
+"https://puccd.puchd.ac.in/show-noticeboard.php?nbid=1"
+],
+[
+"Quotations",
+"https://puccd.puchd.ac.in/show-noticeboard.php?nbid=3"
+]
+],
+"town": "Dharamkot",
+"townHit": true,
+"otherHits": [],
+"core": [],
+"coreFound": [],
+"inTitle": [
+"dharamkot"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "Panjab University Constituent College (Ferozepur)",
@@ -39884,6 +40146,30 @@
 "collegeWord": true,
 "looksRight": false,
 "kind": "listed"
+},
+{
+"url": "https://pucmkw.puchd.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
+"url": "https://puccmkw.puchd.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
+"url": "https://puccmkwala.puchd.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
+"url": "https://ccmkw.puchd.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
 }
 ],
 "guessesTried": 0
@@ -39922,9 +40208,60 @@
 "collegeWord": false,
 "looksRight": false,
 "kind": "listed"
-}
+},
+{
+"url": "https://ccnsw.puchd.ac.in/",
+"ok": true,
+"status": 200,
+"final": "https://ccnsw.puchd.ac.in/",
+"offsite": false,
+"title": "Panjab University Constituent College (Nihal Singh Wala) Panjab University Chandigarh ਪੰਜਾਬ ਯੂਨੀਵਰਸਿਟੀ ਚੰਡੀਗੜ੍ਹ पंजाब विश्वविद्यालय चंडीगढ़ पंजाब यूनिवर्सिटी चं",
+"bytes": 22450,
+"nLinks": 83,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Panjab University Constituent College (Nihal Singh Wala) Panjab University Chandigarh ਪੰਜਾਬ ਯੂਨੀਵਰਸਿਟੀ ਚੰਡੀਗੜ੍ਹ पंजाब विश्वविद्यालय चंडीगढ़ पंजाब यूनिवर्सिटी चंडीगढ़ Chandigarh India Service Home PU@Mail Contact PU Menu About Us Courses Fac",
+"recruit": [
+[
+"Employment / Jobs",
+"https://jobs.puchd.ac.in"
+]
 ],
-"guessesTried": 7
+"notices": [
+[
+"Notice Board",
+"https://ccnsw.puchd.ac.in/show-noticeboard.php?nbid=1"
+],
+[
+"Quotations",
+"https://ccnsw.puchd.ac.in/show-noticeboard.php?nbid=3"
+],
+[
+"Seminars / Workshop / Lectures",
+"https://ccnsw.puchd.ac.in/show-noticeboard.php?nbid=8"
+]
+],
+"town": "Nihalsingh Wala",
+"townHit": true,
+"otherHits": [
+"Moga"
+],
+"core": [
+"panjab"
+],
+"coreFound": [
+"panjab"
+],
+"inTitle": [
+"panjab",
+"wala"
+],
+"collegeWord": true,
+"looksRight": true,
+"kind": "candidate"
+}
+]
 },
 {
 "name": "Panjab University Constituent College (Sikhwala)",
@@ -40177,6 +40514,22 @@
 "collegeWord": true,
 "looksRight": true,
 "kind": "listed"
+},
+{
+"url": "https://puccghs.puchd.ac.in/",
+"tried": [
+[
+"https://puccghs.puchd.ac.in/",
+"no answer (timeout)"
+],
+[
+"http://puccghs.puchd.ac.in/",
+"no answer (timeout)"
+]
+],
+"ok": false,
+"error": "no answer (timeout)",
+"kind": "candidate"
 }
 ]
 },
@@ -40985,7 +41338,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "btu.ac.in | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:30:44 UTC You Browser Working Marseille Cloudflare Working www.btu.ac",
+"sample": "btu.ac.in | 520: Web server is returning an unknown error Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-28 11:45:22 UTC You Browser Working Marseille Cloudflare Working www.btu.ac",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -41005,7 +41358,7 @@
 "final": "https://www.btu.com/",
 "offsite": false,
 "title": "BTU International - Reflow Oven and Furnace Manufacturer",
-"bytes": 706448,
+"bytes": 706340,
 "nLinks": 420,
 "parked": "",
 "spam": "",
@@ -41327,29 +41680,19 @@
 },
 {
 "url": "http://hju.com/",
-"ok": true,
-"status": 200,
+"ok": false,
+"status": 403,
 "final": "https://www.bakertilly.com/specialties/municipal-advisory",
 "offsite": true,
-"title": "Baker Tilly",
-"bytes": 171326,
-"nLinks": 21,
+"title": "Just a moment...",
+"bytes": 5829,
+"nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Baker Tilly Loading... Get in Touch Contact Us Locations Professionals Request a Proposal Subscribe Explore About Us Careers Events Industries Insights Services Client Resources Client Portals Pay Invoice Privacy & Legal CCPA Privacy Legal ",
-"recruit": [
-[
-"Careers",
-"https://www.bakertilly.com/careers"
-]
-],
-"notices": [
-[
-"CCPA Privacy",
-"https://www.bakertilly.com/ccpa-consumer-privacy-notice"
-]
-],
+"sample": "Just a moment...",
+"recruit": [],
+"notices": [],
 "town": "Communication",
 "townHit": false,
 "otherHits": [],
@@ -41367,17 +41710,17 @@
 },
 {
 "url": "http://hju.net/",
-"ok": true,
-"status": 200,
+"ok": false,
+"status": 503,
 "final": "https://sedo.com/search/details/?partnerid=324561&language=hi&domain=hju.net&origin=sales_lander_15&utm_medium=Parking&utm_campaign=offerpage",
 "offsite": true,
-"title": "Domain Details Page",
-"bytes": 1378,
+"title": "The page is temporarily unavailable",
+"bytes": 489,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Domain Details Page",
+"sample": "The page is temporarily unavailable The page you are looking for is temporarily unavailable. Please try again later. 2352300b746ef9020473f3f2fc3b287d 93b2c2a728b89a8f779ef80a3f649dc1 57a97d1a02529e52ca33bf0f4dee6b27",
 "recruit": [],
 "notices": [],
 "town": "Communication",
@@ -41566,41 +41909,12 @@
 "final": "http://jnvu.com/",
 "offsite": false,
 "title": "",
-"bytes": 36863,
+"bytes": 36932,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
 "sample": "Verification Security check Checking your browser Before you can access this site, we need to verify you’re human. Checking your browser… Verification failed. Please refresh and try again. Privacy • Security",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"jai",
-"narain",
-"vyas"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://jnvu.org.in/",
-"ok": true,
-"status": 200,
-"final": "https://jnvu.org.in/",
-"offsite": false,
-"title": "",
-"bytes": 83140,
-"nLinks": 107,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Home For any query related to results or reval, Students are advice to contact E-mail: verification@jnvu.org.in !! Examination Results 2024-25 Click here to View Semester Results (I)Odd Semester Examination Results 2024-25 (II)Even Semester",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -41647,18 +41961,47 @@
 "kind": "guess"
 },
 {
-"url": "http://jnvu.org/",
+"url": "http://jnvu.org.in/",
 "ok": true,
 "status": 200,
-"final": "http://ww9.jnvu.org/",
+"final": "https://jnvu.org.in/",
 "offsite": false,
 "title": "",
-"bytes": 37102,
+"bytes": 83140,
+"nLinks": 107,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Home For any query related to results or reval, Students are advice to contact E-mail: verification@jnvu.org.in !! Examination Results 2024-25 Click here to View Semester Results (I)Odd Semester Examination Results 2024-25 (II)Even Semester",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"jai",
+"narain",
+"vyas"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://jnvu.org/",
+"ok": false,
+"status": 200,
+"final": "http://click-v4.explclk.com/click?i=TFfo4WkgUao_0",
+"offsite": true,
+"title": "",
+"bytes": 0,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Verification Security check Checking your browser Before you can access this site, we need to verify you’re human. Checking your browser… Verification failed. Please refresh and try again. Privacy • Security",
+"sample": "",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -42605,7 +42948,7 @@
 "final": "https://ruhsraj.org/",
 "offsite": false,
 "title": "RUHS-RAJASTHAN UNIVERSITY OF HEALTH SCIENCE",
-"bytes": 671206,
+"bytes": 963422,
 "nLinks": 1137,
 "parked": "",
 "spam": "",
@@ -42986,86 +43329,47 @@
 "tests": [
 {
 "url": "https://www.uniraj.ac.in/",
-"tried": [
-[
-"https://www.uniraj.ac.in/",
-"no answer (timeout)"
-],
-[
-"http://www.uniraj.ac.in/",
-"no answer (timeout)"
-]
-],
-"ok": false,
-"error": "no answer (timeout)",
-"kind": "listed"
-},
-{
-"url": "http://uniraj.edu.in/",
 "ok": true,
 "status": 200,
-"final": "https://www.uniraj.edu.in/research/index.php",
-"offsite": false,
-"title": "University of Rajasthan - Research Portal",
-"bytes": 8000,
-"nLinks": 10,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "University of Rajasthan - Research Portal Home RU Website DAAK Student Portal Online Payment Saturday 28 November 2026 Our New Website Launching Soon Our website is currently under Development.We Should be back shortly. Thank you for your p",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [
-"Jaipur"
-],
-"core": [],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": true,
-"looksRight": true,
-"kind": "guess"
-},
-{
-"url": "http://uniraj.co.in/",
-"ok": true,
-"status": 200,
-"final": "https://uniraj.co.in/",
+"final": "https://www.uniraj.ac.in/",
 "offsite": false,
 "title": "University of Rajasthan - Main Website",
-"bytes": 137118,
-"nLinks": 340,
+"bytes": 164124,
+"nLinks": 413,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "University of Rajasthan - Main Website Screen Reader Access Contact Us info@uniraj.co.in Home Student Portal DAAK Result Syllabus Staff Portal Research Alumni About Us About University Genesis & Evolution Vision Mission Logo Statement Kulge",
+"sample": "University of Rajasthan - Main Website Screen Reader Access Contact Us Home Student Portal DAAK Result Research Alumni Saturday 28 November 2026 About Us About University Genesis & Evolution Vision Mission Logo Statement Kulgeet 2f and 12b ",
 "recruit": [
 [
 "Entrepreneurship and Career Hub (ECH)",
-"https://uniraj.co.in/index.html"
+"https://ech.uniraj.ac.in"
 ],
 [
 "Advertisement",
-"https://uniraj.co.in/index4e5d.html?mid=196&cirid=1"
+"https://www.uniraj.ac.in/index.php?mid=196&cirid=1"
+],
+[
+"Vice-Chancellor Advertisement",
+"https://www.uniraj.ac.in/index.php?mid=118"
 ]
 ],
 "notices": [
 [
 "News/Events",
-"https://uniraj.co.in/indexda01.html?mid=3106"
+"https://www.uniraj.ac.in/index.php?mid=3106"
 ],
 [
 "Circular",
-"https://uniraj.co.in/indexadbb.html?mid=196&cirid=2"
+"https://www.uniraj.ac.in/index.php?mid=196&cirid=2"
 ],
 [
 "Notices",
-"https://uniraj.co.in/index018f.html?mid=196&cirid=3"
+"https://www.uniraj.ac.in/index.php?mid=196&cirid=3"
 ],
 [
 "Circulars & Tenders",
-"https://uniraj.co.in/indexadbb.html"
+"https://www.uniraj.ac.in/index.php?mid=196"
 ]
 ],
 "town": "",
@@ -43078,51 +43382,9 @@
 "inTitle": [],
 "collegeWord": true,
 "looksRight": true,
-"kind": "guess"
-},
-{
-"url": "http://uniraj.com/",
-"ok": true,
-"status": 200,
-"final": "http://ww9.uniraj.com/",
-"offsite": false,
-"title": "",
-"bytes": 36966,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Verification Security check Checking your browser Before you can access this site, we need to verify you’re human. Checking your browser… Verification failed. Please refresh and try again. Privacy • Security",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://uniraj.org/",
-"tried": [
-[
-"http://uniraj.org/",
-"no answer (timeout)"
-],
-[
-"https://uniraj.org/",
-"no answer (timeout)"
-]
-],
-"ok": false,
-"error": "no answer (timeout)",
-"kind": "guess"
+"kind": "listed"
 }
-],
-"guessesTried": 7
+]
 },
 {
 "name": "Vardhman Mahaveer Open University",
@@ -43461,10 +43723,172 @@
 "tests": [
 {
 "url": "https://www.imu.edu.in/",
+"tried": [
+[
+"https://imu.edu.in/",
+"no such domain"
+],
+[
+"http://imu.edu.in/",
+"no answer (timeout)"
+]
+],
+"ok": false,
+"error": "no answer (timeout)",
+"kind": "listed"
+},
+{
+"url": "http://imu.org.in/",
+"ok": true,
+"status": 200,
+"final": "https://imu.org.in/",
+"offsite": false,
+"title": "IMU - Brand Voice",
+"bytes": 498,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "IMU - Brand Voice",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"indian",
+"maritime"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://imu.co.in/",
+"ok": true,
+"status": 200,
+"final": "https://www.rediffmailpro.com/cgi-bin/login.cgi",
+"offsite": true,
+"title": "Rediffmail Enterprise - A Next Generation Email Service | Business Email | Company Email | Professional Email",
+"bytes": 10199,
+"nLinks": 6,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Rediffmail Enterprise - A Next Generation Email Service | Business Email | Company Email | Professional Email Welcome to Rediffmail for Work Advanced anti-virus and spam protection Mail, calendar, contacts and chat Cloud storage Video confe",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"indian",
+"maritime"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://imu.net/",
+"ok": true,
+"status": 200,
+"final": "https://sedo.com/search/details/?partnerid=324561&language=hi&domain=imu.net&origin=sales_lander_15&utm_medium=Parking&utm_campaign=offerpage",
+"offsite": true,
+"title": "Domain Details Page",
+"bytes": 1378,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Domain Details Page",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"indian",
+"maritime"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://imu.com/",
+"ok": false,
+"status": 403,
+"final": "http://www.imu.com/",
+"offsite": false,
+"title": "403 - Forbidden: Access is denied.",
+"bytes": 1233,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "403 - Forbidden: Access is denied. Server Error 403 - Forbidden: Access is denied. You do not have permission to view this directory or page using the credentials that you supplied.",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"indian",
+"maritime"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://imu.org/",
+"ok": true,
+"status": 200,
+"final": "https://www.imu.org/",
+"offsite": false,
+"title": "",
+"bytes": 1500000,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "%PDF-1.4 %âãÏÓ 129 0 obj < > endobj xref 129 21 0000000016 00000 n 0000001188 00000 n 0000001254 00000 n 0000001563 00000 n 0000001600 00000 n 0000001646 00000 n 0000001997 00000 n 0000002043 00000 n 0000002371 00000 n 0000002408 00000 n 00",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"indian",
+"maritime"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://imu.ac.in/",
+"tried": [
+[
+"http://imu.ac.in/",
+"no answer (timeout)"
+]
+],
 "ok": true,
 "status": 200,
 "final": "https://www.imu.edu.in/imunew/",
-"offsite": false,
+"offsite": true,
 "title": "Indian Maritime University",
 "bytes": 20107,
 "nLinks": 9,
@@ -43491,9 +43915,10 @@
 ],
 "collegeWord": true,
 "looksRight": true,
-"kind": "listed"
+"kind": "guess"
 }
-]
+],
+"guessesTried": 7
 },
 {
 "name": "Tamil Nadu PSC",
@@ -43635,7 +44060,7 @@
 "final": "https://www.iitm.ac.in/",
 "offsite": false,
 "title": "Indian Institute of Technology Madras",
-"bytes": 180075,
+"bytes": 180073,
 "nLinks": 426,
 "parked": "",
 "spam": "",
@@ -43809,8 +44234,8 @@
 "final": "https://www.annauniv.edu/",
 "offsite": false,
 "title": "Anna University, Chennai",
-"bytes": 1173620,
-"nLinks": 332,
+"bytes": 1173988,
+"nLinks": 333,
 "parked": "",
 "spam": "",
 "soon": "",
@@ -43859,87 +44284,17 @@
 "tests": [
 {
 "url": "https://annamalaiuniversity.ac.in/",
-"tried": [
-[
-"https://annamalaiuniversity.ac.in/",
-"no answer (timeout)"
-],
-[
-"http://annamalaiuniversity.ac.in/",
-"no answer (timeout)"
-]
-],
-"ok": false,
-"error": "no answer (timeout)",
-"kind": "listed"
-},
-{
-"url": "http://annamalaiuniversity.in/",
 "ok": true,
 "status": 200,
-"final": "http://annamalaiuniversity.in/",
-"offsite": false,
-"title": "Parked Domain name on Hostinger DNS system",
-"bytes": 31493,
-"nLinks": 5,
-"parked": "Parked Domain",
-"spam": "",
-"soon": "",
-"sample": "Parked Domain name on Hostinger DNS system Registered at If this is your domain, you can manage it in your Hostinger account. Manage domain Start your online journey Build your website today Launch your business with WordPress or Website Bu",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"annamalai"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://annamalaiuniversity.com/",
-"ok": true,
-"status": 200,
-"final": "http://annamalaiuniversity.com/",
-"offsite": false,
-"title": "Redirecting...",
-"bytes": 5592,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Redirecting... Loading . . .",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"annamalai"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://annamalaiuniversity.net/",
-"ok": true,
-"status": 200,
-"final": "https://annamalaiuniversity.net/",
+"final": "https://annamalaiuniversity.ac.in/",
 "offsite": false,
 "title": "Annamalai University",
-"bytes": 81272,
-"nLinks": 58,
+"bytes": 27380,
+"nLinks": 60,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Annamalai University Examinations Portal Convocation Registration Distance Education (Off Campus) Exam Online Application M.Phil/PhD Regular (On Campus) Distance Education (Off Campus) Distance Education (Off Campus) Exam Time Table Regular",
+"sample": "Annamalai University Home About the University Academics Departments A to Z Programmes Offered (2026-27) Directorates Centres IQAC Library AU PG Extension Centre Institution's Innovation Council (IIC) Student Support Infrastructure Alumni E",
 "recruit": [],
 "notices": [],
 "town": "",
@@ -43956,10 +44311,9 @@
 ],
 "collegeWord": true,
 "looksRight": true,
-"kind": "guess"
+"kind": "listed"
 }
-],
-"guessesTried": 7
+]
 },
 {
 "name": "Bharathiar University",
@@ -44152,34 +44506,6 @@
 "kind": "listed"
 },
 {
-"url": "http://mkuniversity.co.in/",
-"ok": false,
-"status": 410,
-"final": "http://mkuniversity.co.in/",
-"offsite": false,
-"title": "410 Gone",
-"bytes": 538,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "410 Gone 410 Gone nginx",
-"recruit": [],
-"notices": [],
-"town": "",
-"townHit": false,
-"otherHits": [],
-"core": [
-"madurai",
-"kamaraj"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
 "url": "http://mkuniversity.edu.in/",
 "ok": true,
 "status": 200,
@@ -44217,6 +44543,34 @@
 "coreFound": [],
 "inTitle": [],
 "collegeWord": true,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://mkuniversity.co.in/",
+"ok": false,
+"status": 410,
+"final": "http://mkuniversity.co.in/",
+"offsite": false,
+"title": "410 Gone",
+"bytes": 538,
+"nLinks": 0,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "410 Gone 410 Gone nginx",
+"recruit": [],
+"notices": [],
+"town": "",
+"townHit": false,
+"otherHits": [],
+"core": [
+"madurai",
+"kamaraj"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
 "looksRight": false,
 "kind": "guess"
 },
@@ -44301,18 +44655,18 @@
 "kind": "listed"
 },
 {
-"url": "http://unom.co.in/",
+"url": "http://unom.com/",
 "ok": false,
-"status": 502,
-"final": "http://unom.co.in/",
-"offsite": false,
-"title": "ERROR",
-"bytes": 307,
+"status": 403,
+"final": "https://www.atom.com/name/Unom",
+"offsite": true,
+"title": "Just a moment...",
+"bytes": 5718,
 "nLinks": 0,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "ERROR Dragons are blocking the gates! We are sending our troops now... 502 ID: PC502EUML1",
+"sample": "Just a moment...",
 "recruit": [],
 "notices": [],
 "town": "Madras",
@@ -44326,18 +44680,18 @@
 "kind": "guess"
 },
 {
-"url": "http://unom.com/",
-"ok": true,
-"status": 200,
-"final": "https://www.atom.com/name/Unom",
-"offsite": true,
-"title": "Unom.com — Premium Domain For Sale | Atom",
-"bytes": 400891,
-"nLinks": 103,
-"parked": "Domain For Sale",
+"url": "http://unom.co.in/",
+"ok": false,
+"status": 502,
+"final": "http://unom.co.in/",
+"offsite": false,
+"title": "ERROR",
+"bytes": 307,
+"nLinks": 0,
+"parked": "",
 "spam": "",
 "soon": "",
-"sample": "Unom.com — Premium Domain For Sale | Atom 4.7 on Trustpilot My Dashboard My Account Logout Login Signup (847) 597-0044 Chat Email Help Desk 0 0 Premium Domains Premium Domain Marketplace Ultra Premium Marketplace Sapphire Marketplace Top Do",
+"sample": "ERROR Dragons are blocking the gates! We are sending our troops now... 502 ID: PC502EUML1",
 "recruit": [],
 "notices": [],
 "town": "Madras",
@@ -44884,34 +45238,7 @@
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "DNS resolution error | jntuh.net | Cloudflare Please enable cookies. Error 1001 Ray ID: a6190e2f99ebbaa4 • 2026-11-28 11:33:02 UTC DNS resolution error What happened? You've requested a page on a website (jntuh.net) that is on the Cloudflar",
-"recruit": [],
-"notices": [],
-"town": "Hyderabad",
-"townHit": false,
-"otherHits": [],
-"core": [
-"jntu"
-],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://jntuh.in/",
-"ok": true,
-"status": 200,
-"final": "https://testnetfaucet.io/",
-"offsite": true,
-"title": "Socolive TV | Trực Tiếp Bóng Đá Socolive Full HD 2026",
-"bytes": 195256,
-"nLinks": 36,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Socolive TV | Trực Tiếp Bóng Đá Socolive Full HD 2026 Trang chủ Bảng xếp hạng Lịch thi đấu Tỷ lệ kèo Highlight bóng đá WC 2026 Tin tức Trang chủ Bảng xếp hạng Lịch thi đấu Tỷ lệ kèo Highlight bóng đá WC 2026 Tin tức Socolive TV | Trực Tiếp ",
+"sample": "DNS resolution error | jntuh.net | Cloudflare Please enable cookies. Error 1001 Ray ID: a61924258ff3ecb9 • 2026-11-28 11:48:01 UTC DNS resolution error What happened? You've requested a page on a website (jntuh.net) that is on the Cloudflar",
 "recruit": [],
 "notices": [],
 "town": "Hyderabad",
@@ -44957,6 +45284,33 @@
 ],
 "inTitle": [],
 "collegeWord": true,
+"looksRight": false,
+"kind": "guess"
+},
+{
+"url": "http://jntuh.in/",
+"ok": true,
+"status": 200,
+"final": "https://testnetfaucet.io/",
+"offsite": true,
+"title": "Socolive TV | Trực Tiếp Bóng Đá Socolive Full HD 2026",
+"bytes": 195256,
+"nLinks": 36,
+"parked": "",
+"spam": "",
+"soon": "",
+"sample": "Socolive TV | Trực Tiếp Bóng Đá Socolive Full HD 2026 Trang chủ Bảng xếp hạng Lịch thi đấu Tỷ lệ kèo Highlight bóng đá WC 2026 Tin tức Trang chủ Bảng xếp hạng Lịch thi đấu Tỷ lệ kèo Highlight bóng đá WC 2026 Tin tức Socolive TV | Trực Tiếp ",
+"recruit": [],
+"notices": [],
+"town": "Hyderabad",
+"townHit": false,
+"otherHits": [],
+"core": [
+"jntu"
+],
+"coreFound": [],
+"inTitle": [],
+"collegeWord": false,
 "looksRight": false,
 "kind": "guess"
 },
@@ -45265,7 +45619,7 @@
 "final": "https://www.nita.ac.in/",
 "offsite": false,
 "title": "National Institute of Technology Agartala",
-"bytes": 526654,
+"bytes": 526626,
 "nLinks": 192,
 "parked": "",
 "spam": "",
@@ -47413,6 +47767,18 @@
 "ok": false,
 "error": "no such domain",
 "kind": "listed"
+},
+{
+"url": "https://www.svbpuat.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
+},
+{
+"url": "https://svbpmeerut.ac.in/",
+"ok": false,
+"error": "no such domain",
+"kind": "candidate"
 }
 ],
 "guessesTried": 7
@@ -48215,7 +48581,7 @@
 "final": "https://ww17.wbpsc.in/",
 "offsite": false,
 "title": "",
-"bytes": 27272,
+"bytes": 27316,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -48255,7 +48621,7 @@
 "final": "https://www.iiserkol.ac.in/web/",
 "offsite": false,
 "title": "IISER Kolkata | Home",
-"bytes": 105544,
+"bytes": 105618,
 "nLinks": 170,
 "parked": "",
 "spam": "",
@@ -48272,7 +48638,7 @@
 ],
 [
 "PhD Admission Spring 2027 Advertisement for admission to Doctor of Philosophy (P",
-"https://www.iiserkol.ac.in/web/admission-details/eyJpdiI6IlhxYzBhMXdDdXhUUTlydk5lcGtaVlE9PSIsInZhbHVlIjoiQTdQeXlXUGsyQ3pzbXU4WW9rdzhLZz09IiwibWFjIjoiZGFmNzBlMTk1NDFlMzIzZTQ4YzFjOTJlMzk4YjBkYzFiZDQ3YTcyODdkN2E0ZmNkY2JkOGZjN2RhNDMzZmM2YSIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/admission-details/eyJpdiI6ImxIYk5IbmdwVkwvMzlTWmV2V055K2c9PSIsInZhbHVlIjoiMUlTSTBueGFoRnVWU0QraTZYeDkzZz09IiwibWFjIjoiNTM2NjBiYjk3NjI5NjRlN2M2ZWQ1OWE4NGNhMGVjMGQxOTYxM2Q5OWQ3NGRmNGJhNDc4YmVlM2ViYzkzMDk5MiIsInRhZyI6IiJ9"
 ]
 ],
 "notices": [
@@ -48282,23 +48648,23 @@
 ],
 [
 "We mourn the passing of Prof. Bidyendu Mohan Deb, a distinguished theoretical ch",
-"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6Ik5GVzQ0Q2tTanJacm44ZHU0aCtuQkE9PSIsInZhbHVlIjoiWCs3VXdHeklDUTF3NWhGc3Z6RFFldz09IiwibWFjIjoiN2NmZmNmMjM4MDA5ZjI4ZmE5MzRlNjkzZjczYWI5ZWFmNzNmOGUxMWE4MjMwOWUzMTJlNWMyNmFhYzBjMDUyNCIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6Ill1a2ZjSEU0cXJ1L044c3c0WXNIU2c9PSIsInZhbHVlIjoieUVGSXJRVUVOZ0xmTnJwWkVkWlQ0dz09IiwibWFjIjoiNjRiNjhjZWI3NTFkZjExODJkNjUzZTc2NWFiOTc2NzVmYjFhMTZkNTg2Y2ZjZjU5NDZkMTEzMGIzNjliZDhjNSIsInRhZyI6IiJ9"
 ],
 [
 "16th International Symposium on Ionic Polymerization (IP’26) | November 15 - 19,",
-"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6IitQemkrdndPNEdJbmQvalFKVTU0VXc9PSIsInZhbHVlIjoiZEZvVEpSVGo0THJWTVlnRWlSdnF4dz09IiwibWFjIjoiNTkwMDc0MGEyZWRkZjZjYjEyY2U1MzcyMjdjNjU3NWE0YjNlZGFlYmM4OTJlNmI4MmI0YWIyNzdjNzVjMjIzMSIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6IktQRzZscHZzcUhYN3JpdzFqcVMvYVE9PSIsInZhbHVlIjoiTGN1ZEsyQ0NMSFdDankxalNpck0rQT09IiwibWFjIjoiYzZlOWYxYjM4ODAzNzQwZmZlNTU4ZDUyYTI1YTNiZTEzMGRiODk2OTRhNjZiYmE3MTVmOTZlYjRjZTBkYjc5NCIsInRhZyI6IiJ9"
 ],
 [
 "Study in India Program Website",
-"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6InRhZGdLQjM1ejUzcGRZVnhmVHFmcWc9PSIsInZhbHVlIjoiVkJSZ0ZXVjNFL21LWm9YWmJXS1U4dz09IiwibWFjIjoiMWFkMWUwNDFjYjk2NWQyZGU3YTY1ODc2NTc5NjliYzk0MDgxYTdhMDVkMDdhOWU3ZTIwNWE1YWE0NmY3OWYzOSIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6ImttdDFmWlNDMzF0SmwxOFVLMTllYWc9PSIsInZhbHVlIjoibzUxSXRIZ0I2OTFhUXBGdUplVGE5QT09IiwibWFjIjoiNjJhYmQzMzI4MzdhODU1M2FlN2MzOTQ2ODViNTZmMzcxODUzOTc1MjRhZTk5MjNmM2ViNTIwY2I2MjBlYzc4YiIsInRhZyI6IiJ9"
 ],
 [
 "Certificate course on Animal Handling & Research (New)",
-"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6IjVkUm9icFkxYUpJc0ppckw2UDJZSkE9PSIsInZhbHVlIjoiVVI5L3h1akJMemV1VkR5MTZSdFNWZz09IiwibWFjIjoiY2VjYjFhNmJlY2I0ZTNhZTQ0ODQ4ZDU1NDRlMWQ3MzU0OTcxN2FhNTQxMjMxYTMxMWVmYTcxNDVkZWFhNjZlZiIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6IkJ4VDAvcDRUYTI3enFoSEtPaiswR2c9PSIsInZhbHVlIjoic0kyZktIdjZOdmxxd2M4NWtJVVlxZz09IiwibWFjIjoiY2QwOGQzN2VlYWZiMjM0MGQ0MmE5MmQxZWJhMDA2YmE0NzQzZmYzMDJkNDY2NjI0MjJiYTg1MmMzNTc5ZTVlOCIsInRhZyI6IiJ9"
 ],
 [
 "Newsletter",
-"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6ImdKQ2ZOWWs5eDlqbWhPTWFnYm0vTGc9PSIsInZhbHVlIjoidFRnVWZLV09PejQ3c2E5dmUraDF0dz09IiwibWFjIjoiOWEyNjE1NzBlODM2M2IzN2JjNzM5NzE4YjA1Y2NiYjRmYTdhOTAzZjA4ZTE5ZmM3NTU1YmRkNWU4ZDdmNzY5YyIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/announcement/eyJpdiI6ImVxNE15UmNiWXBkRmJpTGI2ZTd5aUE9PSIsInZhbHVlIjoiNXdxZGorK2dyZGdQblpkUEVBZGREUT09IiwibWFjIjoiYzlhZTEyNDMzOWM3ZjBmYWIwZjJhYjc3M2MzMzk0Y2VjMWMyMDNiNjhkYTVhZTBlYjgzZjc0ZTRmYTdjNTQzNSIsInRhZyI6IiJ9"
 ],
 [
 "More About News & Events",
@@ -48306,7 +48672,7 @@
 ],
 [
 "5 Year BS-MS Dual Degree Programme Latest :&nbsp;Admission Information (BS-MS 20",
-"https://www.iiserkol.ac.in/web/admission-details/eyJpdiI6ImIvTVQxdmZhMGkzVUU3UGhZOEpWMFE9PSIsInZhbHVlIjoiYUdYcXhhT1A4cG03WVdPcGYrbVEvZz09IiwibWFjIjoiNjIzZWViOGUwMjcwYzQ0MTBjZTU3YTU1ZDA3NWYzODFiYWE3NzEwYjljMTNkYmIxZWE5NmU1MzI2ZWYzMzhmNSIsInRhZyI6IiJ9"
+"https://www.iiserkol.ac.in/web/admission-details/eyJpdiI6InVTNXdqVzd4WWhNWkNUVi9LRUwxYUE9PSIsInZhbHVlIjoiZ05mRk9hWEZvUlJGOUxDd1h1ZDdHQT09IiwibWFjIjoiNTRiZDZiNWYzMDFiMjcwZGIxOTM1MmVjNjBlZjczOTAxZjljMmRmM2Y1Y2M0NmFjNWRmYWNjNDg0NmYxNTQ1ZCIsInRhZyI6IiJ9"
 ]
 ],
 "town": "Kolkata",
@@ -48523,12 +48889,12 @@
 "final": "https://jadavpuruniversity.in/",
 "offsite": false,
 "title": "Jadavpur University | যাদবপুর বিশ্ববিদ্যালয়",
-"bytes": 281942,
+"bytes": 281822,
 "nLinks": 218,
 "parked": "",
 "spam": "",
 "soon": "",
-"sample": "Jadavpur University | যাদবপুর বিশ্ববিদ্যালয় November 28, 2026 4:59 pm NBA Accreditation:UG-CSE,ETCE (6yrs) & UG-IT,IEE,PE (3yrs) IQAC NIRF ACER-JU Cell Campus Map FAQ Contact Login Menu IQAC NIRF ACER-JU Cell Campus Map FAQ Contact Login St",
+"sample": "Jadavpur University | যাদবপুর বিশ্ববিদ্যালয় November 28, 2026 5:13 pm NBA Accreditation:UG-CSE,ETCE (6yrs) & UG-IT,IEE,PE (3yrs) IQAC NIRF ACER-JU Cell Campus Map FAQ Contact Login Menu IQAC NIRF ACER-JU Cell Campus Map FAQ Contact Login St",
 "recruit": [],
 "notices": [
 [
@@ -48699,7 +49065,7 @@
 "final": "https://www.caluniv.ac.in/",
 "offsite": false,
 "title": "You are being redirected...",
-"bytes": 1495,
+"bytes": 1359,
 "nLinks": 0,
 "parked": "",
 "spam": "",
@@ -48755,37 +49121,6 @@
 "spam": "",
 "soon": "",
 "sample": "ERROR Dragons are blocking the gates! We are sending our troops now... 502 ID: PC502EUML1",
-"recruit": [],
-"notices": [],
-"town": "Calcutta",
-"townHit": false,
-"otherHits": [],
-"core": [],
-"coreFound": [],
-"inTitle": [],
-"collegeWord": false,
-"looksRight": false,
-"kind": "guess"
-},
-{
-"url": "http://caluniv.in/",
-"tried": [
-[
-"http://caluniv.in/",
-"no answer (timeout)"
-]
-],
-"ok": true,
-"status": 200,
-"final": "https://inb.link/caluniv.in",
-"offsite": true,
-"title": "",
-"bytes": 352,
-"nLinks": 0,
-"parked": "",
-"spam": "",
-"soon": "",
-"sample": "Default Domain Lander Page",
 "recruit": [],
 "notices": [],
 "town": "Calcutta",
