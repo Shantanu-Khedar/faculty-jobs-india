@@ -18,7 +18,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -31,7 +31,7 @@ jobs:
           pip install -q requests
       - name: Check official pages and read new notices
         env:
-          TIME_BUDGET_SECONDS: "2700"
+          TIME_BUDGET_SECONDS: "5400"
           READ_WORKERS: "24"
         run: python check_notices.py --group main
       - name: Save results

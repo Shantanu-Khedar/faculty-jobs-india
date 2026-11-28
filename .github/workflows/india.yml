@@ -22,7 +22,7 @@ jobs:
   check:
     if: github.repository == 'Shantanu-Khedar/faculty-jobs-india'
     runs-on: [self-hosted, macOS]
-    timeout-minutes: 60
+    timeout-minutes: 110
     steps:
       - name: Get the code (no git needed)
         env:
@@ -50,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           UV_CACHE_DIR: ${{ runner.tool_cache }}/uv-cache
           UV_PYTHON_INSTALL_DIR: ${{ runner.tool_cache }}/uv-python
-          TIME_BUDGET_SECONDS: "2700"
+          TIME_BUDGET_SECONDS: "5400"
           READ_WORKERS: "16"
         run: |
           "$RUNNER_TOOL_CACHE/uv/uv" run --no-project --python 3.12 \
