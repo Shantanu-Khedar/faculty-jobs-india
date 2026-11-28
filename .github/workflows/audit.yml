@@ -1,0 +1,58 @@
+name: Website audit (runs on the computer in India)
+
+# Started by hand from the Actions tab. Opens every listed website from the
+# computer in India and records whether each address really is that
+# institution's site, plus likely replacements for addresses that fail
+# (see audit_sites.py). The result, audit.json, is used to correct sources.json.
+
+on:
+  workflow_dispatch:
+    inputs:
+      states:
+        description: "Only these states, comma-separated (leave empty for all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: india-check          # never runs at the same time as the India check
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.repository == 'Shantanu-Khedar/faculty-jobs-india'
+    runs-on: [self-hosted, macOS]
+    timeout-minutes: 60
+    steps:
+      - name: Get the code (no git needed)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf code && mkdir code
+          curl -fsSL -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/tarball/${GITHUB_SHA}" | tar -xzf - -C code --strip-components=1
+
+      - name: Get uv (a private copy of Python, kept inside the runner's folder)
+        run: |
+          UVDIR="$RUNNER_TOOL_CACHE/uv"
+          if [ ! -x "$UVDIR/uv" ]; then
+            mkdir -p "$UVDIR"
+            ARCH=$(uname -m); [ "$ARCH" = "arm64" ] && ARCH=aarch64
+            curl -fsSL "https://github.com/astral-sh/uv/releases/latest/download/uv-${ARCH}-apple-darwin.tar.gz" \
+              | tar -xzf - -C "$UVDIR" --strip-components=1
+          fi
+          "$UVDIR/uv" --version
+
+      - name: Open every listed website and record what it really is
+        working-directory: code
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          UV_CACHE_DIR: ${{ runner.tool_cache }}/uv-cache
+          UV_PYTHON_INSTALL_DIR: ${{ runner.tool_cache }}/uv-python
+          STATES: ${{ inputs.states }}
+        run: |
+          "$RUNNER_TOOL_CACHE/uv/uv" run --no-project --python 3.12 \
+            --with requests --with truststore \
+            python audit_sites.py --states "$STATES" --push
